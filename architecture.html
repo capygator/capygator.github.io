@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture - CAPYGATOR BI</title>
+    <meta name="description" content="CAPYGATOR BI Architektur: dlt, SQLMesh, Dagster und DuckDB im Zusammenspiel.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+        }
+
+        .terminal-container {
+            min-height: 100vh;
+            padding: 20px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+
+        /* Navigation */
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            background: rgba(0, 255, 136, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+        }
+
+        .nav-logo h2 {
+            color: #fff;
+            font-size: 1.3rem;
+            text-shadow: 0 0 10px #00ff88;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #00ff88;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(0, 255, 136, 0.2);
+            text-shadow: 0 0 5px #00ff88;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 0 0 20px #00ff88;
+            margin-bottom: 15px;
+        }
+
+        .page-header .subtitle {
+            color: #888;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Architecture Sections */
+        .arch-section {
+            background: rgba(0, 255, 136, 0.03);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 30px;
+        }
+
+        .arch-section:hover {
+            border-color: #00ff88;
+        }
+
+        .arch-section h2 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00ff88;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .arch-section h2 span {
+            font-size: 1.8rem;
+        }
+
+        .arch-content {
+            color: #ccc;
+        }
+
+        .arch-content p {
+            margin-bottom: 15px;
+        }
+
+        /* Pipeline Flow */
+        .pipeline-diagram {
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+            overflow-x: auto;
+        }
+
+        .ascii-flow {
+            font-size: 0.9rem;
+            color: #00ff88;
+            white-space: pre;
+            line-height: 1.4;
+        }
+
+        /* Code Blocks */
+        .code-block {
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .code-header {
+            background: #1a1a1a;
+            padding: 10px 15px;
+            border-bottom: 1px solid #333;
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .code-body {
+            padding: 15px;
+            overflow-x: auto;
+        }
+
+        .code-body pre {
+            color: #ccc;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .code-body .keyword { color: #ff79c6; }
+        .code-body .string { color: #f1fa8c; }
+        .code-body .comment { color: #6272a4; }
+        .code-body .function { color: #50fa7b; }
+
+        /* Component Grid */
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .component-card {
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 3px solid #00ff88;
+        }
+
+        .component-card h3 {
+            color: #00ff88;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .component-card p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .component-card .path {
+            margin-top: 10px;
+            color: #555;
+            font-size: 0.8rem;
+        }
+
+        /* SQLMesh Models */
+        .models-list {
+            margin-top: 20px;
+        }
+
+        .model-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: rgba(0, 255, 136, 0.03);
+            border: 1px solid #333;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .model-item:hover {
+            border-color: #00ff88;
+        }
+
+        .model-layer {
+            background: #00ff88;
+            color: #000;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-right: 15px;
+            min-width: 70px;
+            text-align: center;
+        }
+
+        .model-layer.staging { background: #4ecdc4; }
+        .model-layer.marts { background: #00ff88; }
+
+        .model-name {
+            color: #fff;
+            flex: 1;
+        }
+
+        .model-desc {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Dagster DAG */
+        .dag-diagram {
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .dag-ascii {
+            font-size: 0.85rem;
+            color: #00ff88;
+            white-space: pre;
+            line-height: 1.3;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px 20px;
+            border-top: 1px solid #333;
+        }
+
+        footer a {
+            color: #888;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #00ff88;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .ascii-flow, .dag-ascii {
+                font-size: 0.65rem;
+            }
+
+            .model-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal-container">
+        <!-- Navigation -->
+        <nav class="nav-bar">
+            <div class="nav-logo">
+                <img src="capygator_logo.png" alt="CAPYGATOR Logo">
+                <h2>CAPYGATOR BI</h2>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="architecture.html" class="active">Architecture</a>
+                <a href="open-source.html">GitHub</a>
+            </div>
+        </nav>
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Architecture</h1>
+            <div class="subtitle">
+                Wie dlt, SQLMesh, Dagster und DuckDB zusammenspielen
+            </div>
+        </div>
+
+        <!-- Pipeline Overview -->
+        <section class="arch-section">
+            <h2><span>🔄</span> Pipeline Flow</h2>
+            <div class="arch-content">
+                <p>
+                    CAPYGATOR BI folgt einem klassischen ELT-Pattern: Extract mit dlt,
+                    Load in DuckDB, Transform mit SQLMesh. Dagster orchestriert den
+                    gesamten Prozess und stellt sicher, dass Abhaengigkeiten eingehalten werden.
+                </p>
+            </div>
+            <div class="pipeline-diagram">
+                <div class="ascii-flow">
+┌──────────────────────────────────────────────────────────────────────────────────────────┐
+│                                    CAPYGATOR BI Pipeline                                 │
+└──────────────────────────────────────────────────────────────────────────────────────────┘
+
+  ┌─────────────┐         ┌─────────────┐         ┌─────────────┐         ┌─────────────┐
+  │   Sources   │         │     dlt     │         │   DuckDB    │         │   SQLMesh   │
+  │─────────────│         │─────────────│         │─────────────│         │─────────────│
+  │ Buchungen   │────────►│ Extract     │────────►│ Raw Data    │────────►│ Staging     │
+  │ .xlsx       │         │ Validate    │         │ finanz_data │         │ stg_*       │
+  │             │         │ Deduplicate │         │ .buchungen  │         │             │
+  └─────────────┘         └─────────────┘         └─────────────┘         └──────┬──────┘
+                                                                                  │
+                                                                                  ▼
+  ┌─────────────┐         ┌─────────────┐         ┌─────────────┐         ┌─────────────┐
+  │  Streamlit  │◄────────│   DuckDB    │◄────────│   SQLMesh   │◄────────│    Marts    │
+  │─────────────│         │─────────────│         │─────────────│         │─────────────│
+  │ Dashboard   │         │ Analytics   │         │ Transform   │         │ dim_*       │
+  │ Visualize   │         │ Query       │         │ Aggregate   │         │ fact_*      │
+  └─────────────┘         └─────────────┘         └─────────────┘         └─────────────┘
+
+                                         ┌─────────────┐
+                                         │   Dagster   │
+                                         │─────────────│
+                                         │ Orchestrate │
+                                         │ Schedule    │
+                                         │ Monitor     │
+                                         └─────────────┘
+                </div>
+            </div>
+        </section>
+
+        <!-- dlt Ingestion -->
+        <section class="arch-section">
+            <h2><span>📥</span> dlt - Data Ingestion</h2>
+            <div class="arch-content">
+                <p>
+                    dlt (data load tool) kuemmert sich um den Datenimport. Die Pipeline
+                    liest Excel-Dateien, validiert Daten und schreibt sie mit einer
+                    Merge-Strategie nach DuckDB. Duplikate werden anhand eines Hashes erkannt.
+                </p>
+            </div>
+            <div class="code-block">
+                <div class="code-header">sources/finanz_pipeline.py</div>
+                <div class="code-body">
+<pre><span class="keyword">@dlt.resource</span>(
+    name=<span class="string">"buchungen"</span>,
+    write_disposition=<span class="string">"merge"</span>,
+    primary_key=<span class="string">"buchung_hash"</span>
+)
+<span class="keyword">def</span> <span class="function">buchungen_resource</span>():
+    <span class="comment">"""
+    Merge-Strategie:
+    - Neue Buchungen werden hinzugefuegt
+    - Existierende werden aktualisiert
+    - Keine Duplikate durch primary_key
+    """</span>
+    <span class="keyword">yield from</span> load_buchungen()</pre>
+                </div>
+            </div>
+            <div class="component-grid">
+                <div class="component-card">
+                    <h3>Qualitaetspruefung</h3>
+                    <p>Validierung von Pflichtfeldern, Betrag und Buchungstag. Fehlerhafte Zeilen werden protokolliert.</p>
+                    <div class="path">data/quality_report.json</div>
+                </div>
+                <div class="component-card">
+                    <h3>Duplikat-Erkennung</h3>
+                    <p>MD5-Hash aus allen Buchungsfeldern. Identische Eintraege werden automatisch erkannt.</p>
+                    <div class="path">buchung_hash Column</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SQLMesh Transformations -->
+        <section class="arch-section">
+            <h2><span>🔧</span> SQLMesh - Transformations</h2>
+            <div class="arch-content">
+                <p>
+                    SQLMesh transformiert die Rohdaten in ein analytisches Star Schema.
+                    Zwei Layer: Staging (Bereinigung) und Marts (Dimensionen + Fakten).
+                </p>
+            </div>
+            <div class="models-list">
+                <div class="model-item">
+                    <span class="model-layer staging">staging</span>
+                    <span class="model-name">stg_buchungen</span>
+                    <span class="model-desc">Bereinigte Buchungen mit Typkonvertierung</span>
+                </div>
+                <div class="model-item">
+                    <span class="model-layer marts">marts</span>
+                    <span class="model-name">dim_kategorie</span>
+                    <span class="model-desc">Haupt- und Unterkategorien</span>
+                </div>
+                <div class="model-item">
+                    <span class="model-layer marts">marts</span>
+                    <span class="model-name">dim_konto</span>
+                    <span class="model-desc">Referenzkonten mit Namen</span>
+                </div>
+                <div class="model-item">
+                    <span class="model-layer marts">marts</span>
+                    <span class="model-name">dim_empfaenger</span>
+                    <span class="model-desc">Empfaenger mit IBAN</span>
+                </div>
+                <div class="model-item">
+                    <span class="model-layer marts">marts</span>
+                    <span class="model-name">dim_finanz_datum</span>
+                    <span class="model-desc">Zeitdimension (Tag bis Jahr)</span>
+                </div>
+                <div class="model-item">
+                    <span class="model-layer marts">marts</span>
+                    <span class="model-name">fact_buchungen</span>
+                    <span class="model-desc">Faktentabelle mit allen Keys</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dagster Orchestration -->
+        <section class="arch-section">
+            <h2><span>⚙️</span> Dagster - Orchestration</h2>
+            <div class="arch-content">
+                <p>
+                    Dagster orchestriert die gesamte Pipeline als Asset-Graph.
+                    dlt-Assets werden zu Dagster-Assets gewrapped, SQLMesh-Modelle
+                    werden automatisch als abhaengige Assets erkannt.
+                </p>
+            </div>
+            <div class="dag-diagram">
+                <div class="dag-ascii">
+                              ┌─────────────────────────────────────────┐
+                              │           Dagster Asset Graph           │
+                              └─────────────────────────────────────────┘
+
+    ┌───────────────────┐
+    │   finanz_assets   │
+    │   (dlt Source)    │
+    └─────────┬─────────┘
+              │
+              ▼
+    ┌───────────────────┐
+    │  stg_buchungen    │
+    │  (SQLMesh)        │
+    └─────────┬─────────┘
+              │
+              ├────────────────┬────────────────┬────────────────┐
+              ▼                ▼                ▼                ▼
+    ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
+    │ dim_kategorie   │ │   dim_konto     │ │ dim_empfaenger  │ │dim_finanz_datum │
+    └────────┬────────┘ └────────┬────────┘ └────────┬────────┘ └────────┬────────┘
+             │                   │                   │                   │
+             └───────────────────┴───────────────────┴───────────────────┘
+                                         │
+                                         ▼
+                               ┌─────────────────┐
+                               │ fact_buchungen  │
+                               │ (Star Schema)   │
+                               └─────────────────┘
+                </div>
+            </div>
+            <div class="code-block">
+                <div class="code-header">src/capygator_bi/definitions.py</div>
+                <div class="code-body">
+<pre><span class="keyword">from</span> dagster <span class="keyword">import</span> Definitions
+<span class="keyword">from</span> dagster_dlt <span class="keyword">import</span> DagsterDltResource
+<span class="keyword">from</span> dagster_sqlmesh <span class="keyword">import</span> SQLMeshResource
+
+defs = Definitions(
+    assets=all_assets,
+    resources={
+        <span class="string">"dlt"</span>: DagsterDltResource(),
+        <span class="string">"sqlmesh"</span>: SQLMeshResource(config=sqlmesh_config),
+    },
+)</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Structure -->
+        <section class="arch-section">
+            <h2><span>📁</span> Project Structure</h2>
+            <div class="code-block">
+                <div class="code-header">Verzeichnisstruktur</div>
+                <div class="code-body">
+<pre>CAPYGATOR_BI/
+├── app/                      <span class="comment"># Streamlit Apps</span>
+│   ├── main_app.py           <span class="comment"># Unified Dashboard</span>
+│   ├── finanz_app.py
+│   ├── journal_app.py
+│   └── ernaehrung_app.py
+├── contracts/                <span class="comment"># Data Contracts (ODCS)</span>
+│   ├── finanz-buchungen.yaml
+│   ├── journal-eintraege.yaml
+│   └── ernaehrung-protokoll.yaml
+├── data/                     <span class="comment"># DuckDB Databases</span>
+│   └── finanz.duckdb
+├── models/                   <span class="comment"># SQLMesh Models</span>
+│   ├── staging/
+│   │   └── stg_buchungen.sql
+│   └── marts/
+│       ├── dim_*.sql
+│       └── fact_buchungen.sql
+├── sources/                  <span class="comment"># dlt Pipelines</span>
+│   └── finanz_pipeline.py
+├── src/capygator_bi/         <span class="comment"># Dagster Package</span>
+│   ├── assets/
+│   │   ├── dlt_assets.py
+│   │   └── sqlmesh_assets.py
+│   └── definitions.py
+├── config.yaml               <span class="comment"># SQLMesh Config</span>
+└── pyproject.toml            <span class="comment"># Project Config</span></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <a href="https://github.com/capygator/CAPYGATOR_BI" target="_blank">GitHub</a>
+            <a href="open-source.html">Quick Start</a>
+            <a href="impressum.html">Impressum</a>
+            <div style="margin-top: 20px; color: #555; font-size: 0.85rem;">
+                MIT License | Made with 🦫 by CAPYGATOR
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - CAPYGATOR BI</title>
+    <meta name="description" content="CAPYGATOR BI Features: Financial Analytics, Journal Tracking, Data Contracts und Star Schema Architektur.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+        }
+
+        .terminal-container {
+            min-height: 100vh;
+            padding: 20px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+
+        /* Navigation */
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            background: rgba(0, 255, 136, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+        }
+
+        .nav-logo h2 {
+            color: #fff;
+            font-size: 1.3rem;
+            text-shadow: 0 0 10px #00ff88;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #00ff88;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(0, 255, 136, 0.2);
+            text-shadow: 0 0 5px #00ff88;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 0 0 20px #00ff88;
+            margin-bottom: 15px;
+        }
+
+        .page-header .subtitle {
+            color: #888;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Feature Section */
+        .feature-section {
+            background: rgba(0, 255, 136, 0.03);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .feature-section:hover {
+            border-color: #00ff88;
+        }
+
+        .feature-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+        }
+
+        .feature-header h2 {
+            color: #fff;
+            font-size: 1.8rem;
+            text-shadow: 0 0 10px #00ff88;
+        }
+
+        .feature-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .feature-content.reverse {
+            direction: rtl;
+        }
+
+        .feature-content.reverse > * {
+            direction: ltr;
+        }
+
+        .feature-text {
+            color: #ccc;
+        }
+
+        .feature-text p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #333;
+            color: #aaa;
+        }
+
+        .feature-list li::before {
+            content: ">";
+            color: #00ff88;
+            margin-right: 10px;
+        }
+
+        .feature-screenshot {
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .feature-screenshot img {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+
+        .feature-screenshot .placeholder {
+            color: #555;
+            padding: 80px 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Data Contracts Section */
+        .contracts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .contract-card {
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contract-card:hover {
+            border-color: #00ff88;
+            transform: translateY(-3px);
+        }
+
+        .contract-card h3 {
+            color: #00ff88;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .contract-card p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Star Schema Diagram */
+        .schema-diagram {
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .ascii-schema {
+            font-size: 0.85rem;
+            color: #00ff88;
+            white-space: pre;
+            overflow-x: auto;
+            line-height: 1.3;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px 20px;
+            border-top: 1px solid #333;
+        }
+
+        footer a {
+            color: #888;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #00ff88;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .feature-content {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-content.reverse {
+                direction: ltr;
+            }
+
+            .ascii-schema {
+                font-size: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal-container">
+        <!-- Navigation -->
+        <nav class="nav-bar">
+            <div class="nav-logo">
+                <img src="capygator_logo.png" alt="CAPYGATOR Logo">
+                <h2>CAPYGATOR BI</h2>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="features.html" class="active">Features</a>
+                <a href="architecture.html">Architecture</a>
+                <a href="open-source.html">GitHub</a>
+            </div>
+        </nav>
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Features</h1>
+            <div class="subtitle">
+                Alle Funktionen im Detail - von Financial Analytics bis Data Governance
+            </div>
+        </div>
+
+        <!-- Financial Analytics -->
+        <section class="feature-section">
+            <div class="feature-header">
+                <span class="feature-icon">💰</span>
+                <h2>Financial Analytics</h2>
+            </div>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <p>
+                        Importiere deine Bankdaten aus Excel und analysiere sie mit einem
+                        professionellen Star Schema. Automatische Kategorisierung,
+                        Vertrags-Tracking und Trend-Analysen.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Excel-Import mit Qualitaetspruefung</li>
+                        <li>Automatische Duplikat-Erkennung</li>
+                        <li>Kategorien und Unterkategorien</li>
+                        <li>Vertrags-Tracking (monatlich, jaehrlich)</li>
+                        <li>Umbuchungs-Erkennung</li>
+                        <li>Zeitliche Aggregation (Tag, Woche, Monat, Jahr)</li>
+                    </ul>
+                </div>
+                <div class="feature-screenshot">
+                    <div class="placeholder">
+                        [Screenshot: Finanz Dashboard]<br>
+                        screenshots/finanz.png
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journal & Wellness -->
+        <section class="feature-section">
+            <div class="feature-header">
+                <span class="feature-icon">📓</span>
+                <h2>Journal & Wellness Tracking</h2>
+            </div>
+            <div class="feature-content reverse">
+                <div class="feature-text">
+                    <p>
+                        Halte deine taeglichen Gedanken, Stimmungen und Aktivitaeten fest.
+                        Mit AI-gestuetzter Analyse erkennst du Muster in deinem Wohlbefinden.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Taegliche Journal-Eintraege</li>
+                        <li>Stimmungs-Tracking</li>
+                        <li>AI-Analyse mit Claude</li>
+                        <li>Ernaehrungs-Protokoll</li>
+                        <li>Schlaf- und Energie-Tracking</li>
+                        <li>Langzeit-Trends und Korrelationen</li>
+                    </ul>
+                </div>
+                <div class="feature-screenshot">
+                    <div class="placeholder">
+                        [Screenshot: Journal App]<br>
+                        screenshots/journal.png
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unified Dashboard -->
+        <section class="feature-section">
+            <div class="feature-header">
+                <span class="feature-icon">📊</span>
+                <h2>Unified Dashboard</h2>
+            </div>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <p>
+                        Ein zentrales Streamlit-Dashboard vereint alle deine Daten.
+                        Wechsle nahtlos zwischen Finanz, Journal und Ernaehrung.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Streamlit-basierte UI</li>
+                        <li>Multi-App Navigation</li>
+                        <li>Interaktive Plotly-Charts</li>
+                        <li>Filter und Zeitraeume</li>
+                        <li>Export-Funktionen</li>
+                        <li>Dark Mode (natuerlich!)</li>
+                    </ul>
+                </div>
+                <div class="feature-screenshot">
+                    <div class="placeholder">
+                        [Screenshot: Main Dashboard]<br>
+                        screenshots/dashboard.png
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Contracts -->
+        <section class="feature-section">
+            <div class="feature-header">
+                <span class="feature-icon">📋</span>
+                <h2>Data Contracts</h2>
+            </div>
+            <div class="feature-text" style="max-width: 100%;">
+                <p>
+                    Jede App hat einen definierten Data Contract (ODCS v3.1.0).
+                    Diese Contracts dokumentieren Datenstrukturen, Qualitaetsregeln
+                    und SLAs - Enterprise-Grade Data Governance fuer deine lokalen Daten.
+                </p>
+            </div>
+            <div class="contracts-grid">
+                <div class="contract-card">
+                    <h3>finanz-buchungen</h3>
+                    <p>Finanztransaktionen mit Kategorien, Vertraegen und Zeitdimensionen. Star Schema optimiert.</p>
+                </div>
+                <div class="contract-card">
+                    <h3>journal-eintraege</h3>
+                    <p>Taegliche Journal-Eintraege mit Stimmung, Energie und AI-Analyse. Privacy-first.</p>
+                </div>
+                <div class="contract-card">
+                    <h3>ernaehrung-protokoll</h3>
+                    <p>Mahlzeiten, Makros und Supplements. Verbunden mit Journal fuer Korrelationen.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Star Schema -->
+        <section class="feature-section">
+            <div class="feature-header">
+                <span class="feature-icon">⭐</span>
+                <h2>Star Schema Architektur</h2>
+            </div>
+            <div class="feature-text" style="max-width: 100%;">
+                <p>
+                    Die Finanzdaten werden in ein klassisches Star Schema transformiert.
+                    Dimensionen fuer Kategorien, Konten, Empfaenger und Zeit ermoeglichen
+                    flexible, schnelle Analysen.
+                </p>
+            </div>
+            <div class="schema-diagram">
+                <div class="ascii-schema">
+                    ┌─────────────────┐
+                    │  dim_kategorie  │
+                    │─────────────────│
+                    │ kategorie_key   │◄─────┐
+                    │ hauptkategorie  │      │
+                    │ unterkategorie  │      │
+                    └─────────────────┘      │
+                                             │
+    ┌─────────────────┐              ┌───────┴───────────┐              ┌─────────────────┐
+    │   dim_konto     │              │   fact_buchungen  │              │  dim_empfaenger │
+    │─────────────────│              │───────────────────│              │─────────────────│
+    │ konto_key       │◄─────────────│ buchung_key       │─────────────►│ empfaenger_key  │
+    │ referenzkonto   │              │ konto_key         │              │ empfaenger_name │
+    │ name            │              │ kategorie_key     │              │ empfaenger_iban │
+    └─────────────────┘              │ empfaenger_key    │              └─────────────────┘
+                                     │ datum_key         │
+                                     │ betrag            │
+    ┌─────────────────┐              │ ist_vertrag       │
+    │ dim_finanz_datum│              │ ist_umbuchung     │
+    │─────────────────│              └───────────────────┘
+    │ datum_key       │◄─────────────────────┘
+    │ buchungstag     │
+    │ woche, monat    │
+    │ quartal, jahr   │
+    └─────────────────┘
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <a href="https://github.com/capygator/CAPYGATOR_BI" target="_blank">GitHub</a>
+            <a href="architecture.html">Architecture</a>
+            <a href="impressum.html">Impressum</a>
+            <div style="margin-top: 20px; color: #555; font-size: 0.85rem;">
+                MIT License | Made with 🦫 by CAPYGATOR
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
