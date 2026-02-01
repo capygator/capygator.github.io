@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>CAPYGATOR - Coming Soon</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0a0a0a;
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #fff;
+            text-shadow: 0 0 20px #00ff88;
+            margin-bottom: 20px;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 40px;
+        }
+        .login-box {
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .login-box p {
+            margin-bottom: 20px;
+            color: #aaa;
+        }
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 16px;
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 6px;
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #00ff88;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #00ff88;
+            color: #000;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #00cc66;
+        }
+        .error {
+            color: #ff5f56;
+            margin-top: 15px;
+            display: none;
+        }
+        .emoji {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">🦫🐊</div>
+        <h1>CAPYGATOR</h1>
+        <p class="tagline">Premium Data Engineering — Coming Soon</p>
+        
+        <div class="login-box">
+            <p>Diese Seite ist noch in Arbeit.</p>
+            <input type="password" id="pwd" placeholder="Passwort" onkeypress="if(event.key==='Enter')check()">
+            <button onclick="check()">Zugang</button>
+            <p class="error" id="error">Falsches Passwort</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple gate - not secure, just keeps casual visitors out
+        const HASH = 'c83b25fa599cfe7fa85ce82d3784bafe03b228d98d1d756a014210ea712c4524'; // sha256 of 'capy2026'
+        
+        if (localStorage.getItem('capygator_auth') === 'true') {
+            window.location.href = 'home.html';
+        }
+        
+        async function sha256(text) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(text);
+            const hash = await crypto.subtle.digest('SHA-256', data);
+            return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+        
+        async function check() {
+            const pwd = document.getElementById('pwd').value;
+            const hash = await sha256(pwd);
+            if (hash === HASH) {
+                localStorage.setItem('capygator_auth', 'true');
+                window.location.href = 'home.html';
+            } else {
+                document.getElementById('error').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

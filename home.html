@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <script>if(localStorage.getItem("capygator_auth")!=="true")window.location.href="gate.html";</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAPYGATOR BI - Local-First Business Intelligence</title>
+    <meta name="description" content="Open-Source BI-Plattform mit dlt, SQLMesh, Dagster und DuckDB. Alle Daten bleiben lokal.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .terminal-container {
+            min-height: 100vh;
+            padding: 20px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+
+        /* Navigation */
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            background: rgba(0, 255, 136, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+        }
+
+        .nav-logo h2 {
+            color: #fff;
+            font-size: 1.3rem;
+            text-shadow: 0 0 10px #00ff88;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #00ff88;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(0, 255, 136, 0.2);
+            text-shadow: 0 0 5px #00ff88;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #fff;
+            text-shadow: 0 0 20px #00ff88;
+            margin-bottom: 20px;
+        }
+
+        .hero .tagline {
+            font-size: 1.4rem;
+            color: #00ff88;
+            margin-bottom: 15px;
+        }
+
+        .hero .description {
+            color: #ccc;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn.primary {
+            background: #00ff88;
+            color: #000;
+            border: 2px solid #00ff88;
+        }
+
+        .cta-btn.primary:hover {
+            background: #00cc66;
+            border-color: #00cc66;
+            transform: translateY(-2px);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            color: #00ff88;
+            border: 2px solid #00ff88;
+        }
+
+        .cta-btn.secondary:hover {
+            background: rgba(0, 255, 136, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Terminal Window */
+        .terminal-window {
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            margin: 40px auto;
+            max-width: 900px;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1);
+        }
+
+        .terminal-title-bar {
+            background: #1a1a1a;
+            padding: 10px 15px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27ca3f; }
+
+        .terminal-body {
+            padding: 20px;
+            min-height: 200px;
+        }
+
+        .terminal-line {
+            margin-bottom: 8px;
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .prompt { color: #00ff88; }
+        .command { color: #ffffff; }
+        .output { color: #888; margin-left: 20px; }
+        .success { color: #27ca3f; }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: #00ff88;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: #fff;
+            text-shadow: 0 0 10px #00ff88;
+            margin-bottom: 10px;
+        }
+
+        .section-title .subtitle {
+            color: #888;
+            font-size: 1rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border-top: 3px solid #00ff88;
+        }
+
+        .feature-card:hover {
+            border-color: #00ff88;
+            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            margin-bottom: 15px;
+        }
+
+        .feature-icon svg {
+            width: 48px;
+            height: 48px;
+            stroke: #00ff88;
+            stroke-width: 1.5;
+            fill: none;
+            filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.5));
+        }
+
+        .feature-title {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-description {
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .tech-badge {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #333;
+            padding: 12px 24px;
+            border-radius: 6px;
+            color: #00ff88;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            border-color: #00ff88;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .tech-badge span {
+            color: #888;
+            font-size: 0.85rem;
+            display: block;
+            margin-top: 4px;
+        }
+
+        /* Architecture Diagram */
+        .architecture-box {
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 40px 30px;
+            margin: 40px auto;
+            max-width: 900px;
+        }
+
+        .arch-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .arch-node {
+            background: rgba(0, 255, 136, 0.08);
+            border: 2px solid #00ff88;
+            border-radius: 8px;
+            padding: 12px 20px;
+            color: #fff;
+            text-align: center;
+            transition: all 0.3s ease;
+            min-width: 100px;
+        }
+
+        .arch-node:hover {
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.5);
+            transform: scale(1.05);
+            background: rgba(0, 255, 136, 0.15);
+        }
+
+        .arch-node .label {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .arch-node .sublabel {
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: 4px;
+        }
+
+        .arch-arrow {
+            color: #00ff88;
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .arch-orchestrator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .arch-connector {
+            width: 2px;
+            height: 25px;
+            background: #00ff88;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            .arch-flow {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .arch-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px 20px;
+            border-top: 1px solid #333;
+        }
+
+        footer a {
+            color: #888;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #00ff88;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal-container">
+        <!-- Navigation -->
+        <nav class="nav-bar">
+            <div class="nav-logo">
+                <img src="capygator_logo.png" alt="CAPYGATOR Logo">
+                <h2>CAPYGATOR BI</h2>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="features.html">Features</a>
+                <a href="architecture.html">Architecture</a>
+                <a href="open-source.html">GitHub</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>CAPYGATOR BI</h1>
+            <div class="tagline">Local-First Business Intelligence</div>
+            <p class="description">
+                Open-Source BI-Plattform mit Enterprise-Patterns.
+                Deine Daten bleiben auf deinem Rechner - keine Cloud, keine Telemetrie.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://github.com/capygator/CAPYGATOR_BI" class="cta-btn primary" target="_blank">
+                    View on GitHub
+                </a>
+                <a href="open-source.html" class="cta-btn secondary">
+                    Quick Start
+                </a>
+            </div>
+        </section>
+
+        <!-- Terminal Demo -->
+        <div class="terminal-window">
+            <div class="terminal-title-bar">
+                <div class="terminal-button red"></div>
+                <div class="terminal-button yellow"></div>
+                <div class="terminal-button green"></div>
+                <span style="color: #888; margin-left: 10px;">capygator@bi:~$</span>
+            </div>
+            <div class="terminal-body" id="terminal">
+                <div class="terminal-line" style="animation-delay: 0.3s;">
+                    <span class="prompt">$</span> <span class="command">git clone https://github.com/capygator/CAPYGATOR_BI</span>
+                </div>
+                <div class="terminal-line" style="animation-delay: 0.8s;">
+                    <span class="prompt">$</span> <span class="command">cd CAPYGATOR_BI && uv sync</span>
+                </div>
+                <div class="terminal-line" style="animation-delay: 1.3s;">
+                    <span class="prompt">$</span> <span class="command">uv run dagster dev</span>
+                </div>
+                <div class="terminal-line" style="animation-delay: 1.8s;">
+                    <div class="output success">Dagster webserver running at http://localhost:3000</div>
+                </div>
+                <div class="terminal-line" style="animation-delay: 2.3s;">
+                    <span class="prompt">$</span> <span class="command">uv run streamlit run app/main_app.py</span>
+                </div>
+                <div class="terminal-line" style="animation-delay: 2.8s;">
+                    <div class="output success">Dashboard ready at http://localhost:8501</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="section-title">
+            <h2>Features</h2>
+            <div class="subtitle">Alles was du fuer datengetriebene Entscheidungen brauchst</div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="12" width="4" height="9" rx="1"/>
+                        <rect x="10" y="8" width="4" height="13" rx="1"/>
+                        <rect x="17" y="4" width="4" height="17" rx="1"/>
+                        <path d="M2 3h20" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="feature-title">Unified Dashboard</div>
+                <div class="feature-description">
+                    Streamlit-basiertes Dashboard mit allen deinen Daten an einem Ort.
+                    Finanz, Journal, Ernaehrung - alles vereint.
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="8" cy="14" r="3"/>
+                        <circle cx="16" cy="14" r="3"/>
+                        <circle cx="12" cy="8" r="3"/>
+                        <path d="M4 20h16M8 17v3M16 17v3M12 11v3"/>
+                    </svg>
+                </div>
+                <div class="feature-title">Financial Analytics</div>
+                <div class="feature-description">
+                    Star Schema Architektur fuer echte Analytics.
+                    Kategorien, Trends, Vertraege - alles im Blick.
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 4h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+                        <path d="M6 2v4M14 2v4"/>
+                        <path d="M6 10h8M6 14h6M6 18h4"/>
+                        <path d="M18 14l4-4M18 10l4 4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="feature-title">Journal & Wellness</div>
+                <div class="feature-description">
+                    Tracke deine taeglichen Gedanken, Ernaehrung und Wohlbefinden.
+                    Mit AI-gestuetzter Analyse.
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L4 7v6c0 5.5 3.4 10.3 8 12 4.6-1.7 8-6.5 8-12V7l-8-5z"/>
+                        <path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="feature-title">Privacy by Design</div>
+                <div class="feature-description">
+                    Alle Daten lokal in DuckDB. Keine Cloud-Abhaengigkeit,
+                    kein Tracking, volle Kontrolle.
+                </div>
+            </div>
+        </div>
+
+        <!-- Tech Stack Section -->
+        <div class="section-title">
+            <h2>Tech Stack</h2>
+            <div class="subtitle">Enterprise-Tools fuer lokale Datenverarbeitung</div>
+        </div>
+
+        <div class="tech-stack">
+            <div class="tech-badge">
+                dlt
+                <span>Data Ingestion</span>
+            </div>
+            <div class="tech-badge">
+                SQLMesh
+                <span>Transformations</span>
+            </div>
+            <div class="tech-badge">
+                Dagster
+                <span>Orchestration</span>
+            </div>
+            <div class="tech-badge">
+                DuckDB
+                <span>Analytics DB</span>
+            </div>
+            <div class="tech-badge">
+                Streamlit
+                <span>Dashboard</span>
+            </div>
+        </div>
+
+        <!-- Architecture Diagram -->
+        <div class="architecture-box">
+            <div class="section-title" style="margin-top: 0;">
+                <h2>Architecture</h2>
+            </div>
+            <div class="arch-flow">
+                <div class="arch-node">
+                    <div class="label">Data</div>
+                    <div class="sublabel">Sources</div>
+                </div>
+                <span class="arch-arrow">→</span>
+                <div class="arch-node">
+                    <div class="label">dlt</div>
+                    <div class="sublabel">Ingestion</div>
+                </div>
+                <span class="arch-arrow">→</span>
+                <div class="arch-node">
+                    <div class="label">DuckDB</div>
+                    <div class="sublabel">Storage</div>
+                </div>
+                <span class="arch-arrow">→</span>
+                <div class="arch-node">
+                    <div class="label">SQLMesh</div>
+                    <div class="sublabel">Transform</div>
+                </div>
+                <span class="arch-arrow">→</span>
+                <div class="arch-node">
+                    <div class="label">Streamlit</div>
+                    <div class="sublabel">Dashboard</div>
+                </div>
+            </div>
+            <div class="arch-orchestrator">
+                <div class="arch-connector"></div>
+                <div class="arch-node">
+                    <div class="label">Dagster</div>
+                    <div class="sublabel">Orchestration</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <a href="https://github.com/capygator/CAPYGATOR_BI" target="_blank">GitHub</a>
+            <a href="impressum.html">Impressum</a>
+            <div style="margin-top: 20px; color: #555; font-size: 0.85rem;">
+                MIT License | Made with 🦫 by CAPYGATOR
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Typing effect for terminal
+        setTimeout(() => {
+            const terminal = document.getElementById('terminal');
+            const typingLine = document.createElement('div');
+            typingLine.className = 'terminal-line';
+            typingLine.style.opacity = '1';
+            typingLine.innerHTML = '<span class="prompt">$</span> <span class="command"></span><span class="cursor"></span>';
+            terminal.appendChild(typingLine);
+
+            const commandSpan = typingLine.querySelector('.command');
+            const commands = [
+                'sqlmesh plan --auto-apply',
+                'dagster asset materialize --all',
+                'duckdb data/finanz.duckdb'
+            ];
+            let commandIndex = 0;
+            let charIndex = 0;
+
+            function typeCommand() {
+                if (charIndex < commands[commandIndex].length) {
+                    commandSpan.textContent += commands[commandIndex][charIndex];
+                    charIndex++;
+                    setTimeout(typeCommand, 80);
+                } else {
+                    setTimeout(() => {
+                        commandSpan.textContent = '';
+                        charIndex = 0;
+                        commandIndex = (commandIndex + 1) % commands.length;
+                        typeCommand();
+                    }, 2500);
+                }
+            }
+
+            typeCommand();
+        }, 3500);
+    </script>
+</body>
+</html>
