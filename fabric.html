@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <script>if(localStorage.getItem("capygator_auth")!=="true")window.location.href="gate.html";</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Fabric — CAPYGATOR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #09090b; --bg-subtle: #18181b; --border: #27272a;
+            --text: #fafafa; --text-muted: #a1a1aa; --text-subtle: #71717a;
+            --accent: #22c55e; --accent-muted: rgba(34, 197, 94, 0.15);
+            --gradient: linear-gradient(135deg, #22c55e 0%, #06b6d4 100%);
+        }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+        
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 24px; background: rgba(9, 9, 11, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo img { height: 28px; border-radius: 6px; }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text); }
+        
+        .hero { padding: 160px 0 80px; }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; margin-bottom: 32px; transition: color 0.2s; }
+        .back-link:hover { color: var(--text); }
+        .hero-icon { width: 64px; height: 64px; background: var(--accent-muted); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+        .hero-icon svg { width: 32px; height: 32px; stroke: var(--accent); stroke-width: 1.5; fill: none; }
+        h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 16px; }
+        .hero-sub { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; }
+        
+        section { padding: 80px 0; }
+        h2 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 24px; }
+        .section-text { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 16px; max-width: 700px; }
+        
+        .features { display: grid; gap: 16px; margin-top: 48px; }
+        .feature { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+        .feature h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+        .feature p { color: var(--text-muted); font-size: 0.95rem; }
+        
+        .arch-box { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 12px; padding: 32px; margin: 32px 0; }
+        .arch-flow { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+        .arch-node { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 20px; text-align: center; }
+        .arch-node strong { display: block; font-size: 0.95rem; }
+        .arch-node span { font-size: 0.8rem; color: var(--text-subtle); }
+        .arch-arrow { color: var(--accent); font-size: 1.2rem; }
+        
+        .cta { text-align: center; padding: 120px 0; border-top: 1px solid var(--border); margin-top: 80px; }
+        .cta h2 { margin-bottom: 16px; }
+        .cta p { color: var(--text-muted); margin-bottom: 32px; }
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; text-decoration: none; background: var(--text); color: var(--bg); transition: all 0.2s; }
+        .btn:hover { background: var(--text-muted); }
+        
+        footer { border-top: 1px solid var(--border); padding: 40px 0; }
+        .footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a, .footer-copy { color: var(--text-subtle); text-decoration: none; font-size: 0.875rem; }
+        
+        @media (max-width: 600px) { h1 { font-size: 2rem; } .hero { padding: 120px 0 60px; } .arch-flow { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="home.html" class="logo"><img src="capygator_logo.png" alt="">CAPYGATOR</a>
+            <div class="nav-links">
+                <a href="home.html#services">Services</a>
+                <a href="home.html#skills">Schulungen</a>
+                <a href="home.html#contact">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <a href="home.html#services" class="back-link">← Services</a>
+            <div class="hero-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h1>Microsoft Fabric</h1>
+            <p class="hero-sub">Lakehouse-Architekturen auf Microsofts neuer Unified Analytics Platform.</p>
+        </section>
+
+        <section>
+            <h2>Die neue Ära</h2>
+            <p class="section-text">
+                Microsoft Fabric vereint Data Engineering, Data Science und Business Intelligence 
+                in einer Plattform. OneLake als zentraler Speicher, nahtlose Integration, 
+                ein Sicherheitsmodell.
+            </p>
+            <p class="section-text">
+                Das Potential ist enorm — aber nur mit der richtigen Architektur. 
+                Sonst wird's ein teures Chaos.
+            </p>
+        </section>
+
+        <section>
+            <h2>Architektur</h2>
+            <div class="arch-box">
+                <div class="arch-flow">
+                    <div class="arch-node"><strong>Sources</strong><span>APIs, DBs, Files</span></div>
+                    <span class="arch-arrow">→</span>
+                    <div class="arch-node"><strong>Bronze</strong><span>Raw Data</span></div>
+                    <span class="arch-arrow">→</span>
+                    <div class="arch-node"><strong>Silver</strong><span>Cleaned</span></div>
+                    <span class="arch-arrow">→</span>
+                    <div class="arch-node"><strong>Gold</strong><span>Business Ready</span></div>
+                    <span class="arch-arrow">→</span>
+                    <div class="arch-node"><strong>Power BI</strong><span>Reports</span></div>
+                </div>
+            </div>
+            <p class="section-text">
+                Medallion Architecture: Bronze für Rohdaten, Silver für bereinigte Daten, 
+                Gold für Business-fertige Datasets. Klar getrennt, nachvollziehbar, wartbar.
+            </p>
+        </section>
+
+        <section>
+            <h2>Was ich baue</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Lakehouse Design</h3>
+                    <p>Struktur für OneLake, Delta Tables, saubere Namenskonventionen. Eine Architektur die wächst.</p>
+                </div>
+                <div class="feature">
+                    <h3>Data Factory Pipelines</h3>
+                    <p>Robuste Ingestion-Pipelines. Fehlerbehandlung, Logging, Monitoring — produktionsreif von Tag 1.</p>
+                </div>
+                <div class="feature">
+                    <h3>Notebooks & Spark</h3>
+                    <p>PySpark für komplexe Transformationen. Sauberer Code, versioniert, getestet.</p>
+                </div>
+                <div class="feature">
+                    <h3>Real-Time Analytics</h3>
+                    <p>Event Streams, KQL Queries, Live-Dashboards. Wenn Batch nicht reicht.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Fabric Projekt starten?</h2>
+            <p>Greenfield oder Migration — lass uns die Architektur planen.</p>
+            <a href="mailto:info@capygator.com" class="btn">Kontakt aufnehmen</a>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-links"><a href="impressum.html">Impressum</a><a href="https://github.com/capygator">GitHub</a></div>
+            <div class="footer-copy">© 2026 CAPYGATOR</div>
+        </div>
+    </footer>
+</body>
+</html>
