@@ -5,737 +5,687 @@
     <script>if(localStorage.getItem("capygator_auth")!=="true")window.location.href="gate.html";</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAPYGATOR - Premium Data Engineering</title>
-    <meta name="description" content="Premium Data Engineering: Power BI, Microsoft Fabric, Open Data Stacks. 20 Jahre BI-Expertise.">
+    <title>CAPYGATOR — Premium Data Engineering</title>
+    <meta name="description" content="End-to-End Datenplattformen. Power BI, Microsoft Fabric, Open Data Stacks. Höchste Qualitätsstandards.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         :root {
-            --primary: #00ff88;
-            --primary-dark: #00cc66;
-            --bg: #0a0a0a;
-            --bg-light: #1a1a1a;
-            --text: #ffffff;
-            --text-muted: #888888;
-            --border: #333333;
+            --bg: #09090b;
+            --bg-subtle: #18181b;
+            --border: #27272a;
+            --text: #fafafa;
+            --text-muted: #a1a1aa;
+            --text-subtle: #71717a;
+            --accent: #22c55e;
+            --accent-muted: rgba(34, 197, 94, 0.15);
+            --gradient: linear-gradient(135deg, #22c55e 0%, #06b6d4 100%);
         }
-
+        
         body {
             background: var(--bg);
             color: var(--text);
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
         }
-
-        /* Navigation */
-        .nav {
+        
+        /* Layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        section {
+            padding: 120px 0;
+        }
+        
+        /* Nav */
+        nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 1000;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
+            z-index: 100;
+            padding: 16px 24px;
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
         }
-
+        
         .nav-inner {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
+        
         .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text);
+            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--text);
+            gap: 10px;
         }
-
-        .logo img {
-            width: 36px;
-            height: 36px;
-            border-radius: 6px;
-        }
-
-        .logo span {
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
+        
+        .logo img { height: 28px; border-radius: 6px; }
+        
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 32px;
         }
-
+        
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
         }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Sections */
-        section {
-            padding: 100px 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
+        
+        .nav-links a:hover { color: var(--text); }
+        
         /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            align-items: center;
             padding-top: 80px;
         }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(0, 255, 136, 0.1);
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            margin-bottom: 30px;
+        
+        .hero-content {
+            max-width: 720px;
         }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-muted);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+        
+        h1 {
+            font-size: clamp(3rem, 7vw, 4.5rem);
             font-weight: 700;
             line-height: 1.1;
-            margin-bottom: 25px;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
         }
-
-        .hero h1 .highlight {
-            color: var(--primary);
+        
+        h1 .gradient {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
-        .hero .subtitle {
-            font-size: 1.3rem;
+        
+        .hero-sub {
+            font-size: 1.25rem;
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 540px;
             margin-bottom: 40px;
+            line-height: 1.7;
         }
-
+        
         .hero-cta {
             display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 16px;
         }
-
+        
         .btn {
-            padding: 14px 32px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
+            transition: all 0.2s;
         }
-
+        
         .btn-primary {
-            background: var(--primary);
+            background: var(--text);
             color: var(--bg);
         }
-
+        
         .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
+            background: var(--text-muted);
         }
-
+        
         .btn-secondary {
             background: transparent;
             color: var(--text);
             border: 1px solid var(--border);
         }
-
+        
         .btn-secondary:hover {
-            border-color: var(--primary);
-            color: var(--primary);
+            background: var(--bg-subtle);
+            border-color: var(--text-subtle);
         }
-
+        
         /* Section Headers */
-        .section-header {
-            margin-bottom: 60px;
-        }
-
         .section-label {
-            color: var(--primary);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
+            color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
         }
-
-        .section-title {
-            font-size: clamp(2rem, 4vw, 2.8rem);
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
             font-weight: 700;
-            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
         }
-
-        .section-subtitle {
-            color: var(--text-muted);
+        
+        .section-sub {
             font-size: 1.1rem;
+            color: var(--text-muted);
             max-width: 600px;
+            margin-bottom: 64px;
         }
-
-        /* Service Cards */
+        
+        /* Service Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
         }
-
+        
         .service-card {
-            background: var(--bg-light);
+            background: var(--bg-subtle);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 40px;
-            transition: all 0.3s;
+            padding: 32px;
+            transition: border-color 0.2s;
         }
-
+        
         .service-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
+            border-color: var(--text-subtle);
         }
-
+        
         .service-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(0, 255, 136, 0.1);
+            width: 48px;
+            height: 48px;
+            background: var(--accent-muted);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
-
+        
         .service-icon svg {
-            width: 28px;
-            height: 28px;
-            stroke: var(--primary);
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent);
             stroke-width: 1.5;
             fill: none;
         }
-
+        
         .service-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
         }
-
+        
         .service-card p {
             color: var(--text-muted);
+            font-size: 0.95rem;
             margin-bottom: 20px;
         }
-
-        .service-features {
+        
+        .service-list {
             list-style: none;
         }
-
-        .service-features li {
-            padding: 8px 0;
-            color: var(--text-muted);
+        
+        .service-list li {
+            color: var(--text-subtle);
+            font-size: 0.9rem;
+            padding: 6px 0;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
-
-        .service-features li::before {
-            content: "→";
-            color: var(--primary);
+        
+        .service-list li::before {
+            content: "";
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
         }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .skill-card {
-            background: var(--bg-light);
+        
+        /* Code Block */
+        .code-block {
+            background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 30px;
-            transition: all 0.3s;
+            padding: 24px;
+            margin-top: 24px;
+            overflow-x: auto;
         }
-
-        .skill-card:hover {
-            border-color: var(--primary);
-        }
-
-        .skill-duration {
-            color: var(--primary);
+        
+        .code-block pre {
+            font-family: 'SF Mono', 'Fira Code', monospace;
             font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .skill-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-
-        .skill-card p {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            line-height: 1.7;
         }
-
-        /* About Section */
-        .about-content {
+        
+        .code-block .comment { color: var(--text-subtle); }
+        .code-block .keyword { color: #f472b6; }
+        .code-block .string { color: #22c55e; }
+        .code-block .function { color: #60a5fa; }
+        
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        
+        .skill-card {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: border-color 0.2s;
+        }
+        
+        .skill-card:hover {
+            border-color: var(--text-subtle);
+        }
+        
+        .skill-duration {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        
+        .skill-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        
+        .skill-card p {
+            color: var(--text-subtle);
+            font-size: 0.875rem;
+        }
+        
+        /* About */
+        .about-grid {
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 60px;
+            gap: 64px;
             align-items: start;
         }
-
-        .about-image {
-            background: var(--bg-light);
+        
+        .about-visual {
+            background: var(--bg-subtle);
             border: 1px solid var(--border);
             border-radius: 16px;
             aspect-ratio: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 6rem;
         }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+        
+        .about-visual svg {
+            width: 64px;
+            height: 64px;
+            stroke: var(--text-subtle);
+            stroke-width: 1;
+            fill: none;
         }
-
-        .about-text p {
+        
+        .about-content h2 {
+            margin-bottom: 24px;
+        }
+        
+        .about-content p {
             color: var(--text-muted);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             font-size: 1.05rem;
         }
-
+        
         .about-stats {
             display: flex;
-            gap: 40px;
+            gap: 48px;
             margin-top: 40px;
             padding-top: 40px;
             border-top: 1px solid var(--border);
         }
-
-        .stat-item .stat-number {
+        
+        .stat-value {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--primary);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
-        .stat-item .stat-label {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+        
+        .stat-label {
+            color: var(--text-subtle);
+            font-size: 0.9rem;
         }
-
-        /* Contact Section */
-        .contact-box {
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 60px;
+        
+        /* CTA */
+        .cta-section {
             text-align: center;
+            padding: 160px 0;
         }
-
-        .contact-box h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+        
+        .cta-section h2 {
+            margin-bottom: 24px;
         }
-
-        .contact-box p {
+        
+        .cta-section p {
             color: var(--text-muted);
-            margin-bottom: 30px;
             font-size: 1.1rem;
+            margin-bottom: 40px;
         }
-
-        .contact-email {
+        
+        .cta-email {
             font-size: 1.5rem;
-            color: var(--primary);
-            text-decoration: none;
             font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+            padding: 16px 32px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: inline-block;
+            transition: all 0.2s;
         }
-
-        .contact-email:hover {
-            text-decoration: underline;
+        
+        .cta-email:hover {
+            background: var(--bg-subtle);
+            border-color: var(--text-subtle);
         }
-
+        
         /* Footer */
         footer {
             border-top: 1px solid var(--border);
-            padding: 40px 30px;
-            text-align: center;
+            padding: 40px 0;
         }
-
+        
         .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
+        
         .footer-links {
             display: flex;
-            gap: 30px;
+            gap: 24px;
         }
-
+        
         .footer-links a {
-            color: var(--text-muted);
+            color: var(--text-subtle);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.875rem;
+            transition: color 0.2s;
         }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
+        
+        .footer-links a:hover { color: var(--text); }
+        
         .footer-copy {
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            color: var(--text-subtle);
+            font-size: 0.875rem;
         }
-
+        
         /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            section {
-                padding: 60px 20px;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .about-image {
-                max-width: 200px;
-            }
-
-            .about-stats {
-                flex-wrap: wrap;
-                gap: 30px;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 900px) {
+            .services-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr 1fr; }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-visual { max-width: 200px; }
+        }
+        
+        @media (max-width: 600px) {
+            section { padding: 80px 0; }
+            .nav-links { display: none; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .about-stats { flex-direction: column; gap: 24px; }
+            .footer-inner { flex-direction: column; gap: 16px; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
+    <nav>
         <div class="nav-inner">
             <a href="#" class="logo">
                 <img src="capygator_logo.png" alt="Capygator">
-                <span>CAPYGATOR</span>
+                CAPYGATOR
             </a>
             <div class="nav-links">
                 <a href="#services">Services</a>
-                <a href="#skills">Skills</a>
+                <a href="#skills">Schulungen</a>
                 <a href="#about">Über mich</a>
                 <a href="#contact">Kontakt</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
     <section class="hero">
-        <div class="hero-badge">Premium Data Engineering</div>
-        <h1>
-            Datenplattformen<br>
-            <span class="highlight">die performen.</span>
-        </h1>
-        <p class="subtitle">
-            End-to-End Implementierung von Power BI, Microsoft Fabric und 
-            modernen Open Data Stacks. Höchste Qualitätsstandards, keine Kompromisse.
-        </p>
-        <div class="hero-cta">
-            <a href="#contact" class="btn btn-primary">Projekt anfragen</a>
-            <a href="#services" class="btn btn-secondary">Services entdecken</a>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Premium Data Engineering</div>
+                <h1>Datenplattformen,<br><span class="gradient">die performen.</span></h1>
+                <p class="hero-sub">
+                    End-to-End Implementierung von Power BI, Microsoft Fabric und 
+                    Open Data Stacks. 20 Jahre Erfahrung. Höchste Qualitätsstandards.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">Projekt besprechen</a>
+                    <a href="#services" class="btn btn-secondary">Services →</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Services: Power BI -->
     <section id="services">
-        <div class="section-header">
+        <div class="container">
             <div class="section-label">Services</div>
-            <h2 class="section-title">Microsoft Stack</h2>
-            <p class="section-subtitle">
-                Premium-Implementierungen im Microsoft-Ökosystem. 
-                Von der Architektur bis zum Go-Live.
+            <h2>Was ich baue</h2>
+            <p class="section-sub">
+                Datenplattformen mit klarer Architektur, sauberer Dokumentation 
+                und Performance die bleibt.
             </p>
-        </div>
-
-        <div class="services-grid">
-            <!-- Power BI -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 20V10M12 20V4M6 20v-6"/>
-                    </svg>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                    </div>
+                    <h3>Power BI</h3>
+                    <p>Enterprise BI mit sauberem Semantic Layer und optimiertem DAX.</p>
+                    <ul class="service-list">
+                        <li>Semantic Model Design</li>
+                        <li>DAX Optimierung</li>
+                        <li>Row-Level Security</li>
+                        <li>Deployment Pipelines</li>
+                    </ul>
                 </div>
-                <h3>Power BI</h3>
-                <p>
-                    Enterprise-grade BI-Lösungen mit sauberem Semantic Layer, 
-                    optimierten DAX-Measures und performanten Reports.
-                </p>
-                <ul class="service-features">
-                    <li>Semantic Model Design</li>
-                    <li>DAX Optimierung</li>
-                    <li>Report & Dashboard Design</li>
-                    <li>Row-Level Security</li>
-                    <li>Deployment Pipelines</li>
-                </ul>
-            </div>
-
-            <!-- Fabric -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3>Microsoft Fabric</h3>
+                    <p>Lakehouse-Architekturen auf der neuen Microsoft Plattform.</p>
+                    <ul class="service-list">
+                        <li>Lakehouse Design</li>
+                        <li>Data Factory Pipelines</li>
+                        <li>Notebooks & Spark</li>
+                        <li>Real-Time Analytics</li>
+                    </ul>
                 </div>
-                <h3>Microsoft Fabric</h3>
-                <p>
-                    Die neue Unified Analytics Platform von Microsoft. 
-                    Lakehouse-Architekturen, Data Engineering und Real-Time Analytics.
-                </p>
-                <ul class="service-features">
-                    <li>Lakehouse Architektur</li>
-                    <li>Data Factory Pipelines</li>
-                    <li>Notebooks & Spark</li>
-                    <li>Real-Time Analytics</li>
-                    <li>OneLake Integration</li>
-                </ul>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h3>Open Data Stack</h3>
+                    <p>Modulare Plattformen mit Open-Source Tools. Kein Vendor Lock-in.</p>
+                    <ul class="service-list">
+                        <li>dlt, Airbyte — Ingestion</li>
+                        <li>dbt, SQLMesh — Transform</li>
+                        <li>Dagster — Orchestration</li>
+                        <li>DuckDB, Postgres — Storage</li>
+                    </ul>
+                    <div class="code-block">
+                        <pre><span class="comment"># Beispiel: dbt Model</span>
+<span class="keyword">SELECT</span>
+    customer_id,
+    <span class="function">SUM</span>(amount) <span class="keyword">AS</span> total_revenue,
+    <span class="function">COUNT</span>(*) <span class="keyword">AS</span> order_count
+<span class="keyword">FROM</span> {{ <span class="function">ref</span>(<span class="string">'stg_orders'</span>) }}
+<span class="keyword">GROUP BY</span> customer_id</pre>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg>
+                    </div>
+                    <h3>Data Products</h3>
+                    <p>Wiederverwendbare Datenprodukte mit klaren Contracts.</p>
+                    <ul class="service-list">
+                        <li>Schema Management</li>
+                        <li>Data Contracts</li>
+                        <li>Automated Testing</li>
+                        <li>Self-Service Katalog</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Open Stack -->
-    <section>
-        <div class="section-header">
-            <div class="section-label">Open Source</div>
-            <h2 class="section-title">Open Data Stack</h2>
-            <p class="section-subtitle">
-                Modulare, vendor-unabhängige Datenplattformen. 
-                Volle Kontrolle, keine Lock-ins.
-            </p>
-        </div>
-
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                    </svg>
-                </div>
-                <h3>Modern Data Stack</h3>
-                <p>
-                    Best-of-breed Open-Source Tools, sauber integriert 
-                    und produktionsreif deployed.
-                </p>
-                <ul class="service-features">
-                    <li>dlt, Airbyte — Data Ingestion</li>
-                    <li>dbt, SQLMesh — Transformation</li>
-                    <li>Dagster, Prefect — Orchestration</li>
-                    <li>DuckDB, PostgreSQL — Storage</li>
-                    <li>Evidence, Metabase — Visualization</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.5 9.4l-9-5.19M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                        <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/>
-                    </svg>
-                </div>
-                <h3>Data Products</h3>
-                <p>
-                    Wiederverwendbare Datenprodukte mit klaren Contracts, 
-                    Dokumentation und Qualitätsprüfung.
-                </p>
-                <ul class="service-features">
-                    <li>Data Contracts</li>
-                    <li>Schema Management</li>
-                    <li>Automated Testing</li>
-                    <li>Data Observability</li>
-                    <li>Self-Service Katalog</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills -->
     <section id="skills">
-        <div class="section-header">
+        <div class="container">
             <div class="section-label">Wissen</div>
-            <h2 class="section-title">Micro-Schulungen</h2>
-            <p class="section-subtitle">
-                Kompakte Trainings für Teams. Fokussiert, praxisnah, sofort anwendbar.
+            <h2>Micro-Schulungen</h2>
+            <p class="section-sub">
+                Kompakte Trainings. Fokussiert, praxisnah, sofort anwendbar.
             </p>
-        </div>
-
-        <div class="skills-grid">
-            <div class="skill-card">
-                <div class="skill-duration">4 Stunden</div>
-                <h3>Power BI Best Practices</h3>
-                <p>Semantic Layer Design, DAX Patterns, Performance-Optimierung.</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-duration">4 Stunden</div>
-                <h3>Microsoft Fabric Kickstart</h3>
-                <p>Lakehouse, Notebooks, Pipelines — Hands-on Einstieg.</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-duration">4 Stunden</div>
-                <h3>dbt Fundamentals</h3>
-                <p>Modellierung, Testing, Dokumentation mit dbt Core.</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-duration">2 Stunden</div>
-                <h3>Data Quality Basics</h3>
-                <p>Datenqualität messen, monitoren und verbessern.</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-duration">4 Stunden</div>
-                <h3>Analytics Engineering</h3>
-                <p>Moderne Datenmodellierung und Transformation.</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-duration">2 Stunden</div>
-                <h3>DuckDB für Analysten</h3>
-                <p>Lokale Analytics mit der schnellsten embedded DB.</p>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-duration">4h</div>
+                    <h3>Power BI Best Practices</h3>
+                    <p>Semantic Layer, DAX Patterns, Performance</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-duration">4h</div>
+                    <h3>Microsoft Fabric Kickstart</h3>
+                    <p>Lakehouse, Notebooks, Pipelines</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-duration">4h</div>
+                    <h3>dbt Fundamentals</h3>
+                    <p>Modellierung, Testing, Docs</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-duration">2h</div>
+                    <h3>Data Quality</h3>
+                    <p>Messen, monitoren, verbessern</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-duration">4h</div>
+                    <h3>Analytics Engineering</h3>
+                    <p>Moderne Datenmodellierung</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-duration">2h</div>
+                    <h3>DuckDB für Analysten</h3>
+                    <p>Lokale Analytics, blitzschnell</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About -->
     <section id="about">
-        <div class="section-header">
-            <div class="section-label">Über mich</div>
-            <h2 class="section-title">Ulf</h2>
-        </div>
-
-        <div class="about-content">
-            <div class="about-image">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 80px; height: 80px; stroke: var(--primary); stroke-width: 1.5; fill: none;">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                    <circle cx="12" cy="7" r="4"/>
-                </svg>
-            </div>
-            <div class="about-text">
-                <h3>20 Jahre Data & BI</h3>
-                <p>
-                    Ich baue seit zwei Jahrzehnten Datenplattformen — von klassischen 
-                    Data Warehouses bis zu modernen Cloud-Architekturen. 
-                </p>
-                <p>
-                    Mein Fokus: Systeme, die nicht nur funktionieren, sondern 
-                    wartbar, performant und verständlich sind. Qualität über Quantität, 
-                    immer.
-                </p>
-                <p>
-                    Als "Company of One" arbeite ich direkt mit dir — keine 
-                    Projektmanager-Telefonstille, keine Junior-Überraschungen. 
-                    Du bekommst Senior-Expertise von Tag 1.
-                </p>
-
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">20+</div>
-                        <div class="stat-label">Jahre Erfahrung</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">BI</div>
-                        <div class="stat-label">Spezialisierung</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">1:1</div>
-                        <div class="stat-label">Direkte Zusammenarbeit</div>
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-visual">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+                <div class="about-content">
+                    <div class="section-label">Über mich</div>
+                    <h2>Ulf</h2>
+                    <p>
+                        Ich baue seit zwei Jahrzehnten Datenplattformen. Von klassischen 
+                        Data Warehouses bis zu modernen Cloud-Architekturen.
+                    </p>
+                    <p>
+                        Mein Fokus: Systeme die nicht nur funktionieren, sondern wartbar, 
+                        performant und verständlich sind. Qualität über Quantität.
+                    </p>
+                    <p>
+                        Als Company of One arbeite ich direkt mit dir — keine 
+                        Projektmanager-Telefonstille, keine Junior-Überraschungen.
+                    </p>
+                    <div class="about-stats">
+                        <div>
+                            <div class="stat-value">20+</div>
+                            <div class="stat-label">Jahre Erfahrung</div>
+                        </div>
+                        <div>
+                            <div class="stat-value">BI</div>
+                            <div class="stat-label">Spezialisierung</div>
+                        </div>
+                        <div>
+                            <div class="stat-value">1:1</div>
+                            <div class="stat-label">Direkter Kontakt</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact">
-        <div class="contact-box">
-            <h2>Lass uns sprechen</h2>
-            <p>
-                Projekt im Kopf? Fragen zu Power BI, Fabric oder Open Source? 
-                Schreib mir — Antwort innerhalb von 24h.
-            </p>
-            <a href="mailto:info@capygator.com" class="contact-email">info@capygator.com</a>
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <h2>Let's talk.</h2>
+            <p>Projekt im Kopf? Schreib mir — Antwort innerhalb von 24h.</p>
+            <a href="mailto:info@capygator.com" class="cta-email">info@capygator.com</a>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-inner">
-            <div class="footer-links">
-                <a href="impressum.html">Impressum</a>
-                <a href="https://github.com/capygator" target="_blank">GitHub</a>
-                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-            </div>
-            <div class="footer-copy">
-                © 2026 CAPYGATOR · Premium Data Engineering
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-links">
+                    <a href="impressum.html">Impressum</a>
+                    <a href="https://github.com/capygator" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                </div>
+                <div class="footer-copy">© 2026 CAPYGATOR</div>
             </div>
         </div>
     </footer>
-
-    <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Nav background on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(10, 10, 10, 0.98)';
-            } else {
-                nav.style.background = 'rgba(10, 10, 10, 0.95)';
-            }
-        });
-    </script>
 </body>
 </html>
