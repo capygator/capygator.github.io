@@ -1,0 +1,176 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+---
+
+<PageLayout
+  title="Microsoft Fabric — End-to-End Datenplattform | Capygator"
+  description="Von der Datenstrategie bis zum kompetenten Team. Ich begleite Ihren Mittelstand durch die gesamte Fabric-Reise — Architektur, Implementierung, Coaching."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-label animate-fade-up delay-2">Microsoft Fabric</p>
+      <h1 class="page-title animate-fade-up delay-3">
+        Von der Datenstrategie bis zum<br />
+        <span class="text-accent">kompetenten Team.</span>
+      </h1>
+      <p class="page-sub animate-fade-up delay-4">
+        Fabric ist mächtig — aber Macht ohne Plan ist Chaos. Ich bringe beides zusammen:
+        die technische Tiefe und den strategischen Überblick, den Ihr Mittelstand braucht.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="content-section">
+    <div class="container content-narrow">
+      <h2>Das Problem</h2>
+      <p>
+        Microsoft Fabric verspricht die einheitliche Datenplattform. Aber die Realität sieht oft anders aus:
+        Lakehouses ohne Strategie, Pipelines ohne Governance, Teams ohne Know-how.
+        Die Technologie ist da — was fehlt, ist jemand der das Gesamtbild versteht.
+      </p>
+    </div>
+  </section>
+
+  <!-- 4 PHASES -->
+  <section class="content-section">
+    <div class="container">
+      <h2>Mein Ansatz: 4 Phasen</h2>
+      <div class="phases-grid">
+        <div class="phase-card">
+          <span class="phase-num">01</span>
+          <h3>Strategie & Assessment</h3>
+          <p>Wo stehen Sie heute? Wo wollen Sie hin? Ich analysiere Ihre Datenlandschaft und entwickle eine realistische Fabric-Roadmap.</p>
+        </div>
+        <div class="phase-card">
+          <span class="phase-num">02</span>
+          <h3>Architektur & Datenmodell</h3>
+          <p>Lakehouse, Warehouse, oder beides? Ich designe die Architektur die zu Ihren Anforderungen passt — nicht umgekehrt.</p>
+        </div>
+        <div class="phase-card">
+          <span class="phase-num">03</span>
+          <h3>Implementierung & Migration</h3>
+          <p>Pipelines, Dataflows, Notebooks — ich baue Ihre Fabric-Umgebung auf oder migriere von bestehenden Systemen.</p>
+        </div>
+        <div class="phase-card">
+          <span class="phase-num">04</span>
+          <h3>Enablement & Coaching</h3>
+          <p>Ihr Team soll Fabric eigenständig nutzen können. Ich schule, dokumentiere und begleite bis zur Selbstständigkeit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHOM -->
+  <section class="content-section">
+    <div class="container content-narrow">
+      <h2>Für wen</h2>
+      <p>
+        Mittelständler die Fabric einführen, von Legacy-Systemen migrieren, oder ihre bestehende
+        Fabric-Umgebung auf das nächste Level bringen wollen. Wenn Sie jemanden suchen, der nicht
+        nur ein Feature implementiert sondern die ganze Reise versteht — dann sprechen wir.
+      </p>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Fabric richtig angehen?"
+    subline="Lassen Sie uns in einem Erstgespräch herausfinden, wo Sie stehen und was der nächste sinnvolle Schritt ist."
+  />
+</PageLayout>
+
+<style>
+  .page-hero {
+    padding: 10rem 0 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .page-label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+  }
+
+  .page-sub {
+    font-size: 1.1rem;
+    max-width: 560px;
+    color: var(--color-text-secondary);
+  }
+
+  .content-section {
+    padding: 3rem 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .content-narrow {
+    max-width: 640px;
+  }
+
+  .content-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .content-section p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+  }
+
+  .phases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .phase-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 2rem;
+    transition: border-color 0.3s;
+  }
+
+  .phase-card:hover {
+    border-color: var(--color-border-hover);
+  }
+
+  .phase-num {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .phase-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .phase-card p {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 768px) {
+    .phases-grid { grid-template-columns: 1fr; }
+  }
+</style>

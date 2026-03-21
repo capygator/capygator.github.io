@@ -1,0 +1,353 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import ServiceCard from '../components/ui/ServiceCard.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+
+const fabricIcon = `<svg width="24" height="24" fill="none" stroke="#00e5a0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`;
+const pbiIcon = `<svg width="24" height="24" fill="none" stroke="#00e5a0" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 14l3-3 2.5 2.5L17 9"/><circle cx="17" cy="9" r="1.5" fill="#00e5a0"/></svg>`;
+const aiIcon = `<svg width="24" height="24" fill="none" stroke="#00e5a0" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>`;
+---
+
+<PageLayout
+  title="Capygator — Power BI & Fabric Experte | DACH"
+  description="Calm on complexity. Power BI, Microsoft Fabric und Agentic AI — aus einer Hand. Ich baue die Dateninfrastruktur, die Ihr Mittelstand verdient."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge animate-fade-up delay-2">
+          <span class="hero-badge-dot"></span>
+          Verfügbar für neue Projekte
+        </div>
+        <h1 class="hero-title animate-fade-up delay-3">
+          Daten werden zu<br />
+          <span class="text-accent">Entscheidungen.</span>
+        </h1>
+        <p class="hero-sub animate-fade-up delay-4">
+          Power BI, Microsoft Fabric und Agentic AI — aus einer Hand.
+          Ich baue die Dateninfrastruktur, die Ihr Mittelstand verdient.
+        </p>
+        <div class="hero-actions animate-fade-up delay-5">
+          <a href="/kontakt" class="btn-primary">
+            Projekt besprechen
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/preise" class="btn-secondary">Preise ansehen ↓</a>
+        </div>
+      </div>
+
+      <div class="hero-visual animate-fade-up delay-4">
+        <div class="hero-logo-wrapper">
+          <div class="hero-logo-glow"></div>
+          <img
+            src="/images/capygator-logo.png"
+            alt="Capygator — Calm on Complexity"
+            width="380"
+            height="380"
+            class="hero-logo-img"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="container">
+      <p class="section-label animate-fade-up delay-6">Was ich mache</p>
+      <div class="services-grid">
+        <div class="animate-fade-up delay-7">
+          <ServiceCard
+            title="Microsoft Fabric"
+            description="Von der Datenstrategie bis zum kompetenten Team. End-to-End Fabric — Architektur, Implementierung, Enablement."
+            href="/fabric"
+            icon={fabricIcon}
+          />
+        </div>
+        <div class="animate-fade-up delay-8">
+          <ServiceCard
+            title="Power BI"
+            description="Semantische Modelle, die Ihre Berichte 10× schneller machen. BI Apps und Reports vom Profi."
+            href="/power-bi"
+            icon={pbiIcon}
+          />
+        </div>
+        <div class="animate-fade-up" style="animation-delay: 0.9s;">
+          <ServiceCard
+            title="Agentic Engineering"
+            description="KI die Datenarbeit erledigt, nicht nur darüber redet. Claude + Fabric für automatisierte Pipelines."
+            href="/agentic-engineering"
+            icon={aiIcon}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust">
+    <div class="container trust-inner">
+      <span class="trust-label">Vertrauen durch</span>
+      <div class="trust-items">
+        <span class="trust-item"><span class="trust-dot"></span> Microsoft Partner</span>
+        <span class="trust-item"><span class="trust-dot"></span> Fabric Zertifiziert</span>
+        <span class="trust-item"><span class="trust-dot"></span> 10+ Jahre BI</span>
+        <span class="trust-item"><span class="trust-dot"></span> DACH Fokus</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="proof">
+    <div class="container proof-inner">
+      <div class="proof-card">
+        <blockquote>
+          <p>[ZITAT: Echtes Kundenzitat über Zusammenarbeit, Ergebnis, Empfehlung — mit Name, Rolle und Firma]</p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTABanner />
+</PageLayout>
+
+<style>
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 6rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .hero-content {
+    flex: 1;
+    max-width: 600px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-accent-dim);
+    border: 1px solid var(--color-accent-mid);
+    color: var(--color-accent);
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-badge);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+  }
+
+  .hero-title {
+    font-size: clamp(2.75rem, 5vw, 4.25rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--color-text-secondary);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--color-accent);
+    color: var(--color-bg-primary);
+    padding: 0.85rem 2rem;
+    border-radius: var(--radius-button);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    font-family: var(--font-display);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.25s;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-accent-bright);
+    box-shadow: 0 4px 40px var(--color-accent-dim);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+  }
+
+  .btn-secondary:hover {
+    color: var(--color-text-primary);
+  }
+
+  /* HERO VISUAL */
+  .hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-logo-wrapper {
+    position: relative;
+    width: 380px;
+    height: 380px;
+  }
+
+  .hero-logo-glow {
+    position: absolute;
+    inset: -30px;
+    background: radial-gradient(circle, var(--color-accent-dim) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: breathe 4s ease-in-out infinite;
+  }
+
+  .hero-logo-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.06); opacity: 0.8; }
+  }
+
+  /* SERVICES */
+  .services {
+    padding: 2rem 0 6rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-label {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 2rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  /* TRUST */
+  .trust {
+    position: relative;
+    z-index: 2;
+  }
+
+  .trust-inner {
+    border-top: 1px solid var(--color-border);
+    padding: 2.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .trust-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
+  .trust-items {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    color: var(--color-text-muted);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.9rem;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .trust-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--color-accent);
+    border-radius: 50%;
+  }
+
+  /* PROOF */
+  .proof {
+    padding: 4rem 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .proof-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 3rem;
+    max-width: 640px;
+  }
+
+  .proof-card blockquote p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+    .hero-content { max-width: 100%; }
+    .hero-sub { max-width: 100%; }
+    .hero-actions { justify-content: center; }
+    .hero-logo-wrapper { width: 260px; height: 260px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .trust-inner { flex-direction: column; text-align: center; }
+    .trust-items { justify-content: center; }
+  }
+</style>

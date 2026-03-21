@@ -1,0 +1,151 @@
+---
+interface Props {
+  name: string;
+  days: number;
+  hourlyRate: number;
+  totalPrice: number;
+  description: string;
+  highlighted?: boolean;
+}
+
+const { name, days, hourlyRate, totalPrice, description, highlighted = false } = Astro.props;
+
+const formattedTotal = new Intl.NumberFormat('de-DE', {
+  style: 'currency',
+  currency: 'EUR',
+  minimumFractionDigits: 0,
+}).format(totalPrice);
+
+const formattedHourly = new Intl.NumberFormat('de-DE', {
+  style: 'currency',
+  currency: 'EUR',
+  minimumFractionDigits: 0,
+}).format(hourlyRate);
+---
+
+<div class:list={['pricing-card', { highlighted }]}>
+  {highlighted && <div class="pricing-badge">Beliebt</div>}
+  <h3 class="pricing-name">{name}</h3>
+  <p class="pricing-days">{days} Tage</p>
+  <div class="pricing-rate">
+    <span class="pricing-hourly">{formattedHourly}</span>
+    <span class="pricing-per">/ Stunde</span>
+  </div>
+  <p class="pricing-total">{formattedTotal} pauschal</p>
+  <p class="pricing-desc">{description}</p>
+  <a href="/kontakt" class="pricing-cta">
+    Anfragen
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</div>
+
+<style>
+  .pricing-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.35s var(--ease-out-expo);
+  }
+
+  .pricing-card:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px -20px rgba(0,0,0,0.5);
+  }
+
+  .pricing-card.highlighted {
+    border-color: var(--color-accent-mid);
+    background: var(--color-bg-card-hover);
+  }
+
+  .pricing-card.highlighted::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  }
+
+  .pricing-badge {
+    position: absolute;
+    top: -0.75rem;
+    right: 1.5rem;
+    background: var(--color-accent);
+    color: var(--color-bg-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-badge);
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+
+  .pricing-name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .pricing-days {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pricing-rate {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .pricing-hourly {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-text-primary);
+    letter-spacing: -0.03em;
+  }
+
+  .pricing-per {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .pricing-total {
+    color: var(--color-accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .pricing-desc {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 2rem;
+  }
+
+  .pricing-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: gap 0.2s;
+  }
+
+  .pricing-cta:hover {
+    gap: 0.7rem;
+  }
+</style>

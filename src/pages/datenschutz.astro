@@ -1,0 +1,109 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout
+  title="Datenschutzerklärung | Capygator"
+  description="Datenschutzerklärung gemäß DSGVO."
+>
+  <section class="legal-page">
+    <div class="container legal-content">
+      <h1>Datenschutzerklärung</h1>
+
+      <h2>1. Verantwortlicher</h2>
+      <p>
+        [VORNAME NACHNAME]<br />
+        Capygator — Power BI & Fabric Consulting<br />
+        [STRASSE HAUSNUMMER]<br />
+        [PLZ ORT]<br />
+        E-Mail: <a href="mailto:hallo@capygator.de">hallo@capygator.de</a>
+      </p>
+
+      <h2>2. Hosting</h2>
+      <p>
+        Diese Website wird über GitHub Pages (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) gehostet.
+        GitHub kann dabei technische Daten wie IP-Adressen erheben. Details: 
+        <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection" target="_blank" rel="noopener">GitHub Pages Datenschutz</a>.
+      </p>
+
+      <h2>3. Kontaktformular</h2>
+      <p>
+        Das Kontaktformular auf dieser Seite wird über Formspree (Formspree Inc.) verarbeitet.
+        Wenn Sie das Formular nutzen, werden Ihre eingegebenen Daten (Name, E-Mail, Nachricht)
+        an Formspree übermittelt und per E-Mail an mich weitergeleitet. Rechtsgrundlage ist
+        Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen).
+      </p>
+
+      <h2>4. Terminbuchung</h2>
+      <p>
+        Für die Terminbuchung nutze ich Calendly (Calendly LLC). Bei Nutzung des Buchungstools
+        werden Ihre Daten gemäß der <a href="https://calendly.com/privacy" target="_blank" rel="noopener">Datenschutzerklärung von Calendly</a> verarbeitet.
+      </p>
+
+      <h2>5. Ihre Rechte</h2>
+      <p>
+        Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung
+        Ihrer personenbezogenen Daten. Außerdem haben Sie das Recht auf Datenübertragbarkeit und
+        das Recht, Beschwerde bei einer Aufsichtsbehörde einzulegen.
+      </p>
+
+      <h2>6. Cookies</h2>
+      <p>
+        Diese Website verwendet keine Tracking-Cookies und keine Analyse-Tools.
+        Es werden keine personenbezogenen Daten zu Werbezwecken erhoben.
+      </p>
+
+      <h2>7. SSL-Verschlüsselung</h2>
+      <p>
+        Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher
+        Inhalte eine SSL-Verschlüsselung (HTTPS).
+      </p>
+
+      <p class="legal-updated">Stand: März 2026</p>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .legal-page {
+    padding: 10rem 0 6rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .legal-content {
+    max-width: 640px;
+  }
+
+  .legal-content h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .legal-content h2 {
+    font-size: 1.15rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .legal-content p {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+  }
+
+  .legal-content a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .legal-content a:hover {
+    text-decoration: underline;
+  }
+
+  .legal-updated {
+    margin-top: 3rem;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+  }
+</style>

@@ -1,0 +1,160 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+---
+
+<PageLayout
+  title="Agentic Engineering — KI-gestützte BI-Entwicklung | Capygator"
+  description="Moderne BI-Entwicklung mit Anthropic Claude und Microsoft Fabric. KI die Datenarbeit erledigt, nicht nur darüber redet."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-label animate-fade-up delay-2">Agentic Engineering</p>
+      <h1 class="page-title animate-fade-up delay-3">
+        KI die Datenarbeit<br />
+        <span class="text-accent">erledigt.</span>
+      </h1>
+      <p class="page-sub animate-fade-up delay-4">
+        Datenaufbereitung, Dokumentation, Testing — Routinearbeit die Projektbudget frisst.
+        Ich integriere Agentic AI in Ihren Fabric/Power BI Workflow, damit Sie sich
+        auf die Entscheidungen konzentrieren können, nicht auf die Vorbereitung.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container content-narrow">
+      <h2>Was bedeutet "Agentic"?</h2>
+      <p>
+        Klassische KI beantwortet Fragen. Agentic AI <em>handelt</em>: sie analysiert Ihre Daten,
+        schreibt Pipelines, validiert Ergebnisse und dokumentiert was sie tut. Nicht autonom im stillen Kämmerlein,
+        sondern als intelligenter Assistent in Ihrem bestehenden Workflow.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Konkrete Use Cases</h2>
+      <div class="usecases-grid">
+        <div class="usecase-card">
+          <span class="usecase-icon">⚡</span>
+          <h3>Automatisierte Datenvalidierung</h3>
+          <p>AI-Agents die Ihre Datenqualität prüfen, Anomalien erkennen und dokumentieren — bevor der Report beim Management landet.</p>
+        </div>
+        <div class="usecase-card">
+          <span class="usecase-icon">🔧</span>
+          <h3>Code-generierte Pipelines</h3>
+          <p>Von der Anforderung zum fertigen Fabric Notebook — mit Code-Review durch erfahrene Augen, nicht blind generiert.</p>
+        </div>
+        <div class="usecase-card">
+          <span class="usecase-icon">🔍</span>
+          <h3>Datenmodell-Review</h3>
+          <p>AI-gestützte Analyse bestehender Semantic Models: Performance-Bottlenecks, DAX-Optimierung, Best-Practice-Checks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container content-narrow">
+      <h2>Warum Anthropic Claude?</h2>
+      <p>
+        Ich arbeite mit Claude von Anthropic — dem zuverlässigsten AI-Modell für technische Aufgaben.
+        Warum? Präzisere Code-Generierung, transparenteres Reasoning, und eine klare Haltung zu Datensicherheit.
+        Ihre Unternehmensdaten verdienen ein Modell dem man vertrauen kann.
+      </p>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="AI in Ihrem BI-Workflow?"
+    subline="Kein Buzzword-Bingo — ich zeige Ihnen konkret, wo Agentic AI in Ihrem Daten-Alltag Stunden spart."
+  />
+</PageLayout>
+
+<style>
+  .page-hero {
+    padding: 10rem 0 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .page-label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+  }
+
+  .page-sub {
+    font-size: 1.1rem;
+    max-width: 560px;
+    color: var(--color-text-secondary);
+  }
+
+  .content-section {
+    padding: 3rem 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .content-narrow { max-width: 640px; }
+
+  .content-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .content-section p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+  }
+
+  .usecases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .usecase-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 2rem;
+    transition: border-color 0.3s;
+  }
+
+  .usecase-card:hover { border-color: var(--color-border-hover); }
+
+  .usecase-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .usecase-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .usecase-card p {
+    font-size: 0.85rem;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 768px) {
+    .usecases-grid { grid-template-columns: 1fr; }
+  }
+</style>

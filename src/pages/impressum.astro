@@ -1,0 +1,110 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout
+  title="Impressum | Capygator"
+  description="Impressum gemäß § 5 TMG."
+>
+  <section class="legal-page">
+    <div class="container legal-content">
+      <h1>Impressum</h1>
+
+      <h2>Angaben gemäß § 5 TMG</h2>
+      <p>
+        [VORNAME NACHNAME]<br />
+        Capygator — Power BI & Fabric Consulting<br />
+        [STRASSE HAUSNUMMER]<br />
+        [PLZ ORT]<br />
+        Deutschland
+      </p>
+
+      <h2>Kontakt</h2>
+      <p>
+        E-Mail: <a href="mailto:hallo@capygator.de">hallo@capygator.de</a>
+      </p>
+
+      <h2>Umsatzsteuer-ID</h2>
+      <p>
+        Umsatzsteuer-Identifikationsnummer gemäß §27a Umsatzsteuergesetz:<br />
+        [UST-ID]
+      </p>
+
+      <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+      <p>
+        [VORNAME NACHNAME]<br />
+        [STRASSE HAUSNUMMER]<br />
+        [PLZ ORT]
+      </p>
+
+      <h2>Haftungsausschluss</h2>
+
+      <h3>Haftung für Inhalte</h3>
+      <p>
+        Die Inhalte dieser Seite wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
+        Vollständigkeit und Aktualität der Inhalte kann ich jedoch keine Gewähr übernehmen.
+        Als Diensteanbieter bin ich gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten
+        nach den allgemeinen Gesetzen verantwortlich.
+      </p>
+
+      <h3>Haftung für Links</h3>
+      <p>
+        Diese Seite enthält Links zu externen Webseiten Dritter, auf deren Inhalte ich keinen
+        Einfluss habe. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter
+        oder Betreiber der Seiten verantwortlich.
+      </p>
+
+      <h3>Urheberrecht</h3>
+      <p>
+        Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
+        dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art
+        der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen
+        Zustimmung des jeweiligen Autors.
+      </p>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .legal-page {
+    padding: 10rem 0 6rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .legal-content {
+    max-width: 640px;
+  }
+
+  .legal-content h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .legal-content h2 {
+    font-size: 1.15rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .legal-content h3 {
+    font-size: 0.95rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .legal-content p {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+  }
+
+  .legal-content a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .legal-content a:hover {
+    text-decoration: underline;
+  }
+</style>

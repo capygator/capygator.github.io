@@ -1,0 +1,267 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout
+  title="Kontakt — Projekt besprechen | Capygator"
+  description="Lassen Sie uns über Ihr Daten-Projekt sprechen. Ich melde mich innerhalb von 24 Stunden."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-label animate-fade-up delay-2">Kontakt</p>
+      <h1 class="page-title animate-fade-up delay-3">
+        Lassen Sie uns<br />
+        <span class="text-accent">sprechen.</span>
+      </h1>
+      <p class="page-sub animate-fade-up delay-4">
+        Schreiben Sie mir oder buchen Sie direkt einen Termin.
+        Ich melde mich innerhalb von 24 Stunden.
+      </p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container contact-grid">
+      <!-- FORM -->
+      <div class="contact-form-wrapper animate-fade-up delay-5">
+        <form
+          action="https://formspree.io/f/[DEINE-FORMSPREE-ID]"
+          method="POST"
+          class="contact-form"
+        >
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Ihr Name" />
+          </div>
+          <div class="form-group">
+            <label for="company">Unternehmen</label>
+            <input type="text" id="company" name="company" placeholder="Firma (optional)" />
+          </div>
+          <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" required placeholder="ihre@email.de" />
+          </div>
+          <div class="form-group">
+            <label for="package">Interesse an</label>
+            <select id="package" name="package">
+              <option value="">— Bitte wählen —</option>
+              <option value="sprint">Sprint (5 Tage)</option>
+              <option value="projekt">Projekt (20 Tage)</option>
+              <option value="partnerschaft">Partnerschaft (200 Tage)</option>
+              <option value="unsicher">Noch unsicher</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Nachricht</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Erzählen Sie mir kurz von Ihrem Vorhaben..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            Nachricht senden
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="contact-sidebar animate-fade-up delay-6">
+        <div class="sidebar-card">
+          <h3>Erstgespräch buchen</h3>
+          <p>30 Minuten, unverbindlich, per Video-Call.</p>
+          <div class="calendly-placeholder">
+            <!-- TODO: Calendly Embed ersetzen -->
+            <p class="placeholder-text">[CALENDLY-EMBED: Hier Calendly-Widget einfügen]</p>
+            <a href="#" class="calendly-link">→ Termin auf Calendly wählen</a>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Oder direkt per E-Mail</h3>
+          <p>
+            <a href="mailto:hallo@capygator.de" class="email-link">hallo@capygator.de</a>
+          </p>
+        </div>
+
+        <div class="sidebar-note">
+          <p>Kein Callcenter, keine Warteschleife — Sie schreiben direkt mir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .page-hero {
+    padding: 10rem 0 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .page-label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .page-sub {
+    font-size: 1.1rem;
+    max-width: 500px;
+    color: var(--color-text-secondary);
+  }
+
+  .contact-section {
+    padding: 2rem 0 6rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  /* FORM */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-button);
+    padding: 0.75rem 1rem;
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  .form-group select {
+    cursor: pointer;
+  }
+
+  .form-group select option {
+    background: var(--color-bg-primary);
+  }
+
+  .form-submit {
+    background: var(--color-accent);
+    color: var(--color-bg-primary);
+    padding: 0.85rem 2rem;
+    border-radius: var(--radius-button);
+    border: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    font-family: var(--font-display);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.25s;
+    align-self: flex-start;
+  }
+
+  .form-submit:hover {
+    background: var(--color-accent-bright);
+    box-shadow: 0 4px 40px var(--color-accent-dim);
+    transform: translateY(-2px);
+  }
+
+  /* SIDEBAR */
+  .sidebar-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .sidebar-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .sidebar-card p {
+    font-size: 0.875rem;
+  }
+
+  .calendly-placeholder {
+    margin-top: 1rem;
+    padding: 2rem;
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-button);
+    text-align: center;
+  }
+
+  .placeholder-text {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+  }
+
+  .calendly-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-top: 0.75rem;
+  }
+
+  .email-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .sidebar-note p {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

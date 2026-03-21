@@ -1,0 +1,20 @@
+# build
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# env
+.env
+.env.*
+
+# editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# debug
+npm-debug.log*

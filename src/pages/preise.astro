@@ -1,0 +1,199 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import PricingCard from '../components/ui/PricingCard.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+
+const faqs = [
+  { q: 'Was ist ein Arbeitstag?', a: '8 Stunden, remote oder vor Ort bei Ihnen. Remote ist der Standard, vor Ort nach Absprache.' },
+  { q: 'Fallen Reisekosten an?', a: 'Remote: keine. Vor Ort: Reisekosten nach Aufwand. Ich kläre das transparent vor Projektstart.' },
+  { q: 'Kann ich Tage nachbuchen?', a: 'Ja, innerhalb eines laufenden Pakets können wir flexibel aufstocken — zum jeweiligen Paketpreis.' },
+  { q: 'Wie schnell sind Sie verfügbar?', a: 'In der Regel innerhalb von 2-4 Wochen. Für dringende Themen finden wir meistens eine Lösung.' },
+  { q: 'Was passiert nach dem Paket?', a: 'Ihr Team ist eigenständig, oder wir verlängern. Kein Lock-in, keine versteckten Folgekosten.' },
+  { q: 'Gibt es eine Zufriedenheitsgarantie?', a: 'Wenn nach dem ersten Sprint-Tag die Richtung nicht stimmt, stellen ich keine weiteren Tage in Rechnung.' },
+];
+---
+
+<PageLayout
+  title="Preise — Transparent und fair | Capygator"
+  description="Drei Pakete. Null Überraschungen. Power BI & Fabric Expertise ab 125 €/h — vom 5-Tages-Sprint bis zur langfristigen Partnerschaft."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-label animate-fade-up delay-2">Preise</p>
+      <h1 class="page-title animate-fade-up delay-3">
+        Drei Pakete.<br />
+        <span class="text-accent">Null Überraschungen.</span>
+      </h1>
+      <p class="page-sub animate-fade-up delay-4">
+        Transparenz ist mir wichtig. Sie wissen vorher was es kostet — und ich liefere was ich verspreche.
+      </p>
+    </div>
+  </section>
+
+  <!-- PRICING CARDS -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="pricing-grid">
+        <div class="animate-fade-up delay-5">
+          <PricingCard
+            name="Sprint"
+            days={5}
+            hourlyRate={200}
+            totalPrice={8000}
+            description="Quick Wins, Assessments, Workshops. Ideal um schnell Klarheit zu schaffen oder ein konkretes Problem zu lösen."
+          />
+        </div>
+        <div class="animate-fade-up delay-6">
+          <PricingCard
+            name="Projekt"
+            days={20}
+            hourlyRate={150}
+            totalPrice={24000}
+            description="Implementierung, Migration, BI App Bau. Für klar definierte Projekte mit messbarem Ergebnis."
+            highlighted
+          />
+        </div>
+        <div class="animate-fade-up delay-7">
+          <PricingCard
+            name="Partnerschaft"
+            days={200}
+            hourlyRate={125}
+            totalPrice={200000}
+            description="Langfristiger Fabric/BI Partner. Für Unternehmen die einen verlässlichen Experten an ihrer Seite wollen."
+          />
+        </div>
+      </div>
+      <p class="pricing-note">Alle Preise netto, zzgl. MwSt. Abrechnung nach Aufwand innerhalb des Pakets.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="faq-title">Häufige Fragen</h2>
+      <div class="faq-list">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary class="faq-question">{faq.q}</summary>
+            <p class="faq-answer">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Welches Paket passt?"
+    subline="Im Erstgespräch finden wir gemeinsam heraus, welcher Umfang für Ihr Vorhaben sinnvoll ist."
+  />
+</PageLayout>
+
+<style>
+  .page-hero {
+    padding: 10rem 0 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .page-label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .page-sub {
+    font-size: 1.1rem;
+    max-width: 500px;
+    color: var(--color-text-secondary);
+  }
+
+  .pricing-section {
+    padding: 2rem 0 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .pricing-note {
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  .faq-section {
+    padding: 4rem 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .faq-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .faq-list {
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+    padding: 1.25rem 0;
+  }
+
+  .faq-question {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-question::-webkit-details-marker { display: none; }
+
+  .faq-question::after {
+    content: '+';
+    color: var(--color-accent);
+    font-size: 1.25rem;
+    font-weight: 400;
+    transition: transform 0.2s;
+  }
+
+  .faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin-top: 1rem;
+    padding-right: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
+  }
+</style>
