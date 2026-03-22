@@ -1,0 +1,237 @@
+---
+const fonts = [
+  { name: 'Gugi', family: "'Gugi', cursive" },
+  { name: 'Datatype', family: "'Datatype', sans-serif" },
+  { name: 'Instrument Serif', family: "'Instrument Serif', Georgia, serif" },
+  { name: 'Megrim', family: "'Megrim', cursive" },
+  { name: 'Monoton', family: "'Monoton', cursive" },
+  { name: 'Advent Pro', family: "'Advent Pro', sans-serif" },
+  { name: 'KoHo', family: "'KoHo', sans-serif" },
+  { name: 'Barriecito', family: "'Barriecito', cursive" },
+  { name: 'Lobster', family: "'Lobster', cursive" },
+  { name: 'Offside', family: "'Offside', sans-serif" },
+];
+---
+
+<div class="font-switcher" data-font-switcher>
+  <button class="font-switcher-toggle" data-font-toggle aria-label="Schriftart wechseln">
+    <span class="font-switcher-icon">Aa</span>
+    <span class="font-switcher-label" data-font-current>Gugi</span>
+  </button>
+  <div class="font-switcher-panel" data-font-panel hidden>
+    <div class="font-switcher-header">Schriftart</div>
+    {fonts.map((font, i) => (
+      <button
+        class:list={['font-option', { active: i === 0 }]}
+        data-font-option
+        data-font-family={font.family}
+        data-font-name={font.name}
+        style={`font-family: ${font.family};`}
+      >
+        <span class="font-option-preview">Calm on complexity.</span>
+        <span class="font-option-name">{font.name}</span>
+      </button>
+    ))}
+  </div>
+</div>
+
+<style>
+  .font-switcher {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 200;
+  }
+
+  .font-switcher-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+  }
+
+  .font-switcher-toggle:hover {
+    border-color: var(--color-accent-mid);
+    background: var(--color-bg-card-hover);
+  }
+
+  .font-switcher-icon {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--color-accent);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .font-switcher-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+  }
+
+  .font-switcher-panel {
+    position: absolute;
+    bottom: calc(100% + 0.5rem);
+    right: 0;
+    width: 280px;
+    max-height: 400px;
+    overflow-y: auto;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .font-switcher-panel[hidden] {
+    display: none;
+  }
+
+  .font-switcher-header {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    padding: 0.5rem 0.75rem 0.4rem;
+  }
+
+  .font-option {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.6rem 0.75rem;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s, border-color 0.15s;
+    color: var(--color-text-primary);
+    width: 100%;
+  }
+
+  .font-option:hover {
+    background: var(--color-bg-card-hover);
+    border-color: var(--color-border);
+  }
+
+  .font-option.active {
+    background: var(--color-accent-dim);
+    border-color: var(--color-accent-mid);
+  }
+
+  .font-option-preview {
+    font-size: 1.1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .font-option-name {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  /* Scrollbar styling */
+  .font-switcher-panel::-webkit-scrollbar {
+    width: 4px;
+  }
+  .font-switcher-panel::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .font-switcher-panel::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .font-switcher {
+      bottom: 1rem;
+      right: 1rem;
+    }
+    .font-switcher-panel {
+      width: 240px;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('[data-font-toggle]');
+  const panel = document.querySelector('[data-font-panel]');
+  const currentLabel = document.querySelector('[data-font-current]');
+  const options = document.querySelectorAll('[data-font-option]');
+
+  // Restore saved font on page load
+  const savedFont = localStorage.getItem('capygator-font-family');
+  const savedFontName = localStorage.getItem('capygator-font-name');
+  if (savedFont) {
+    document.documentElement.style.setProperty('--font-display', savedFont);
+    if (currentLabel && savedFontName) {
+      currentLabel.textContent = savedFontName;
+    }
+    options.forEach((o) => {
+      o.classList.toggle('active', (o as HTMLElement).dataset.fontFamily === savedFont);
+    });
+  } else {
+    document.documentElement.style.setProperty('--font-display', "'Gugi', cursive");
+  }
+
+  toggle?.addEventListener('click', () => {
+    const isHidden = panel?.hasAttribute('hidden');
+    if (isHidden) {
+      panel?.removeAttribute('hidden');
+    } else {
+      panel?.setAttribute('hidden', '');
+    }
+  });
+
+  // Close panel when clicking outside
+  document.addEventListener('click', (e) => {
+    const switcher = document.querySelector('[data-font-switcher]');
+    if (switcher && !switcher.contains(e.target as Node)) {
+      panel?.setAttribute('hidden', '');
+    }
+  });
+
+  options.forEach((option) => {
+    option.addEventListener('click', () => {
+      const family = (option as HTMLElement).dataset.fontFamily;
+      const name = (option as HTMLElement).dataset.fontName;
+
+      if (family) {
+        document.documentElement.style.setProperty('--font-display', family);
+        localStorage.setItem('capygator-font-family', family);
+      }
+
+      if (currentLabel && name) {
+        currentLabel.textContent = name;
+        localStorage.setItem('capygator-font-name', name);
+      }
+
+      // Update active state
+      options.forEach((o) => o.classList.remove('active'));
+      option.classList.add('active');
+
+      // Close panel
+      panel?.setAttribute('hidden', '');
+    });
+  });
+</script>

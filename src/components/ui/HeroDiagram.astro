@@ -1,0 +1,210 @@
+---
+const services = [
+  { icon: '/images/fabric-icons/data-factory.svg', label: 'Data Factory' },
+  { icon: '/images/fabric-icons/data-engineering.svg', label: 'Analytics' },
+  { icon: '/images/fabric-icons/databases.svg', label: 'Databases' },
+  { icon: '/images/fabric-icons/real-time-intelligence.svg', label: 'Real-Time Intelligence', twoLine: true },
+  { icon: '/images/fabric-icons/fabric-iq.svg', label: 'IQ' },
+  { icon: '/images/fabric-icons/power-bi.svg', label: 'Power BI' },
+];
+
+const platform = [
+  { icon: '/images/fabric-icons/copilot.svg', label: 'Copilot' },
+  { icon: '/images/fabric-icons/one-lake.svg', label: 'OneLake' },
+  { icon: '/images/fabric-icons/purview.svg', label: 'Governance' },
+];
+---
+
+<div class="fabric-diagram" aria-label="Microsoft Fabric Architektur — Die einheitliche Datenplattform">
+  <!-- Outer frame -->
+  <div class="fabric-frame">
+    <!-- Logo + Title -->
+    <div class="fabric-header">
+      <img src="/images/fabric-icons/fabric.svg" alt="" width="32" height="32" class="fabric-logo" />
+      <h3 class="fabric-title">Microsoft Fabric</h3>
+      <p class="fabric-subtitle">Die einheitliche Datenplattform</p>
+    </div>
+
+    <!-- 6 Service Cards -->
+    <div class="fabric-services">
+      {services.map((svc) => (
+        <div class="fabric-svc">
+          <img src={svc.icon} alt="" width="36" height="36" class="fabric-svc-icon" />
+          <span class="fabric-svc-label">{svc.label}</span>
+        </div>
+      ))}
+    </div>
+
+    <!-- Platform Bar -->
+    <div class="fabric-platform-label">
+      <span class="fabric-platform-line"></span>
+      <span class="fabric-platform-text">Fabric Platform</span>
+      <span class="fabric-platform-line"></span>
+    </div>
+
+    <div class="fabric-platform">
+      {platform.map((p, i) => (
+        <>
+          <div class="fabric-plat-item">
+            <img src={p.icon} alt="" width="28" height="28" />
+            <span>{p.label}</span>
+          </div>
+          {i < platform.length - 1 && <span class="fabric-plat-divider"></span>}
+        </>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .fabric-diagram {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem 0 2rem;
+    opacity: 0;
+    animation: diagramFadeUp 0.8s ease-out 0.6s forwards;
+  }
+
+  @keyframes diagramFadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fabric-frame {
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    background: var(--color-bg-secondary);
+  }
+
+  /* Header */
+  .fabric-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .fabric-logo {
+    margin-bottom: 0.75rem;
+    filter: drop-shadow(0 0 12px rgba(0, 229, 160, 0.3));
+  }
+
+  .fabric-title {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.25rem;
+  }
+
+  .fabric-subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    text-transform: uppercase;
+  }
+
+  /* Service Cards */
+  .fabric-services {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .fabric-svc {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1.25rem 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .fabric-svc:hover {
+    border-color: var(--color-accent-mid);
+    background: var(--color-bg-card-hover);
+  }
+
+  .fabric-svc-icon {
+    flex-shrink: 0;
+  }
+
+  .fabric-svc-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.03em;
+    color: var(--color-text-secondary);
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  /* Platform label */
+  .fabric-platform-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .fabric-platform-line {
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+  }
+
+  .fabric-platform-text {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
+  /* Platform bar */
+  .fabric-platform {
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    border-style: dashed;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .fabric-plat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.03em;
+  }
+
+  .fabric-plat-divider {
+    width: 1px;
+    height: 28px;
+    background: var(--color-border);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .fabric-diagram {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .fabric-frame {
+      min-width: 580px;
+      padding: 2rem 1.5rem 1.5rem;
+    }
+  }
+</style>

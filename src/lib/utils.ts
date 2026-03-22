@@ -10,9 +10,12 @@ export function formatEuro(amount: number): string {
   }).format(amount);
 }
 
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
 /**
- * Generate CSS class string from conditional classes
+ * Merge Tailwind CSS classes with clsx
  */
-export function cn(...classes: (string | false | undefined | null)[]): string {
-  return classes.filter(Boolean).join(' ');
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
 }

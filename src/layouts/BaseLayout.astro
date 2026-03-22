@@ -12,6 +12,8 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+import '../styles/global.css';
 ---
 
 <!doctype html>
@@ -46,15 +48,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Global CSS -->
-    <style>
-      @import '../styles/global.css';
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Datatype:wght@400;700&family=Megrim&family=Monoton&family=Advent+Pro:wght@400;700&family=Gugi&family=KoHo:wght@400;700&family=Barriecito&family=Lobster&family=Offside&family=Architects+Daughter&display=swap" rel="stylesheet" />
 
     <!-- Schema.org -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -76,14 +70,36 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         "Business Intelligence",
         "Data Analytics",
         "Semantic Modeling",
-        "Agentic AI"
+        "Agentic Engineering"
       ]
     })} />
   </head>
   <body>
-    <!-- Atmospheric grid background -->
-    <div class="grid-bg" aria-hidden="true"></div>
-
+    <script is:inline>
+      // Apply saved theme/font immediately to prevent flash
+      (function() {
+        var t = localStorage.getItem('capygator-theme');
+        if (t === 'notebook') {
+          var r = document.documentElement;
+          r.style.setProperty('--color-bg-primary','#f9f9f9');
+          r.style.setProperty('--color-bg-secondary','#f0efe8');
+          r.style.setProperty('--color-bg-card','#ffffff');
+          r.style.setProperty('--color-bg-card-hover','#f5f3eb');
+          r.style.setProperty('--color-accent','#5d4037');
+          r.style.setProperty('--color-accent-dim','rgba(93,64,55,0.1)');
+          r.style.setProperty('--color-accent-mid','rgba(93,64,55,0.25)');
+          r.style.setProperty('--color-accent-bright','#4e342e');
+          r.style.setProperty('--color-text-primary','#3a3a3a');
+          r.style.setProperty('--color-text-secondary','#505050');
+          r.style.setProperty('--color-text-muted','#808080');
+          r.style.setProperty('--color-border','#c8c4b8');
+          r.style.setProperty('--color-border-hover','#a09a8c');
+          r.style.setProperty('--font-body',"'Architects Daughter', cursive");
+        }
+        var f = localStorage.getItem('capygator-font-family');
+        if (f) r = document.documentElement, r.style.setProperty('--font-display', f);
+      })();
+    </script>
     <!-- Page content -->
     <slot />
   </body>

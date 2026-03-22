@@ -2,7 +2,7 @@
 const navItems = [
   { label: 'Fabric', href: '/fabric' },
   { label: 'Power BI', href: '/power-bi' },
-  { label: 'Agentic AI', href: '/agentic-engineering' },
+  { label: 'Agentic Engineering', href: '/agentic-engineering' },
   { label: 'Preise', href: '/preise' },
 ];
 
@@ -13,13 +13,6 @@ const currentPath = Astro.url.pathname;
   <div class="nav-inner container">
     <!-- Logo -->
     <a href="/" class="nav-logo" aria-label="Capygator — Startseite">
-      <img
-        src="/images/capygator-logo.png"
-        alt="Capygator Logo"
-        width="36"
-        height="36"
-        class="nav-logo-img"
-      />
       <span class="nav-logo-text">
         capy<span class="text-accent">gator</span>
       </span>
@@ -104,10 +97,10 @@ const currentPath = Astro.url.pathname;
   }
 
   .nav-logo-text {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.3rem;
-    letter-spacing: -0.03em;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
   }
 
   .nav-links {
@@ -152,20 +145,17 @@ const currentPath = Astro.url.pathname;
   .nav-cta {
     background: var(--color-accent);
     color: var(--color-bg-primary);
-    padding: 0.55rem 1.25rem;
-    border-radius: var(--radius-button);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.8rem;
     font-family: var(--font-display);
-    letter-spacing: 0.01em;
-    transition: all 0.2s;
+    transition: opacity 0.15s;
   }
 
   .nav-cta:hover {
-    background: var(--color-accent-bright);
-    box-shadow: 0 0 30px var(--color-accent-dim);
-    transform: translateY(-1px);
+    opacity: 0.9;
   }
 
   .nav-toggle {
