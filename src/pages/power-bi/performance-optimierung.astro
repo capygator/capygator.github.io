@@ -1,0 +1,437 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import CTABanner from '../../components/sections/CTABanner.astro';
+---
+
+<PageLayout
+  title="Performance-Optimierung — Power BI | Capygator"
+  description="Ihre Power BI Reports sind langsam? Ich finde den Flaschenhals und optimiere — DAX, Datenmodell, Refresh-Zeiten."
+>
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb animate-fade-up delay-1" aria-label="Breadcrumb">
+        <a href="/power-bi">Power BI</a>
+        <span class="breadcrumb-sep" aria-hidden="true">→</span>
+        <span>Performance-Optimierung</span>
+      </nav>
+      <p class="page-label animate-fade-up delay-2">Performance</p>
+      <h1 class="page-title animate-fade-up delay-3">
+        Von Minuten<br />
+        <span class="text-accent">auf Sekunden.</span>
+      </h1>
+      <p class="page-sub animate-fade-up delay-4">
+        Langsame Reports kosten nicht nur Nerven — sie kosten Akzeptanz.
+        Ich finde den Flaschenhals und beseitige ihn. Meistens ist es nicht die Hardware.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="content-section">
+    <div class="container">
+      <p class="section-label">Warum Reports langsam werden</p>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number">30s+</span>
+          <span class="stat-desc">Ladezeit beim Öffnen</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">80%</span>
+          <span class="stat-desc">Ursache im Datenmodell</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">0&euro;</span>
+          <span class="stat-desc">neue Hardware nötig</span>
+        </div>
+      </div>
+      <p class="problem-text">
+        Datenmengen wachsen, neue Measures kommen dazu, jemand hat 'mal schnell' eine Tabelle verknüpft. Nach einem Jahr laden die Reports 30 Sekunden.
+      </p>
+      <blockquote class="problem-quote">
+        <p>&bdquo;Warum haben wir damals nicht gleich ein richtiges Tool genommen?&ldquo;</p>
+        <cite>— Das Management, nach 12 Monaten</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- DELIVERABLES -->
+  <section class="content-section">
+    <div class="container">
+      <h2>Was Sie bekommen</h2>
+      <div class="deliverables-grid">
+        <div class="deliverable-card">
+          <span class="deliverable-icon">01</span>
+          <h3>Performance Audit</h3>
+          <p>Systematische Analyse mit DAX Studio und Tabular Editor. Ich messe, identifiziere die Bottlenecks und priorisiere die Maßnahmen nach Impact.</p>
+        </div>
+        <div class="deliverable-card">
+          <span class="deliverable-icon">02</span>
+          <h3>DAX-Optimierung</h3>
+          <p>Ineffiziente Measures umschreiben, Iteratoren eliminieren, Storage Engine vs. Formula Engine verstehen und nutzen.</p>
+        </div>
+        <div class="deliverable-card">
+          <span class="deliverable-icon">03</span>
+          <h3>Datenmodell-Refactoring</h3>
+          <p>Überflüssige Spalten entfernen, Beziehungen optimieren, Star Schema herstellen — ohne bestehende Reports zu brechen.</p>
+        </div>
+        <div class="deliverable-card">
+          <span class="deliverable-icon">04</span>
+          <h3>Monitoring & Benchmarks</h3>
+          <p>Vorher-Nachher-Messung, Performance-Baselines, Monitoring-Setup — damit Sie sehen was sich verbessert hat und es so bleibt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="content-section">
+    <div class="container">
+      <h2>Ablauf</h2>
+      <div class="process-steps">
+        <div class="process-step">
+          <span class="step-num">01</span>
+          <div>
+            <h3>Audit & Messung</h3>
+            <p>Baseline messen, DAX-Queries analysieren, Modell-Struktur bewerten. Ergebnis: priorisierte Liste der Top-Bottlenecks. Typisch: 1 Tag.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="step-num">02</span>
+          <div>
+            <h3>Optimierung</h3>
+            <p>Die Top-Probleme systematisch beheben — DAX umschreiben, Modell anpassen, Refresh-Strategie optimieren. Typisch: 2-3 Tage.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="step-num">03</span>
+          <div>
+            <h3>Validierung & Übergabe</h3>
+            <p>Ergebnisse messen und dokumentieren. Ihrem Team zeigen was geändert wurde und warum — damit die Performance auch bleibt. Typisch: halber Tag.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHOM -->
+  <section class="content-section">
+    <div class="container">
+      <p class="section-label">Für wen</p>
+      <div class="personas-list">
+        <div class="persona-card">
+          <div class="persona-badge">C</div>
+          <div>
+            <h3>Geschäftsführung</h3>
+            <p>Sind es leid, auf Reports zu warten — und wollen ihren Usern endlich eine akzeptable Performance bieten.</p>
+          </div>
+        </div>
+        <div class="persona-card">
+          <div class="persona-badge">IT</div>
+          <div>
+            <h3>IT-Leitung</h3>
+            <p>Wollen das Problem an der Wurzel lösen statt mehr Hardware draufzuwerfen — nachhaltig und messbar.</p>
+          </div>
+        </div>
+        <div class="persona-card">
+          <div class="persona-badge">BI</div>
+          <div>
+            <h3>BI-Entwickler</h3>
+            <p>Wissen dass das Problem im Modell liegt, haben aber nicht die Zeit es systematisch anzugehen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Reports beschleunigen?"
+    subline="Lassen Sie uns Ihre langsamsten Reports identifizieren und gemeinsam einen Optimierungsplan erstellen."
+  />
+</PageLayout>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .breadcrumb a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-accent);
+  }
+
+  .breadcrumb-sep {
+    color: var(--color-text-muted);
+    font-size: 0.7rem;
+  }
+
+  .breadcrumb span:last-child {
+    color: var(--color-text-secondary);
+  }
+
+  .page-hero {
+    padding: 10rem 0 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .page-label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+  }
+
+  .page-sub {
+    font-size: 1.1rem;
+    max-width: 560px;
+    color: var(--color-text-secondary);
+  }
+
+  .content-section {
+    padding: 3rem 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .content-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .content-section p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+  }
+
+  .content-section p + p {
+    margin-top: 1rem;
+  }
+
+  .section-label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .stat-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+
+  .stat-desc {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+
+  .problem-text {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+  }
+
+  .problem-quote {
+    background: var(--color-bg-card);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-card);
+    padding: 1.5rem 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .problem-quote p {
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .problem-quote cite {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .personas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .persona-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-card);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .persona-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-accent-dim);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .persona-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .persona-card p {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .deliverables-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .deliverable-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 2rem;
+    transition: border-color 0.3s;
+  }
+
+  .deliverable-card:hover {
+    border-color: var(--color-border-hover);
+  }
+
+  .deliverable-icon {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .deliverable-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .deliverable-card p {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+  }
+
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .process-step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 2rem;
+    transition: border-color 0.3s;
+  }
+
+  .process-step:hover {
+    border-color: var(--color-border-hover);
+  }
+
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .process-step h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .process-step p {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 768px) {
+    .deliverables-grid { grid-template-columns: 1fr; }
+    .process-step { flex-direction: column; gap: 0.75rem; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .persona-card { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  }
+</style>

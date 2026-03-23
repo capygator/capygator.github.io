@@ -24,7 +24,7 @@ const currentPath = Astro.url.pathname;
         <li>
           <a
             href={item.href}
-            class:list={['nav-link', { active: currentPath === item.href }]}
+            class:list={['nav-link', { active: currentPath === item.href || currentPath.startsWith(item.href + '/') }]}
           >
             {item.label}
           </a>

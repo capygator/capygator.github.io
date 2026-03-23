@@ -40,24 +40,6 @@ const aiIcon = `<svg width="24" height="24" fill="none" stroke="#00e5a0" stroke-
       <div class="hero-split">
         <!-- Left: Content -->
         <div class="hero-content">
-          <div class="hero-terminal animate-fade-up delay-1">
-            <div class="terminal-bar">
-              <span class="terminal-dot terminal-dot--red"></span>
-              <span class="terminal-dot terminal-dot--yellow"></span>
-              <span class="terminal-dot terminal-dot--green"></span>
-              <span class="terminal-title">capygator.sh</span>
-            </div>
-            <div class="terminal-body">
-              <div class="terminal-line terminal-line--1">
-                <span class="terminal-prompt">$</span>
-                <span class="terminal-cmd">status --check</span>
-              </div>
-              <div class="terminal-line terminal-line--2">
-                <span class="terminal-output"><span class="terminal-ok">●</span> Verfügbar für neue Projekte</span>
-              </div>
-            </div>
-          </div>
-
           <h1 class="hero-title animate-fade-up delay-2">
             Calm on<br/>complexity.
           </h1>
@@ -200,92 +182,6 @@ const aiIcon = `<svg width="24" height="24" fill="none" stroke="#00e5a0" stroke-
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-
-  /* TERMINAL */
-  .hero-terminal {
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 1.5rem;
-    max-width: 100%;
-  }
-
-  .terminal-bar {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 0.5rem 0.75rem;
-    background: var(--color-bg-card-hover);
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .terminal-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-  }
-
-  .terminal-dot--red { background: #ff5f57; }
-  .terminal-dot--yellow { background: #febc2e; }
-  .terminal-dot--green { background: #28c840; }
-
-  .terminal-title {
-    font-family: var(--font-mono);
-    font-size: 0.55rem;
-    color: var(--color-text-muted);
-    margin-left: auto;
-  }
-
-  .terminal-body {
-    padding: 0.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  .terminal-line {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    display: flex;
-    gap: 0.5rem;
-    opacity: 0;
-  }
-
-  .terminal-line--1 {
-    animation: terminalType 0.3s ease-out 0.8s forwards;
-  }
-
-  .terminal-line--2 {
-    animation: terminalType 0.3s ease-out 1.6s forwards;
-  }
-
-  @keyframes terminalType {
-    from { opacity: 0; transform: translateY(4px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .terminal-prompt {
-    color: var(--color-accent);
-    font-weight: 700;
-  }
-
-  .terminal-cmd {
-    color: var(--color-text-secondary);
-  }
-
-  .terminal-output {
-    color: var(--color-text-primary);
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-  .terminal-ok {
-    color: var(--color-accent);
-    font-size: 0.6rem;
-    animation: pulse-dot 2s infinite;
   }
 
   .hero-title {

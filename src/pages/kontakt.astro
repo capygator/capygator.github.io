@@ -7,83 +7,70 @@ import PageLayout from '../layouts/PageLayout.astro';
   description="Lassen Sie uns über Ihr Daten-Projekt sprechen. Ich melde mich innerhalb von 24 Stunden."
 >
   <section class="page-hero">
-    <div class="container">
-      <p class="page-label animate-fade-up delay-2">Kontakt</p>
-      <h1 class="page-title animate-fade-up delay-3">
-        Lassen Sie uns<br />
-        <span class="text-accent">sprechen.</span>
-      </h1>
-      <p class="page-sub animate-fade-up delay-4">
-        Schreiben Sie mir oder buchen Sie direkt einen Termin.
-        Ich melde mich innerhalb von 24 Stunden.
-      </p>
+    <div class="container hero-split">
+      <div class="hero-content">
+        <p class="page-label animate-fade-up delay-2">Kontakt</p>
+        <h1 class="page-title animate-fade-up delay-3">
+          Lassen Sie uns<br />
+          <span class="text-accent">sprechen.</span>
+        </h1>
+        <p class="page-sub animate-fade-up delay-4">
+          Schreiben Sie mir — ich melde mich innerhalb von 24 Stunden.<br />
+          Oder direkt per E-Mail an <a href="mailto:info@capygator.com" class="text-accent">info@capygator.com</a>
+        </p>
+      </div>
+      <div class="hero-logo animate-fade-up delay-3">
+        <img src="/images/capy-medaillon.png" alt="Capygator Logo" width="360" height="360" />
+      </div>
     </div>
   </section>
 
   <section class="contact-section">
-    <div class="container contact-grid">
-      <!-- FORM -->
+    <div class="container">
       <div class="contact-form-wrapper animate-fade-up delay-5">
         <form
           action="https://formspree.io/f/[DEINE-FORMSPREE-ID]"
           method="POST"
           class="contact-form"
         >
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required placeholder="Ihr Name" />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required placeholder="Ihr Name" />
+            </div>
+            <div class="form-group">
+              <label for="company">Unternehmen</label>
+              <input type="text" id="company" name="company" placeholder="Firma (optional)" />
+            </div>
           </div>
-          <div class="form-group">
-            <label for="company">Unternehmen</label>
-            <input type="text" id="company" name="company" placeholder="Firma (optional)" />
-          </div>
-          <div class="form-group">
-            <label for="email">E-Mail</label>
-            <input type="email" id="email" name="email" required placeholder="ihre@email.de" />
-          </div>
-          <div class="form-group">
-            <label for="package">Interesse an</label>
-            <select id="package" name="package">
-              <option value="">— Bitte wählen —</option>
-              <option value="sprint">Sprint (5 Tage)</option>
-              <option value="projekt">Projekt (20 Tage)</option>
-              <option value="partnerschaft">Partnerschaft (200 Tage)</option>
-              <option value="unsicher">Noch unsicher</option>
-            </select>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">E-Mail</label>
+              <input type="email" id="email" name="email" required placeholder="ihre@email.de" />
+            </div>
+            <div class="form-group">
+              <label for="package">Interesse an</label>
+              <select id="package" name="package">
+                <option value="">— Bitte wählen —</option>
+                <option value="sprint">Sprint (5 Tage)</option>
+                <option value="projekt">Projekt (20 Tage)</option>
+                <option value="partnerschaft">Partnerschaft (200 Tage)</option>
+                <option value="unsicher">Noch unsicher</option>
+              </select>
+            </div>
           </div>
           <div class="form-group">
             <label for="message">Nachricht</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Erzählen Sie mir kurz von Ihrem Vorhaben..."></textarea>
+            <textarea id="message" name="message" rows="6" required placeholder="Erzählen Sie mir kurz von Ihrem Vorhaben..."></textarea>
           </div>
-          <button type="submit" class="form-submit">
-            Nachricht senden
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
+          <div class="form-footer">
+            <button type="submit" class="form-submit">
+              Nachricht senden
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <p class="form-note">Kein Callcenter, keine Warteschleife — Sie schreiben direkt mir.</p>
+          </div>
         </form>
-      </div>
-
-      <!-- SIDEBAR -->
-      <div class="contact-sidebar animate-fade-up delay-6">
-        <div class="sidebar-card">
-          <h3>Erstgespräch buchen</h3>
-          <p>30 Minuten, unverbindlich, per Video-Call.</p>
-          <div class="calendly-placeholder">
-            <!-- TODO: Calendly Embed ersetzen -->
-            <p class="placeholder-text">[CALENDLY-EMBED: Hier Calendly-Widget einfügen]</p>
-            <a href="#" class="calendly-link">→ Termin auf Calendly wählen</a>
-          </div>
-        </div>
-
-        <div class="sidebar-card">
-          <h3>Oder direkt per E-Mail</h3>
-          <p>
-            <a href="mailto:info@capygator.com" class="email-link">info@capygator.com</a>
-          </p>
-        </div>
-
-        <div class="sidebar-note">
-          <p>Kein Callcenter, keine Warteschleife — Sie schreiben direkt mir.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -94,6 +81,26 @@ import PageLayout from '../layouts/PageLayout.astro';
     padding: 10rem 0 4rem;
     position: relative;
     z-index: 2;
+  }
+
+  .hero-split {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .hero-content {
+    flex: 1;
+  }
+
+  .hero-logo {
+    flex-shrink: 0;
+    opacity: 0.15;
+  }
+
+  .hero-logo img {
+    display: block;
   }
 
   .page-label {
@@ -123,17 +130,16 @@ import PageLayout from '../layouts/PageLayout.astro';
     z-index: 2;
   }
 
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 3rem;
-    align-items: start;
-  }
-
   /* FORM */
   .contact-form {
     display: flex;
     flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 1.25rem;
   }
 
@@ -207,61 +213,36 @@ import PageLayout from '../layouts/PageLayout.astro';
     transform: translateY(-2px);
   }
 
-  /* SIDEBAR */
-  .sidebar-card {
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-card);
-    padding: 1.75rem;
-    margin-bottom: 1.25rem;
+  .form-footer {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
   }
 
-  .sidebar-card h3 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .sidebar-card p {
-    font-size: 0.875rem;
-  }
-
-  .calendly-placeholder {
-    margin-top: 1rem;
-    padding: 2rem;
-    border: 1px dashed var(--color-border);
-    border-radius: var(--radius-button);
-    text-align: center;
-  }
-
-  .placeholder-text {
-    color: var(--color-text-muted);
-    font-size: 0.8rem;
-  }
-
-  .calendly-link {
-    color: var(--color-accent);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.85rem;
-    display: inline-block;
-    margin-top: 0.75rem;
-  }
-
-  .email-link {
-    color: var(--color-accent);
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  .sidebar-note p {
+  .form-note {
     color: var(--color-text-muted);
     font-size: 0.8rem;
     font-style: italic;
   }
 
   @media (max-width: 768px) {
-    .contact-grid {
+    .hero-split {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-logo {
+      display: none;
+    }
+
+    .form-row {
       grid-template-columns: 1fr;
+    }
+
+    .form-footer {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 </style>

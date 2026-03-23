@@ -1,0 +1,367 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import CTABanner from '../../components/sections/CTABanner.astro';
+---
+
+<PageLayout
+  title="Microsoft Fabric — End-to-End Datenplattform | Capygator"
+  description="Von der Datenstrategie bis zum kompetenten Team. Ich begleite Ihren Mittelstand durch die gesamte Fabric-Reise — Architektur, Implementierung, Coaching."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-label animate-fade-up delay-2">Microsoft Fabric</p>
+      <h1 class="page-title animate-fade-up delay-3">
+        Von der Datenstrategie bis zum<br />
+        <span class="text-accent">kompetenten Team.</span>
+      </h1>
+      <p class="page-sub animate-fade-up delay-4">
+        Fabric ist mächtig — aber Macht ohne Plan ist Chaos. Ich bringe beides zusammen:
+        die technische Tiefe und den strategischen Überblick, den Ihr Mittelstand braucht.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="content-section">
+    <div class="container">
+      <p class="section-label">Das Problem</p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number">6+</span>
+          <span class="stat-desc">Fabric Workloads zur Auswahl</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">0</span>
+          <span class="stat-desc">davon strategisch geplant</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">∞</span>
+          <span class="stat-desc">Wege, es falsch aufzusetzen</span>
+        </div>
+      </div>
+
+      <p class="problem-text">
+        Lakehouses ohne Strategie, Pipelines ohne Governance, Teams ohne Know-how.
+        Die Technologie ist da — was fehlt, ist jemand der das Gesamtbild versteht.
+      </p>
+
+      <blockquote class="problem-quote">
+        <p>„Wir haben Fabric lizenziert, aber niemand weiß wo wir anfangen sollen."</p>
+        <cite>— IT-Leitung, Mittelstand</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- 4 PHASES -->
+  <section class="content-section">
+    <div class="container">
+      <h2>Mein Ansatz: 4 Phasen</h2>
+      <div class="phases-grid">
+        <a href="/fabric/strategie-assessment" class="phase-card phase-card--link">
+          <span class="phase-num">01</span>
+          <h3>Strategie & Assessment</h3>
+          <p>Wo stehen Sie heute? Wo wollen Sie hin? Ich analysiere Ihre Datenlandschaft und entwickle eine realistische Fabric-Roadmap.</p>
+          <span class="phase-arrow">→</span>
+        </a>
+        <a href="/fabric/architektur-datenmodell" class="phase-card phase-card--link">
+          <span class="phase-num">02</span>
+          <h3>Architektur & Datenmodell</h3>
+          <p>Lakehouse, Warehouse, oder beides? Ich designe die Architektur die zu Ihren Anforderungen passt — nicht umgekehrt.</p>
+          <span class="phase-arrow">→</span>
+        </a>
+        <a href="/fabric/implementierung-migration" class="phase-card phase-card--link">
+          <span class="phase-num">03</span>
+          <h3>Implementierung & Migration</h3>
+          <p>Pipelines, Dataflows, Notebooks — ich baue Ihre Fabric-Umgebung auf oder migriere von bestehenden Systemen.</p>
+          <span class="phase-arrow">→</span>
+        </a>
+        <a href="/fabric/enablement-coaching" class="phase-card phase-card--link">
+          <span class="phase-num">04</span>
+          <h3>Enablement & Coaching</h3>
+          <p>Ihr Team soll Fabric eigenständig nutzen können. Ich schule, dokumentiere und begleite bis zur Selbstständigkeit.</p>
+          <span class="phase-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHOM -->
+  <section class="content-section">
+    <div class="container">
+      <p class="section-label">Für wen</p>
+
+      <div class="personas-list">
+        <div class="persona-card">
+          <span class="persona-badge">C</span>
+          <div>
+            <h3>Geschäftsführung & C-Level</h3>
+            <p>Brauchen eine Datenplattform die Business-Entscheidungen beschleunigt — ohne Millionen-Budget und 18 Monate Projektlaufzeit.</p>
+          </div>
+        </div>
+        <div class="persona-card">
+          <span class="persona-badge">IT</span>
+          <div>
+            <h3>IT-Leitung</h3>
+            <p>Suchen jemanden der Fabric end-to-end versteht — nicht nur ein Feature implementiert, sondern die ganze Architektur im Blick hat.</p>
+          </div>
+        </div>
+        <div class="persona-card">
+          <span class="persona-badge">BI</span>
+          <div>
+            <h3>BI- & Data-Teams</h3>
+            <p>Wollen von Legacy-Systemen auf Fabric migrieren und brauchen einen Partner der die Brücke baut — technisch und methodisch.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Fabric richtig angehen?"
+    subline="Lassen Sie uns in einem Erstgespräch herausfinden, wo Sie stehen und was der nächste sinnvolle Schritt ist."
+  />
+</PageLayout>
+
+<style>
+  .page-hero {
+    padding: 10rem 0 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .page-label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+  }
+
+  .page-sub {
+    font-size: 1.1rem;
+    max-width: 560px;
+    color: var(--color-text-secondary);
+  }
+
+  .content-section {
+    padding: 3rem 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .content-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .content-section p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+  }
+
+  /* STATS */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .stat-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+
+  .stat-desc {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+
+  .problem-text {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+  }
+
+  .problem-quote {
+    background: var(--color-bg-card);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-card);
+    padding: 1.5rem 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .problem-quote p {
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .problem-quote cite {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  /* PERSONAS */
+  .personas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .persona-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-card);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .persona-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-accent-dim);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .persona-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .persona-card p {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .phases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .phase-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 2rem;
+    transition: border-color 0.3s;
+  }
+
+  .phase-card:hover {
+    border-color: var(--color-border-hover);
+  }
+
+  .phase-card--link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .phase-card--link:hover {
+    border-color: var(--color-accent);
+  }
+
+  .phase-arrow {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .phase-card--link:hover .phase-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .phase-num {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .phase-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .phase-card p {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 768px) {
+    .phases-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .persona-card { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  }
+</style>

@@ -1,0 +1,264 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import CTABanner from '../../components/sections/CTABanner.astro';
+---
+
+<PageLayout
+  title="Power BI — Semantische Modelle & BI Apps | Capygator"
+  description="Semantische Modelle, die Ihre Berichte 10× schneller machen. BI Apps und Report-Design von jemandem, der Power BI wirklich versteht."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-label animate-fade-up delay-2">Power BI</p>
+      <h1 class="page-title animate-fade-up delay-3">
+        Semantische Modelle und BI Apps —<br />
+        <span class="text-accent">vom Profi.</span>
+      </h1>
+      <p class="page-sub animate-fade-up delay-4">
+        Die meisten Power BI Projekte scheitern nicht an der Technik, sondern am Datenmodell.
+        Ich sorge dafür, dass das Fundament stimmt — dann wird alles andere einfach.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <p class="section-label">Das Problem</p>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number">30s</span>
+          <span class="stat-desc">Ladezeit die keiner akzeptiert</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">90%</span>
+          <span class="stat-desc">der Probleme im Datenmodell</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">0</span>
+          <span class="stat-desc">Zweite Chancen beim Management</span>
+        </div>
+      </div>
+      <p class="problem-text">
+        Power BI kann jeder installieren. Aber ein Report der in 30 Sekunden lädt statt in 3 Minuten? Ein Datenmodell das auch in zwei Jahren noch wartbar ist? Das braucht Erfahrung.
+      </p>
+      <blockquote class="problem-quote">
+        <p>&bdquo;Measures die auch Ihr Controller versteht — das ist die eigentliche Kunst.&ldquo;</p>
+        <cite>— Aus der Praxis</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Was ich mache</h2>
+      <div class="services-list">
+        <a href="/power-bi/semantische-modelle" class="service-item service-item--link">
+          <h3>Semantische Modelle</h3>
+          <p>Star Schema, Composite Models, Calculation Groups — ich baue Datenmodelle die performen und skalieren.</p>
+          <span class="service-arrow">→</span>
+        </a>
+        <a href="/power-bi/bi-apps-report-design" class="service-item service-item--link">
+          <h3>BI Apps & Report-Design</h3>
+          <p>Reports und Dashboards die nicht nur gut aussehen, sondern Entscheidungen ermöglichen. Keine Dashboard-Tapete.</p>
+          <span class="service-arrow">→</span>
+        </a>
+        <a href="/power-bi/performance-optimierung" class="service-item service-item--link">
+          <h3>Performance-Optimierung</h3>
+          <p>Ihr bestehendes Power BI ist langsam? Ich finde den Flaschenhals — meistens ist es das Datenmodell, nicht die Hardware.</p>
+          <span class="service-arrow">→</span>
+        </a>
+        <a href="/power-bi/governance-deployment" class="service-item service-item--link">
+          <h3>Governance & Deployment</h3>
+          <p>Workspaces, Deployment Pipelines, Row-Level Security — damit Ihre BI-Umgebung auch bei Wachstum stabil bleibt.</p>
+          <span class="service-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Power BI richtig aufsetzen?"
+    subline="Ob Neuaufbau oder Optimierung bestehender Reports — ich helfe Ihnen, das Beste aus Power BI herauszuholen."
+  />
+</PageLayout>
+
+<style>
+  .page-hero {
+    padding: 10rem 0 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .page-label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+  }
+
+  .page-sub {
+    font-size: 1.1rem;
+    max-width: 560px;
+    color: var(--color-text-secondary);
+  }
+
+  .content-section {
+    padding: 3rem 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .content-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .content-section p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+  }
+
+  .section-label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .stat-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+
+  .stat-desc {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+
+  .problem-text {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+  }
+
+  .problem-quote {
+    background: var(--color-bg-card);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-card);
+    padding: 1.5rem 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .problem-quote p {
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .problem-quote cite {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .services-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .service-item {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 2rem;
+    transition: border-color 0.3s;
+  }
+
+  .service-item:hover { border-color: var(--color-border-hover); }
+
+  .service-item--link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .service-item--link:hover {
+    border-color: var(--color-accent);
+  }
+
+  .service-arrow {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .service-item--link:hover .service-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .service-item h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-item p {
+    font-size: 0.875rem;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 768px) {
+    .services-list { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr; }
+  }
+</style>
