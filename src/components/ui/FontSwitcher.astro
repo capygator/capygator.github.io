@@ -16,7 +16,7 @@ const fonts = [
 <div class="font-switcher" data-font-switcher>
   <button class="font-switcher-toggle" data-font-toggle aria-label="Schriftart wechseln">
     <span class="font-switcher-icon">Aa</span>
-    <span class="font-switcher-label" data-font-current>Gugi</span>
+    <span class="font-switcher-label" data-font-current>Datatype</span>
   </button>
   <div class="font-switcher-panel" data-font-panel hidden>
     <div class="font-switcher-header">Schriftart</div>
@@ -179,10 +179,24 @@ const fonts = [
   const currentLabel = document.querySelector('[data-font-current]');
   const options = document.querySelectorAll('[data-font-option]');
 
+  // Lazy-load decorative fonts on demand
+  let fontsLoaded = false;
+  function loadExtraFonts() {
+    if (fontsLoaded) return;
+    fontsLoaded = true;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://fonts.googleapis.com/css2?family=Gugi&family=Instrument+Serif:ital@0;1&family=Megrim&family=Monoton&family=Advent+Pro:wght@400;700&family=KoHo:wght@400;700&family=Barriecito&family=Lobster&family=Offside&display=swap';
+    document.head.appendChild(link);
+  }
+
   // Restore saved font on page load
   const savedFont = localStorage.getItem('capygator-font-family');
   const savedFontName = localStorage.getItem('capygator-font-name');
   if (savedFont) {
+    if (!savedFont.includes('Datatype') && !savedFont.includes('Plus Jakarta')) {
+      loadExtraFonts();
+    }
     document.documentElement.style.setProperty('--font-display', savedFont);
     if (currentLabel && savedFontName) {
       currentLabel.textContent = savedFontName;
@@ -191,13 +205,14 @@ const fonts = [
       o.classList.toggle('active', (o as HTMLElement).dataset.fontFamily === savedFont);
     });
   } else {
-    document.documentElement.style.setProperty('--font-display', "'Gugi', cursive");
+    document.documentElement.style.setProperty('--font-display', "'Datatype', sans-serif");
   }
 
   toggle?.addEventListener('click', () => {
     const isHidden = panel?.hasAttribute('hidden');
     if (isHidden) {
       panel?.removeAttribute('hidden');
+      loadExtraFonts();
     } else {
       panel?.setAttribute('hidden', '');
     }
