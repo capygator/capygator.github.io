@@ -198,6 +198,7 @@ const fonts = [
       loadExtraFonts();
     }
     document.documentElement.style.setProperty('--font-display', savedFont);
+    document.documentElement.style.setProperty('--font-body', savedFont);
     if (currentLabel && savedFontName) {
       currentLabel.textContent = savedFontName;
     }
@@ -206,6 +207,7 @@ const fonts = [
     });
   } else {
     document.documentElement.style.setProperty('--font-display', "'Datatype', sans-serif");
+    document.documentElement.style.setProperty('--font-body', "'Datatype', cursive");
   }
 
   toggle?.addEventListener('click', () => {
@@ -233,6 +235,7 @@ const fonts = [
 
       if (family) {
         document.documentElement.style.setProperty('--font-display', family);
+        document.documentElement.style.setProperty('--font-body', family);
         localStorage.setItem('capygator-font-family', family);
       }
 

@@ -36,6 +36,11 @@ const aiIcon = `<svg width="24" height="24" fill="none" stroke="#00e5a0" stroke-
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-bg">
+      <img src="/images/capy-hero.png" alt="" class="hero-bg-color" data-hero-color />
+      <img src="/images/capy-hero-sw.png" alt="" class="hero-bg-sw" data-hero-sw />
+    </div>
+    <div class="hero-overlay" data-hero-overlay></div>
     <div class="container">
       <div class="hero-split">
         <!-- Left: Content -->
@@ -57,11 +62,6 @@ const aiIcon = `<svg width="24" height="24" fill="none" stroke="#00e5a0" stroke-
             </a>
             <a href="/preise" class="btn-secondary">Preise ansehen</a>
           </div>
-        </div>
-
-        <!-- Right: Hero Image -->
-        <div class="hero-visual">
-          <img src="/images/capy-medaillon.png" alt="Capygator Logo" class="hero-medaillon" />
         </div>
       </div>
     </div>
@@ -158,33 +158,44 @@ const aiIcon = `<svg width="24" height="24" fill="none" stroke="#00e5a0" stroke-
 
   /* HERO */
   .hero {
-    padding: 5rem 0 1rem;
+    padding: 8rem 0 4rem;
     position: relative;
     z-index: 2;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-bg-color { display: block; }
+  .hero-bg-sw { display: none; }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 11, 13, 0.6);
+    z-index: -1;
   }
 
   .hero-split {
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
-  }
-
-  .hero-visual {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hero-medaillon {
-    width: 320px;
-    height: 320px;
-    object-fit: contain;
-    filter: drop-shadow(0 0 40px rgba(0, 229, 160, 0.15));
+    display: block;
+    max-width: 640px;
   }
 
   .hero-content {
-    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -361,16 +372,12 @@ const aiIcon = `<svg width="24" height="24" fill="none" stroke="#00e5a0" stroke-
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
+    .hero {
+      min-height: 400px;
+      padding: 6rem 0 3rem;
+    }
     .hero-split {
-      flex-direction: column;
-      min-height: auto;
-    }
-    .hero-visual {
-      margin-top: 2rem;
-    }
-    .hero-medaillon {
-      width: 220px;
-      height: 220px;
+      max-width: 100%;
     }
     .hero-title {
       font-size: clamp(2rem, 8vw, 3rem);

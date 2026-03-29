@@ -97,10 +97,13 @@ import '../styles/global.css';
           r.style.setProperty('--color-text-muted','#808080');
           r.style.setProperty('--color-border','#c8c4b8');
           r.style.setProperty('--color-border-hover','#a09a8c');
-          r.style.setProperty('--font-body',"'Architects Daughter', cursive");
         }
         var f = localStorage.getItem('capygator-font-family');
-        if (f) r = document.documentElement, r.style.setProperty('--font-display', f);
+        if (f) {
+          r = document.documentElement;
+          r.style.setProperty('--font-display', f);
+          r.style.setProperty('--font-body', f);
+        }
       })();
     </script>
     <!-- Page content -->

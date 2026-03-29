@@ -239,10 +239,25 @@
     for (const [prop, value] of Object.entries(vars)) {
       root.style.setProperty(prop, value);
     }
-    if (themeName === 'notebook') {
-      root.style.setProperty('--font-body', "'Architects Daughter', cursive");
-    } else {
-      root.style.setProperty('--font-body', "'Plus Jakarta Sans', system-ui, sans-serif");
+    // Font-body wird vom FontSwitcher gesteuert, nicht vom Theme
+
+    // Switch hero background image
+    const heroColor = document.querySelector('[data-hero-color]') as HTMLElement;
+    const heroSw = document.querySelector('[data-hero-sw]') as HTMLElement;
+    const heroOverlay = document.querySelector('[data-hero-overlay]') as HTMLElement;
+    if (heroColor && heroSw) {
+      if (themeName === 'notebook') {
+        heroColor.style.display = 'none';
+        heroSw.style.display = 'block';
+      } else {
+        heroColor.style.display = 'block';
+        heroSw.style.display = 'none';
+      }
+    }
+    if (heroOverlay) {
+      heroOverlay.style.background = themeName === 'notebook'
+        ? 'rgba(249, 249, 249, 0.7)'
+        : 'rgba(10, 11, 13, 0.6)';
     }
   }
 
