@@ -2,6 +2,25 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import CTABanner from '../../components/sections/CTABanner.astro';
 import { HeroSpline } from '../../components/ui/HeroSpline';
+import { SpotlightCards } from '../../components/ui/SpotlightCards';
+
+const usecases = [
+  {
+    icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9-9 9-9-1.8-9-9 1.8-9 9-9z"/></svg>',
+    title: 'Automatisierte Datenvalidierung',
+    description: 'AI-Agents die Ihre Datenqualität prüfen, Anomalien erkennen und dokumentieren — bevor der Report beim Management landet.',
+  },
+  {
+    icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>',
+    title: 'Code-generierte Pipelines',
+    description: 'Von der Anforderung zum fertigen Fabric Notebook — mit Code-Review durch erfahrene Augen, nicht blind generiert.',
+  },
+  {
+    icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>',
+    title: 'Datenmodell-Review',
+    description: 'AI-gestützte Analyse bestehender Semantic Models: Performance-Bottlenecks, DAX-Optimierung, Best-Practice-Checks.',
+  },
+];
 ---
 
 <PageLayout
@@ -61,23 +80,7 @@ import { HeroSpline } from '../../components/ui/HeroSpline';
   <section class="content-section">
     <div class="container">
       <h2>Konkrete Use Cases</h2>
-      <div class="usecases-grid">
-        <div class="usecase-card">
-          <span class="usecase-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9-9 9-9-1.8-9-9 1.8-9 9-9z"/></svg></span>
-          <h3>Automatisierte Datenvalidierung</h3>
-          <p>AI-Agents die Ihre Datenqualität prüfen, Anomalien erkennen und dokumentieren — bevor der Report beim Management landet.</p>
-        </div>
-        <div class="usecase-card">
-          <span class="usecase-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg></span>
-          <h3>Code-generierte Pipelines</h3>
-          <p>Von der Anforderung zum fertigen Fabric Notebook — mit Code-Review durch erfahrene Augen, nicht blind generiert.</p>
-        </div>
-        <div class="usecase-card">
-          <span class="usecase-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
-          <h3>Datenmodell-Review</h3>
-          <p>AI-gestützte Analyse bestehender Semantic Models: Performance-Bottlenecks, DAX-Optimierung, Best-Practice-Checks.</p>
-        </div>
-      </div>
+      <SpotlightCards cards={usecases} columns={3} client:load />
     </div>
   </section>
 

@@ -115,6 +115,137 @@ p {
   color: var(--color-accent);
 }
 
+/* ============================================
+   SPOTLIGHT CARDS
+   ============================================ */
+
+[data-glow-card] {
+  position: relative;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  overflow: visible;
+  transition: border-color 0.3s;
+}
+
+[data-glow-card]:hover {
+  border-color: transparent;
+}
+
+/* Inner glow — very subtle, only near edges */
+[data-glow-card] .spotlight-card__glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: var(--radius-card);
+  background: radial-gradient(
+    300px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(0, 229, 160, 0.06),
+    transparent 50%
+  );
+}
+
+[data-glow-card]:hover .spotlight-card__glow {
+  opacity: 1;
+}
+
+/* Border glow — strong, visible on edges only */
+[data-glow-card]::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: calc(var(--radius-card) + 2px);
+  padding: 2px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(
+    350px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(0, 229, 160, 0.8),
+    transparent 50%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+[data-glow-card]:hover::before {
+  opacity: 1;
+}
+
+/* Outer glow bleed — soft light behind the card */
+[data-glow-card]::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: calc(var(--radius-card) + 8px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+  background: radial-gradient(
+    300px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(0, 229, 160, 0.2),
+    transparent 50%
+  );
+  z-index: -1;
+  filter: blur(12px);
+}
+
+[data-glow-card]:hover::after {
+  opacity: 1;
+}
+
+.spotlight-card__content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+}
+
+.spotlight-card__num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--color-accent);
+  opacity: 0.4;
+  display: block;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+
+.spotlight-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--color-accent-dim);
+  color: var(--color-accent);
+  margin-bottom: 1.25rem;
+}
+
+.spotlight-card__title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-primary);
+}
+
+.spotlight-card__desc {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+  .spotlight-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* Grid background (atmospheric element) */
 .grid-bg {
   position: fixed;

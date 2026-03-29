@@ -1,6 +1,14 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import CTABanner from '../../components/sections/CTABanner.astro';
+import { SpotlightCards } from '../../components/ui/SpotlightCards';
+
+const phases = [
+  { num: '01', title: 'Strategie & Assessment', description: 'Wo stehen Sie heute? Wo wollen Sie hin? Ich analysiere Ihre Datenlandschaft und entwickle eine realistische Fabric-Roadmap.' },
+  { num: '02', title: 'Architektur & Datenmodell', description: 'Lakehouse, Warehouse, oder beides? Ich designe die Architektur die zu Ihren Anforderungen passt — nicht umgekehrt.' },
+  { num: '03', title: 'Implementierung & Migration', description: 'Pipelines, Dataflows, Notebooks — ich baue Ihre Fabric-Umgebung auf oder migriere von bestehenden Systemen.' },
+  { num: '04', title: 'Enablement & Coaching', description: 'Ihr Team soll Fabric eigenständig nutzen können. Ich schule, dokumentiere und begleite bis zur Selbstständigkeit.' },
+];
 ---
 
 <PageLayout
@@ -57,28 +65,7 @@ import CTABanner from '../../components/sections/CTABanner.astro';
   <section class="content-section">
     <div class="container">
       <h2>Mein Ansatz: 4 Phasen</h2>
-      <div class="phases-grid">
-        <div class="phase-card">
-          <span class="phase-num">01</span>
-          <h3>Strategie & Assessment</h3>
-          <p>Wo stehen Sie heute? Wo wollen Sie hin? Ich analysiere Ihre Datenlandschaft und entwickle eine realistische Fabric-Roadmap.</p>
-        </div>
-        <div class="phase-card">
-          <span class="phase-num">02</span>
-          <h3>Architektur & Datenmodell</h3>
-          <p>Lakehouse, Warehouse, oder beides? Ich designe die Architektur die zu Ihren Anforderungen passt — nicht umgekehrt.</p>
-        </div>
-        <div class="phase-card">
-          <span class="phase-num">03</span>
-          <h3>Implementierung & Migration</h3>
-          <p>Pipelines, Dataflows, Notebooks — ich baue Ihre Fabric-Umgebung auf oder migriere von bestehenden Systemen.</p>
-        </div>
-        <div class="phase-card">
-          <span class="phase-num">04</span>
-          <h3>Enablement & Coaching</h3>
-          <p>Ihr Team soll Fabric eigenständig nutzen können. Ich schule, dokumentiere und begleite bis zur Selbstständigkeit.</p>
-        </div>
-      </div>
+      <SpotlightCards cards={phases} columns={2} client:load />
     </div>
   </section>
 

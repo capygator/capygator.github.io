@@ -1,6 +1,14 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import CTABanner from '../../components/sections/CTABanner.astro';
+import { SpotlightCards } from '../../components/ui/SpotlightCards';
+
+const services = [
+  { title: 'Semantische Modelle', description: 'Star Schema, Composite Models, Calculation Groups — ich baue Datenmodelle die performen und skalieren.' },
+  { title: 'BI Apps & Report-Design', description: 'Reports und Dashboards die nicht nur gut aussehen, sondern Entscheidungen ermöglichen. Keine Dashboard-Tapete.' },
+  { title: 'Performance-Optimierung', description: 'Ihr bestehendes Power BI ist langsam? Ich finde den Flaschenhals — meistens ist es das Datenmodell, nicht die Hardware.' },
+  { title: 'Governance & Deployment', description: 'Workspaces, Deployment Pipelines, Row-Level Security — damit Ihre BI-Umgebung auch bei Wachstum stabil bleibt.' },
+];
 ---
 
 <PageLayout
@@ -51,24 +59,7 @@ import CTABanner from '../../components/sections/CTABanner.astro';
   <section class="content-section">
     <div class="container">
       <h2>Was ich mache</h2>
-      <div class="services-list">
-        <div class="service-item">
-          <h3>Semantische Modelle</h3>
-          <p>Star Schema, Composite Models, Calculation Groups — ich baue Datenmodelle die performen und skalieren.</p>
-        </div>
-        <div class="service-item">
-          <h3>BI Apps & Report-Design</h3>
-          <p>Reports und Dashboards die nicht nur gut aussehen, sondern Entscheidungen ermöglichen. Keine Dashboard-Tapete.</p>
-        </div>
-        <div class="service-item">
-          <h3>Performance-Optimierung</h3>
-          <p>Ihr bestehendes Power BI ist langsam? Ich finde den Flaschenhals — meistens ist es das Datenmodell, nicht die Hardware.</p>
-        </div>
-        <div class="service-item">
-          <h3>Governance & Deployment</h3>
-          <p>Workspaces, Deployment Pipelines, Row-Level Security — damit Ihre BI-Umgebung auch bei Wachstum stabil bleibt.</p>
-        </div>
-      </div>
+      <SpotlightCards cards={services} columns={2} client:load />
     </div>
   </section>
 
