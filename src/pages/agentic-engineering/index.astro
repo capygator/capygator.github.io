@@ -62,24 +62,21 @@ import { HeroSpline } from '../../components/ui/HeroSpline';
     <div class="container">
       <h2>Konkrete Use Cases</h2>
       <div class="usecases-grid">
-        <a href="/agentic-engineering/datenvalidierung" class="usecase-card usecase-card--link">
+        <div class="usecase-card">
           <span class="usecase-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9-9 9-9-1.8-9-9 1.8-9 9-9z"/></svg></span>
           <h3>Automatisierte Datenvalidierung</h3>
           <p>AI-Agents die Ihre Datenqualität prüfen, Anomalien erkennen und dokumentieren — bevor der Report beim Management landet.</p>
-          <span class="usecase-arrow">→</span>
-        </a>
-        <a href="/agentic-engineering/pipeline-generierung" class="usecase-card usecase-card--link">
+        </div>
+        <div class="usecase-card">
           <span class="usecase-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg></span>
           <h3>Code-generierte Pipelines</h3>
           <p>Von der Anforderung zum fertigen Fabric Notebook — mit Code-Review durch erfahrene Augen, nicht blind generiert.</p>
-          <span class="usecase-arrow">→</span>
-        </a>
-        <a href="/agentic-engineering/datenmodell-review" class="usecase-card usecase-card--link">
+        </div>
+        <div class="usecase-card">
           <span class="usecase-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
           <h3>Datenmodell-Review</h3>
           <p>AI-gestützte Analyse bestehender Semantic Models: Performance-Bottlenecks, DAX-Optimierung, Best-Practice-Checks.</p>
-          <span class="usecase-arrow">→</span>
-        </a>
+        </div>
       </div>
     </div>
   </section>
@@ -257,34 +254,6 @@ import { HeroSpline } from '../../components/ui/HeroSpline';
   }
 
   .usecase-card:hover { border-color: var(--color-border-hover); }
-
-  .usecase-card--link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    position: relative;
-    cursor: pointer;
-  }
-
-  .usecase-card--link:hover {
-    border-color: var(--color-accent);
-  }
-
-  .usecase-arrow {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    color: var(--color-accent);
-    font-size: 1.1rem;
-    opacity: 0;
-    transform: translateX(-4px);
-    transition: opacity 0.2s, transform 0.2s;
-  }
-
-  .usecase-card--link:hover .usecase-arrow {
-    opacity: 1;
-    transform: translateX(0);
-  }
 
   .usecase-icon {
     display: flex;

@@ -52,26 +52,22 @@ import CTABanner from '../../components/sections/CTABanner.astro';
     <div class="container">
       <h2>Was ich mache</h2>
       <div class="services-list">
-        <a href="/power-bi/semantische-modelle" class="service-item service-item--link">
+        <div class="service-item">
           <h3>Semantische Modelle</h3>
           <p>Star Schema, Composite Models, Calculation Groups — ich baue Datenmodelle die performen und skalieren.</p>
-          <span class="service-arrow">→</span>
-        </a>
-        <a href="/power-bi/bi-apps-report-design" class="service-item service-item--link">
+        </div>
+        <div class="service-item">
           <h3>BI Apps & Report-Design</h3>
           <p>Reports und Dashboards die nicht nur gut aussehen, sondern Entscheidungen ermöglichen. Keine Dashboard-Tapete.</p>
-          <span class="service-arrow">→</span>
-        </a>
-        <a href="/power-bi/performance-optimierung" class="service-item service-item--link">
+        </div>
+        <div class="service-item">
           <h3>Performance-Optimierung</h3>
           <p>Ihr bestehendes Power BI ist langsam? Ich finde den Flaschenhals — meistens ist es das Datenmodell, nicht die Hardware.</p>
-          <span class="service-arrow">→</span>
-        </a>
-        <a href="/power-bi/governance-deployment" class="service-item service-item--link">
+        </div>
+        <div class="service-item">
           <h3>Governance & Deployment</h3>
           <p>Workspaces, Deployment Pipelines, Row-Level Security — damit Ihre BI-Umgebung auch bei Wachstum stabil bleibt.</p>
-          <span class="service-arrow">→</span>
-        </a>
+        </div>
       </div>
     </div>
   </section>
@@ -218,34 +214,6 @@ import CTABanner from '../../components/sections/CTABanner.astro';
   }
 
   .service-item:hover { border-color: var(--color-border-hover); }
-
-  .service-item--link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    position: relative;
-    cursor: pointer;
-  }
-
-  .service-item--link:hover {
-    border-color: var(--color-accent);
-  }
-
-  .service-arrow {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    color: var(--color-accent);
-    font-size: 1.1rem;
-    opacity: 0;
-    transform: translateX(-4px);
-    transition: opacity 0.2s, transform 0.2s;
-  }
-
-  .service-item--link:hover .service-arrow {
-    opacity: 1;
-    transform: translateX(0);
-  }
 
   .service-item h3 {
     font-size: 1.05rem;
