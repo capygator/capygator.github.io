@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import CTABanner from '../../components/sections/CTABanner.astro';
+import { HeroSpline } from '../../components/ui/HeroSpline';
 ---
 
 <PageLayout
@@ -9,16 +10,23 @@ import CTABanner from '../../components/sections/CTABanner.astro';
 >
   <section class="page-hero">
     <div class="container">
-      <p class="page-label animate-fade-up delay-2">Agentic Engineering</p>
-      <h1 class="page-title animate-fade-up delay-3">
-        KI die Datenarbeit<br />
-        <span class="text-accent">erledigt.</span>
-      </h1>
-      <p class="page-sub animate-fade-up delay-4">
-        Datenaufbereitung, Dokumentation, Testing — Routinearbeit die Projektbudget frisst.
-        Ich integriere Agentic Engineering in Ihren Fabric/Power BI Workflow, damit Sie sich
-        auf die Entscheidungen konzentrieren können, nicht auf die Vorbereitung.
-      </p>
+      <div class="hero-split">
+        <div class="hero-content">
+          <p class="page-label animate-fade-up delay-2">Agentic Engineering</p>
+          <h1 class="page-title animate-fade-up delay-3">
+            KI die Datenarbeit<br />
+            <span class="text-accent">erledigt.</span>
+          </h1>
+          <p class="page-sub animate-fade-up delay-4">
+            Datenaufbereitung, Dokumentation, Testing — Routinearbeit die Projektbudget frisst.
+            Ich integriere Agentic Engineering in Ihren Fabric/Power BI Workflow, damit Sie sich
+            auf die Entscheidungen konzentrieren können, nicht auf die Vorbereitung.
+          </p>
+        </div>
+        <div class="hero-spline">
+          <HeroSpline client:load />
+        </div>
+      </div>
     </div>
   </section>
 
@@ -98,6 +106,24 @@ import CTABanner from '../../components/sections/CTABanner.astro';
     padding: 10rem 0 4rem;
     position: relative;
     z-index: 2;
+  }
+
+  .hero-split {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .hero-content {
+    flex: 1;
+  }
+
+  .hero-spline {
+    flex: 1;
+    height: 420px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
   }
 
   .page-label {
@@ -280,6 +306,16 @@ import CTABanner from '../../components/sections/CTABanner.astro';
   .usecase-card p {
     font-size: 0.85rem;
     line-height: 1.65;
+  }
+
+  @media (max-width: 900px) {
+    .hero-split {
+      flex-direction: column;
+    }
+    .hero-spline {
+      min-height: 300px;
+      width: 100%;
+    }
   }
 
   @media (max-width: 768px) {
