@@ -327,6 +327,15 @@ p a:hover, li a:hover {
 [data-animate="fade-up"][data-delay="4"] { transition-delay: 0.4s; }
 [data-animate="fade-up"][data-delay="5"] { transition-delay: 0.5s; }
 
+/* Fallback: show all content without animations */
+@media (prefers-reduced-motion: reduce) {
+  [data-animate="fade-up"] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* ============================================
    FOCUS & ACCESSIBILITY
    ============================================ */

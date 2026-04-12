@@ -159,6 +159,13 @@ import '../styles/global.css';
 
     <!-- Scroll-triggered animations via IntersectionObserver -->
     <script>
+      const elements = document.querySelectorAll('[data-animate]');
+
+      // Fallback: show all animated elements after 2s in case observer doesn't fire
+      const fallbackTimer = setTimeout(() => {
+        elements.forEach((el) => el.classList.add('in-view'));
+      }, 2000);
+
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -167,11 +174,15 @@ import '../styles/global.css';
               observer.unobserve(entry.target);
             }
           });
+          // Clear fallback once all elements are visible
+          if (document.querySelectorAll('[data-animate]:not(.in-view)').length === 0) {
+            clearTimeout(fallbackTimer);
+          }
         },
-        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+        { threshold: 0.05, rootMargin: '0px 0px 60px 0px' }
       );
 
-      document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
+      elements.forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>
