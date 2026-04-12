@@ -81,13 +81,17 @@ import '../styles/global.css';
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Fonts (critical) -->
+    <!-- Fonts (async — non-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Datatype:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Datatype:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Datatype:wght@400;700&display=swap" rel="stylesheet" /></noscript>
 
     <!-- Spline CDN -->
     <link rel="preconnect" href="https://prod.spline.design" />
+
+    <!-- Page-specific head content (preloads, etc.) -->
+    <slot name="head" />
 
     <!-- Schema.org: BreadcrumbList -->
     {breadcrumbSchema && (

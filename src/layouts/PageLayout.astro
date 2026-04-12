@@ -16,6 +16,7 @@ const { title, description, ogImage, schema } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} ogImage={ogImage} schema={schema}>
+  <slot name="head" slot="head" />
   <Header />
   <main>
     <slot />

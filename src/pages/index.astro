@@ -67,6 +67,16 @@ const homeSchemas = [
   title="Capygator — Power BI & Fabric Experte | DACH"
   description="Calm on complexity. Power BI, Microsoft Fabric & Agentic Engineering für den DACH-Mittelstand — aus einer Hand. Ihr Datenprojekt, souverän umgesetzt."
 >
+  <!-- LCP: Preload hero image für schnelles Rendering -->
+  <link
+    slot="head"
+    rel="preload"
+    as="image"
+    href="/images/capy-hero-640w.avif"
+    imagesrcset="/images/capy-hero-640w.avif 640w, /images/capy-hero-1024w.avif 1024w, /images/capy-hero-1920w.avif 1920w"
+    imagesizes="100vw"
+    fetchpriority="high"
+  />
   <!-- DATA TICKER -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
@@ -93,12 +103,12 @@ const homeSchemas = [
       <picture class="hero-bg-color" data-hero-color>
         <source type="image/avif" srcset="/images/capy-hero-640w.avif 640w, /images/capy-hero-1024w.avif 1024w, /images/capy-hero-1920w.avif 1920w" sizes="100vw" />
         <source type="image/webp" srcset="/images/capy-hero-640w.webp 640w, /images/capy-hero-1024w.webp 1024w, /images/capy-hero-1920w.webp 1920w" sizes="100vw" />
-        <img src="/images/capy-hero.png" alt="" loading="eager" fetchpriority="high" />
+        <img src="/images/capy-hero.png" alt="" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" />
       </picture>
       <picture class="hero-bg-sw" data-hero-sw>
         <source type="image/avif" srcset="/images/capy-hero-sw-640w.avif 640w, /images/capy-hero-sw-1024w.avif 1024w, /images/capy-hero-sw-1920w.avif 1920w" sizes="100vw" />
         <source type="image/webp" srcset="/images/capy-hero-sw-640w.webp 640w, /images/capy-hero-sw-1024w.webp 1024w, /images/capy-hero-sw-1920w.webp 1920w" sizes="100vw" />
-        <img src="/images/capy-hero-sw.png" alt="" loading="lazy" />
+        <img src="/images/capy-hero-sw.png" alt="" width="1920" height="1080" loading="lazy" decoding="async" />
       </picture>
     </div>
     <div class="hero-overlay" data-hero-overlay></div>

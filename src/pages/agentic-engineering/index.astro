@@ -70,7 +70,7 @@ const serviceSchema = {
           </div>
         </div>
         <div class="hero-spline">
-          <HeroSpline client:load />
+          <HeroSpline client:idle />
         </div>
       </div>
     </div>
@@ -108,7 +108,7 @@ const serviceSchema = {
     <div class="container">
       <h2 data-animate="fade-up">Konkrete Use Cases</h2>
       <div data-animate="fade-up" data-delay="2">
-        <SpotlightCards cards={usecases} columns={3} client:load />
+        <SpotlightCards cards={usecases} columns={3} client:visible />
       </div>
     </div>
   </section>
