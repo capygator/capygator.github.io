@@ -18,7 +18,7 @@
   --color-accent-bright: #00ffb2;
 
   --color-text-primary: #edf0f7;
-  --color-text-secondary: #8b91a3;
+  --color-text-secondary: #a0a6b8;
   --color-text-muted: #555b6e;
 
   --color-border: #1e2130;
@@ -87,6 +87,17 @@ h1, h2, h3, h4 {
 p {
   line-height: 1.65;
   color: var(--color-text-secondary);
+}
+
+/* Body-text links — always underlined for accessibility */
+p a, li a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+p a:hover, li a:hover {
+  color: var(--color-accent-bright);
 }
 
 /* ============================================

@@ -28,15 +28,18 @@ import PageLayout from '../layouts/PageLayout.astro';
   <section class="contact-section">
     <div class="container">
       <div class="contact-form-wrapper animate-fade-up delay-5">
+        <div aria-live="polite" aria-atomic="true" id="form-status" class="form-status-message" tabindex="-1"></div>
         <form
           action="https://formspree.io/f/mbdzngkq"
           method="POST"
           class="contact-form"
+          id="contact-form"
+          novalidate
         >
           <div class="form-row">
             <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required placeholder="Ihr Name" />
+              <label for="name">Name <span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" required aria-required="true" placeholder="Ihr Name" />
             </div>
             <div class="form-group">
               <label for="company">Unternehmen</label>
@@ -45,8 +48,8 @@ import PageLayout from '../layouts/PageLayout.astro';
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="email">E-Mail</label>
-              <input type="email" id="email" name="email" required placeholder="ihre@email.de" />
+              <label for="email">E-Mail <span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" required aria-required="true" placeholder="ihre@email.de" />
             </div>
             <div class="form-group">
               <label for="package">Interesse an</label>
@@ -60,8 +63,8 @@ import PageLayout from '../layouts/PageLayout.astro';
             </div>
           </div>
           <div class="form-group">
-            <label for="message">Nachricht</label>
-            <textarea id="message" name="message" rows="6" required placeholder="Erzählen Sie mir kurz von Ihrem Vorhaben..."></textarea>
+            <label for="message">Nachricht <span class="required-mark" aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" rows="6" required aria-required="true" placeholder="Erzählen Sie mir kurz von Ihrem Vorhaben..."></textarea>
           </div>
           <div class="form-footer">
             <button type="submit" class="form-submit">
@@ -178,8 +181,27 @@ import PageLayout from '../layouts/PageLayout.astro';
   .form-group input:focus,
   .form-group select:focus,
   .form-group textarea:focus {
-    outline: none;
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
     border-color: var(--color-accent);
+  }
+
+  .required-mark {
+    color: var(--color-accent);
+  }
+
+  .form-status-message {
+    min-height: 1.5rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-status-message.success {
+    color: var(--color-accent);
+  }
+
+  .form-status-message.error {
+    color: #ff6b6b;
   }
 
   .form-group select {
@@ -246,3 +268,38 @@ import PageLayout from '../layouts/PageLayout.astro';
     }
   }
 </style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const statusEl = document.getElementById('form-status');
+
+  if (form && statusEl) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (response.ok) {
+          statusEl.textContent = 'Danke! Ihre Nachricht wurde gesendet. Ich melde mich innerhalb von 24 Stunden.';
+          statusEl.className = 'form-status-message success';
+          form.reset();
+          statusEl.focus();
+        } else {
+          throw new Error('Fehler beim Senden');
+        }
+      } catch {
+        statusEl.textContent = 'Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie direkt an info@capygator.com.';
+        statusEl.className = 'form-status-message error';
+        statusEl.focus();
+        submitBtn.disabled = false;
+      }
+    });
+  }
+</script>
