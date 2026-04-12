@@ -10,4 +10,10 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   output: "static",
+  image: {
+    // Sharp als Image-Service für optimierte Build-Zeit-Konvertierung (WebP/AVIF)
+    service: {
+      entrypoint: "astro/assets/services/sharp",
+    },
+  },
 });

@@ -35,6 +35,10 @@ function SplineFallback() {
       <img
         src="/images/capygator-logo.png"
         alt="Capygator Logo"
+        width={180}
+        height={180}
+        loading="lazy"
+        decoding="async"
         style={{ maxWidth: "180px", opacity: 0.75, filter: "drop-shadow(0 0 32px #00e5a050)" }}
       />
     </div>

@@ -1,5 +1,7 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
+import { Image } from "astro:assets";
+import capyMedaillon from "../assets/capy-medaillon.png";
 
 const contactSchema = {
   "@context": "https://schema.org",
@@ -44,7 +46,15 @@ const contactSchema = {
         </p>
       </div>
       <div class="hero-logo animate-fade-up delay-3">
-        <img src="/images/capy-medaillon.png" alt="Capygator Logo" width="360" height="360" />
+        <Image
+          src={capyMedaillon}
+          alt="Capygator Logo"
+          width={360}
+          height={360}
+          format="webp"
+          quality={85}
+          loading="lazy"
+        />
       </div>
     </div>
   </section>
