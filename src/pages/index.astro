@@ -1,9 +1,8 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
-import ServiceCard from '../components/ui/ServiceCard.astro';
-import CTABanner from '../components/sections/CTABanner.astro';
-import HeroDiagram from '../components/ui/HeroDiagram.astro';
-
+import PageLayout from "../layouts/PageLayout.astro";
+import ServiceCard from "../components/ui/ServiceCard.astro";
+import CTABanner from "../components/sections/CTABanner.astro";
+import HeroDiagram from "../components/ui/HeroDiagram.astro";
 
 const fabricIcon = `<svg width="24" height="24" fill="none" stroke="#00e5a0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`;
 const pbiIcon = `<svg width="24" height="24" fill="none" stroke="#00e5a0" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 14l3-3 2.5 2.5L17 9"/><circle cx="17" cy="9" r="1.5" fill="#00e5a0"/></svg>`;
@@ -13,52 +12,53 @@ const homeSchemas = [
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Capygator",
-    "url": "https://capygator.com",
-    "description": "Power BI & Microsoft Fabric Experte für den DACH-Mittelstand. Strategie, Implementierung und Agentic Engineering — aus einer Hand.",
-    "potentialAction": {
+    name: "Capygator",
+    url: "https://capygator.com",
+    description:
+      "Power BI & Microsoft Fabric Experte für den DACH-Mittelstand. Strategie, Implementierung und Agentic Engineering — aus einer Hand.",
+    potentialAction: {
       "@type": "SearchAction",
-      "target": {
+      target: {
         "@type": "EntryPoint",
-        "urlTemplate": "https://capygator.com/?q={search_term_string}"
+        urlTemplate: "https://capygator.com/?q={search_term_string}",
       },
-      "query-input": "required name=search_term_string"
-    }
+      "query-input": "required name=search_term_string",
+    },
   },
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Ulf Papenfuß",
-    "jobTitle": "Power BI & Microsoft Fabric Experte",
-    "url": "https://capygator.com",
-    "email": "info@capygator.com",
-    "address": {
+    name: "Ulf Papenfuß",
+    jobTitle: "Power BI & Microsoft Fabric Experte",
+    url: "https://capygator.com",
+    email: "info@capygator.com",
+    address: {
       "@type": "PostalAddress",
-      "streetAddress": "Am Meinerhof 5",
-      "postalCode": "31600",
-      "addressLocality": "Uchte",
-      "addressCountry": "DE"
+      streetAddress: "Am Meinerhof 5",
+      postalCode: "31600",
+      addressLocality: "Uchte",
+      addressCountry: "DE",
     },
-    "worksFor": {
+    worksFor: {
       "@type": "ProfessionalService",
-      "name": "Capygator",
-      "url": "https://capygator.com"
+      name: "Capygator",
+      url: "https://capygator.com",
     },
-    "knowsAbout": [
+    knowsAbout: [
       "Microsoft Power BI",
       "Microsoft Fabric",
       "Business Intelligence",
       "Semantic Modeling",
       "DAX",
       "Agentic Engineering",
-      "Anthropic Claude"
+      "Anthropic Claude",
     ],
-    "areaServed": [
-      { "@type": "Country", "name": "Germany" },
-      { "@type": "Country", "name": "Austria" },
-      { "@type": "Country", "name": "Switzerland" }
-    ]
-  }
+    areaServed: [
+      { "@type": "Country", name: "Germany" },
+      { "@type": "Country", name: "Austria" },
+      { "@type": "Country", name: "Switzerland" },
+    ],
+  },
 ];
 ---
 
@@ -101,14 +101,45 @@ const homeSchemas = [
   <section class="hero">
     <div class="hero-bg">
       <picture class="hero-bg-color" data-hero-color>
-        <source type="image/avif" srcset="/images/capy-hero-640w.avif 640w, /images/capy-hero-1024w.avif 1024w, /images/capy-hero-1920w.avif 1920w" sizes="100vw" />
-        <source type="image/webp" srcset="/images/capy-hero-640w.webp 640w, /images/capy-hero-1024w.webp 1024w, /images/capy-hero-1920w.webp 1920w" sizes="100vw" />
-        <img src="/images/capy-hero.png" alt="" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" />
+        <source
+          type="image/avif"
+          srcset="/images/capy-hero-640w.avif 640w, /images/capy-hero-1024w.avif 1024w, /images/capy-hero-1920w.avif 1920w"
+          sizes="100vw"
+        />
+        <source
+          type="image/webp"
+          srcset="/images/capy-hero-640w.webp 640w, /images/capy-hero-1024w.webp 1024w, /images/capy-hero-1920w.webp 1920w"
+          sizes="100vw"
+        />
+        <img
+          src="/images/capy-hero.png"
+          alt=""
+          width="1920"
+          height="1080"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
       </picture>
       <picture class="hero-bg-sw" data-hero-sw>
-        <source type="image/avif" srcset="/images/capy-hero-sw-640w.avif 640w, /images/capy-hero-sw-1024w.avif 1024w, /images/capy-hero-sw-1920w.avif 1920w" sizes="100vw" />
-        <source type="image/webp" srcset="/images/capy-hero-sw-640w.webp 640w, /images/capy-hero-sw-1024w.webp 1024w, /images/capy-hero-sw-1920w.webp 1920w" sizes="100vw" />
-        <img src="/images/capy-hero-sw.png" alt="" width="1920" height="1080" loading="lazy" decoding="async" />
+        <source
+          type="image/avif"
+          srcset="/images/capy-hero-sw-640w.avif 640w, /images/capy-hero-sw-1024w.avif 1024w, /images/capy-hero-sw-1920w.avif 1920w"
+          sizes="100vw"
+        />
+        <source
+          type="image/webp"
+          srcset="/images/capy-hero-sw-640w.webp 640w, /images/capy-hero-sw-1024w.webp 1024w, /images/capy-hero-sw-1920w.webp 1920w"
+          sizes="100vw"
+        />
+        <img
+          src="/images/capy-hero-sw.png"
+          alt=""
+          width="1920"
+          height="1080"
+          loading="lazy"
+          decoding="async"
+        />
       </picture>
     </div>
     <div class="hero-overlay" data-hero-overlay></div>
@@ -117,19 +148,25 @@ const homeSchemas = [
         <!-- Left: Content -->
         <div class="hero-content">
           <h1 class="hero-title animate-fade-up delay-2">
-            Calm on<br/>complexity.
+            Calm on<br />complexity.
           </h1>
 
           <p class="hero-desc animate-fade-up delay-3">
-            Ich verwandle komplexe Datenlandschaften in klare Entscheidungsgrundlagen.
-            Power BI, Microsoft Fabric und Agentic Engineering —
-            von jemandem, der alle drei Welten versteht.
+            Ich verwandle komplexe Datenlandschaften in klare Entscheidungsgrundlagen. Power BI,
+            Microsoft Fabric und Agentic Engineering — von jemandem, der alle drei Welten versteht.
           </p>
 
           <div class="hero-actions animate-fade-up delay-4">
             <a href="/kontakt" class="btn-primary">
               Projekt besprechen
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg
+              >
             </a>
             <a href="/preise" class="btn-secondary">Preise ansehen</a>
           </div>
@@ -158,7 +195,10 @@ const homeSchemas = [
           <div class="service-card-number">01</div>
           <div class="service-icon" set:html={fabricIcon} />
           <h3>Microsoft Fabric</h3>
-          <p>Von der Datenstrategie bis zum kompetenten Team. End-to-End Fabric — Architektur, Implementierung, Enablement.</p>
+          <p>
+            Von der Datenstrategie bis zum kompetenten Team. End-to-End Fabric — Architektur,
+            Implementierung, Enablement.
+          </p>
           <span class="service-arrow">&rarr;</span>
         </a>
 
@@ -166,7 +206,10 @@ const homeSchemas = [
           <div class="service-card-number">02</div>
           <div class="service-icon" set:html={pbiIcon} />
           <h3>Power BI</h3>
-          <p>Semantische Modelle, die Ihre Berichte 10&times; schneller machen. BI Apps und Reports vom Profi.</p>
+          <p>
+            Semantische Modelle, die Ihre Berichte 10&times; schneller machen. BI Apps und Reports
+            vom Profi.
+          </p>
           <span class="service-arrow">&rarr;</span>
         </a>
 
@@ -174,7 +217,10 @@ const homeSchemas = [
           <div class="service-card-number">03</div>
           <div class="service-icon" set:html={aiIcon} />
           <h3>Agentic Engineering</h3>
-          <p>KI die Datenarbeit erledigt, nicht nur darüber redet. Claude + Fabric für automatisierte Pipelines.</p>
+          <p>
+            KI die Datenarbeit erledigt, nicht nur darüber redet. Claude + Fabric für automatisierte
+            Pipelines.
+          </p>
           <span class="service-arrow">&rarr;</span>
         </a>
       </div>
@@ -191,31 +237,66 @@ const homeSchemas = [
       <div class="trust-grid">
         <div class="trust-item">
           <div class="trust-badge">
-            <svg width="18" height="18" fill="none" stroke="#00e5a0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            <svg
+              width="18"
+              height="18"
+              fill="none"
+              stroke="#00e5a0"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              ><path
+                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+              ></path></svg
+            >
             Microsoft Certified
           </div>
-          <p>DP-700 Fabric Analytics Engineer<br/>PL-300 Power BI Data Analyst</p>
+          <p>DP-700 Fabric Analytics Engineer<br />PL-300 Power BI Data Analyst</p>
         </div>
         <div class="trust-item">
           <div class="trust-badge">
-            <svg width="18" height="18" fill="none" stroke="#00e5a0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            <svg
+              width="18"
+              height="18"
+              fill="none"
+              stroke="#00e5a0"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              ><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"
+              ></circle><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path></svg
+            >
             Mittelstand DACH
           </div>
-          <p>Kunden aus Produktion,<br/>Handel, Dienstleistung</p>
+          <p>Kunden aus Produktion,<br />Handel, Dienstleistung</p>
         </div>
         <div class="trust-item">
           <div class="trust-badge">
-            <svg width="18" height="18" fill="none" stroke="#00e5a0" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg
+              width="18"
+              height="18"
+              fill="none"
+              stroke="#00e5a0"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              ><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"
+              ></polyline></svg
+            >
             Verfügbarkeit
           </div>
-          <p>Projektstart in der Regel<br/>innerhalb von 2–4 Wochen</p>
+          <p>Projektstart in der Regel<br />innerhalb von 2–4 Wochen</p>
         </div>
         <div class="trust-item">
           <div class="trust-badge">
-            <svg width="18" height="18" fill="none" stroke="#00e5a0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg
+              width="18"
+              height="18"
+              fill="none"
+              stroke="#00e5a0"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg
+            >
             DSGVO-konform
           </div>
-          <p>Remote-first, keine Cloud-Daten<br/>ohne Verarbeitungsvereinbarung</p>
+          <p>Remote-first, keine Cloud-Daten<br />ohne Verarbeitungsvereinbarung</p>
         </div>
       </div>
     </div>
@@ -230,14 +311,21 @@ const homeSchemas = [
       </div>
       <div class="proof-grid">
         <blockquote class="proof-card">
-          <p class="proof-quote">[ZITAT: GF eines mittelständischen Produktionsunternehmens über die Reduktion des monatlichen Reportings von 3 Tagen auf 3 Stunden nach Einführung des zentralen Power BI Semantic Models]</p>
+          <p class="proof-quote">
+            [ZITAT: GF eines mittelständischen Produktionsunternehmens über die Reduktion des
+            monatlichen Reportings von 3 Tagen auf 3 Stunden nach Einführung des zentralen Power BI
+            Semantic Models]
+          </p>
           <footer class="proof-meta">
             <span class="proof-name">Geschäftsführer</span>
             <span class="proof-company">Produktionsunternehmen, 250 MA</span>
           </footer>
         </blockquote>
         <blockquote class="proof-card">
-          <p class="proof-quote">[ZITAT: IT-Leiter über die Fabric-Migration, bei der erstmals das interne Team nach Projektabschluss eigenständig neue Pipelines gebaut hat — ohne externe Hilfe]</p>
+          <p class="proof-quote">
+            [ZITAT: IT-Leiter über die Fabric-Migration, bei der erstmals das interne Team nach
+            Projektabschluss eigenständig neue Pipelines gebaut hat — ohne externe Hilfe]
+          </p>
           <footer class="proof-meta">
             <span class="proof-name">IT-Leitung</span>
             <span class="proof-company">Handelsunternehmen, 180 MA</span>
@@ -252,7 +340,6 @@ const homeSchemas = [
     headline="30 Minuten, die sich lohnen."
     subline="Kostenloses Erstgespräch — ich analysiere Ihre Situation und zeige konkrete nächste Schritte."
   />
-
 </PageLayout>
 
 <style>
@@ -289,8 +376,12 @@ const homeSchemas = [
   }
 
   @keyframes scroll-ticker {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 
   /* HERO */
@@ -323,8 +414,12 @@ const homeSchemas = [
     object-position: center;
   }
 
-  .hero-bg-color { display: block; }
-  .hero-bg-sw { display: none; }
+  .hero-bg-color {
+    display: block;
+  }
+  .hero-bg-sw {
+    display: none;
+  }
 
   .hero-overlay {
     position: absolute;
@@ -600,7 +695,9 @@ const homeSchemas = [
 
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .ticker-track { animation: none; }
+    .ticker-track {
+      animation: none;
+    }
   }
 
   /* RESPONSIVE */

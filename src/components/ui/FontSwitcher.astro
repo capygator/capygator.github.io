@@ -1,15 +1,15 @@
 ---
 const fonts = [
-  { name: 'Gugi', family: "'Gugi', cursive" },
-  { name: 'Datatype', family: "'Datatype', sans-serif" },
-  { name: 'Instrument Serif', family: "'Instrument Serif', Georgia, serif" },
-  { name: 'Megrim', family: "'Megrim', cursive" },
-  { name: 'Monoton', family: "'Monoton', cursive" },
-  { name: 'Advent Pro', family: "'Advent Pro', sans-serif" },
-  { name: 'KoHo', family: "'KoHo', sans-serif" },
-  { name: 'Barriecito', family: "'Barriecito', cursive" },
-  { name: 'Lobster', family: "'Lobster', cursive" },
-  { name: 'Offside', family: "'Offside', sans-serif" },
+  { name: "Gugi", family: "'Gugi', cursive" },
+  { name: "Datatype", family: "'Datatype', sans-serif" },
+  { name: "Instrument Serif", family: "'Instrument Serif', Georgia, serif" },
+  { name: "Megrim", family: "'Megrim', cursive" },
+  { name: "Monoton", family: "'Monoton', cursive" },
+  { name: "Advent Pro", family: "'Advent Pro', sans-serif" },
+  { name: "KoHo", family: "'KoHo', sans-serif" },
+  { name: "Barriecito", family: "'Barriecito', cursive" },
+  { name: "Lobster", family: "'Lobster', cursive" },
+  { name: "Offside", family: "'Offside', sans-serif" },
 ];
 ---
 
@@ -20,18 +20,20 @@ const fonts = [
   </button>
   <div class="font-switcher-panel" data-font-panel hidden>
     <div class="font-switcher-header">Schriftart</div>
-    {fonts.map((font, i) => (
-      <button
-        class:list={['font-option', { active: i === 0 }]}
-        data-font-option
-        data-font-family={font.family}
-        data-font-name={font.name}
-        style={`font-family: ${font.family};`}
-      >
-        <span class="font-option-preview">Calm on complexity.</span>
-        <span class="font-option-name">{font.name}</span>
-      </button>
-    ))}
+    {
+      fonts.map((font, i) => (
+        <button
+          class:list={["font-option", { active: i === 0 }]}
+          data-font-option
+          data-font-family={font.family}
+          data-font-name={font.name}
+          style={`font-family: ${font.family};`}
+        >
+          <span class="font-option-preview">Calm on complexity.</span>
+          <span class="font-option-name">{font.name}</span>
+        </button>
+      ))
+    }
   </div>
 </div>
 
@@ -53,7 +55,9 @@ const fonts = [
     padding: 0.6rem 1rem;
     color: var(--color-text-primary);
     cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
+    transition:
+      border-color 0.2s,
+      background 0.2s;
     font-family: var(--font-body);
     font-size: 0.8rem;
   }
@@ -119,7 +123,9 @@ const fonts = [
     border-radius: 6px;
     cursor: pointer;
     text-align: left;
-    transition: background 0.15s, border-color 0.15s;
+    transition:
+      background 0.15s,
+      border-color 0.15s;
     color: var(--color-text-primary);
     width: 100%;
   }
@@ -174,82 +180,83 @@ const fonts = [
 </style>
 
 <script>
-  const toggle = document.querySelector('[data-font-toggle]');
-  const panel = document.querySelector('[data-font-panel]');
-  const currentLabel = document.querySelector('[data-font-current]');
-  const options = document.querySelectorAll('[data-font-option]');
+  const toggle = document.querySelector("[data-font-toggle]");
+  const panel = document.querySelector("[data-font-panel]");
+  const currentLabel = document.querySelector("[data-font-current]");
+  const options = document.querySelectorAll("[data-font-option]");
 
   // Lazy-load decorative fonts on demand
   let fontsLoaded = false;
   function loadExtraFonts() {
     if (fontsLoaded) return;
     fontsLoaded = true;
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'https://fonts.googleapis.com/css2?family=Gugi&family=Instrument+Serif:ital@0;1&family=Megrim&family=Monoton&family=Advent+Pro:wght@400;700&family=KoHo:wght@400;700&family=Barriecito&family=Lobster&family=Offside&display=swap';
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href =
+      "https://fonts.googleapis.com/css2?family=Gugi&family=Instrument+Serif:ital@0;1&family=Megrim&family=Monoton&family=Advent+Pro:wght@400;700&family=KoHo:wght@400;700&family=Barriecito&family=Lobster&family=Offside&display=swap";
     document.head.appendChild(link);
   }
 
   // Restore saved font on page load
-  const savedFont = localStorage.getItem('capygator-font-family');
-  const savedFontName = localStorage.getItem('capygator-font-name');
+  const savedFont = localStorage.getItem("capygator-font-family");
+  const savedFontName = localStorage.getItem("capygator-font-name");
   if (savedFont) {
-    if (!savedFont.includes('Datatype') && !savedFont.includes('Plus Jakarta')) {
+    if (!savedFont.includes("Datatype") && !savedFont.includes("Plus Jakarta")) {
       loadExtraFonts();
     }
-    document.documentElement.style.setProperty('--font-display', savedFont);
-    document.documentElement.style.setProperty('--font-body', savedFont);
+    document.documentElement.style.setProperty("--font-display", savedFont);
+    document.documentElement.style.setProperty("--font-body", savedFont);
     if (currentLabel && savedFontName) {
       currentLabel.textContent = savedFontName;
     }
     options.forEach((o) => {
-      o.classList.toggle('active', (o as HTMLElement).dataset.fontFamily === savedFont);
+      o.classList.toggle("active", (o as HTMLElement).dataset.fontFamily === savedFont);
     });
   } else {
-    document.documentElement.style.setProperty('--font-display', "'Datatype', sans-serif");
-    document.documentElement.style.setProperty('--font-body', "'Datatype', cursive");
+    document.documentElement.style.setProperty("--font-display", "'Datatype', sans-serif");
+    document.documentElement.style.setProperty("--font-body", "'Datatype', cursive");
   }
 
-  toggle?.addEventListener('click', () => {
-    const isHidden = panel?.hasAttribute('hidden');
+  toggle?.addEventListener("click", () => {
+    const isHidden = panel?.hasAttribute("hidden");
     if (isHidden) {
-      panel?.removeAttribute('hidden');
+      panel?.removeAttribute("hidden");
       loadExtraFonts();
     } else {
-      panel?.setAttribute('hidden', '');
+      panel?.setAttribute("hidden", "");
     }
   });
 
   // Close panel when clicking outside
-  document.addEventListener('click', (e) => {
-    const switcher = document.querySelector('[data-font-switcher]');
+  document.addEventListener("click", (e) => {
+    const switcher = document.querySelector("[data-font-switcher]");
     if (switcher && !switcher.contains(e.target as Node)) {
-      panel?.setAttribute('hidden', '');
+      panel?.setAttribute("hidden", "");
     }
   });
 
   options.forEach((option) => {
-    option.addEventListener('click', () => {
+    option.addEventListener("click", () => {
       const family = (option as HTMLElement).dataset.fontFamily;
       const name = (option as HTMLElement).dataset.fontName;
 
       if (family) {
-        document.documentElement.style.setProperty('--font-display', family);
-        document.documentElement.style.setProperty('--font-body', family);
-        localStorage.setItem('capygator-font-family', family);
+        document.documentElement.style.setProperty("--font-display", family);
+        document.documentElement.style.setProperty("--font-body", family);
+        localStorage.setItem("capygator-font-family", family);
       }
 
       if (currentLabel && name) {
         currentLabel.textContent = name;
-        localStorage.setItem('capygator-font-name', name);
+        localStorage.setItem("capygator-font-name", name);
       }
 
       // Update active state
-      options.forEach((o) => o.classList.remove('active'));
-      option.classList.add('active');
+      options.forEach((o) => o.classList.remove("active"));
+      option.classList.add("active");
 
       // Close panel
-      panel?.setAttribute('hidden', '');
+      panel?.setAttribute("hidden", "");
     });
   });
 </script>

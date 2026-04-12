@@ -1,32 +1,49 @@
 ---
-import PageLayout from '../../layouts/PageLayout.astro';
-import CTABanner from '../../components/sections/CTABanner.astro';
-import { SpotlightCards } from '../../components/ui/SpotlightCards';
+import PageLayout from "../../layouts/PageLayout.astro";
+import CTABanner from "../../components/sections/CTABanner.astro";
+import { SpotlightCards } from "../../components/ui/SpotlightCards";
 
 const services = [
-  { title: 'Semantische Modelle', description: 'Star Schema, Composite Models, Calculation Groups — ich baue Datenmodelle die performen und skalieren.' },
-  { title: 'BI Apps & Report-Design', description: 'Reports und Dashboards die nicht nur gut aussehen, sondern Entscheidungen ermöglichen. Keine Dashboard-Tapete.' },
-  { title: 'Performance-Optimierung', description: 'Ihr bestehendes Power BI ist langsam? Ich finde den Flaschenhals — meistens ist es das Datenmodell, nicht die Hardware.' },
-  { title: 'Governance & Deployment', description: 'Workspaces, Deployment Pipelines, Row-Level Security — damit Ihre BI-Umgebung auch bei Wachstum stabil bleibt.' },
+  {
+    title: "Semantische Modelle",
+    description:
+      "Star Schema, Composite Models, Calculation Groups — ich baue Datenmodelle die performen und skalieren.",
+  },
+  {
+    title: "BI Apps & Report-Design",
+    description:
+      "Reports und Dashboards die nicht nur gut aussehen, sondern Entscheidungen ermöglichen. Keine Dashboard-Tapete.",
+  },
+  {
+    title: "Performance-Optimierung",
+    description:
+      "Ihr bestehendes Power BI ist langsam? Ich finde den Flaschenhals — meistens ist es das Datenmodell, nicht die Hardware.",
+  },
+  {
+    title: "Governance & Deployment",
+    description:
+      "Workspaces, Deployment Pipelines, Row-Level Security — damit Ihre BI-Umgebung auch bei Wachstum stabil bleibt.",
+  },
 ];
 
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Power BI — Semantische Modelle & BI Apps",
-  "description": "Semantische Modelle, Reporting und BI Apps von einem Power BI Experten. Fundiertes Datenmodell als Grundlage für performante, skalierbare Business Intelligence.",
-  "provider": {
+  name: "Power BI — Semantische Modelle & BI Apps",
+  description:
+    "Semantische Modelle, Reporting und BI Apps von einem Power BI Experten. Fundiertes Datenmodell als Grundlage für performante, skalierbare Business Intelligence.",
+  provider: {
     "@type": "ProfessionalService",
-    "name": "Capygator",
-    "url": "https://capygator.com",
+    name: "Capygator",
+    url: "https://capygator.com",
   },
-  "areaServed": [
-    { "@type": "Country", "name": "Germany" },
-    { "@type": "Country", "name": "Austria" },
-    { "@type": "Country", "name": "Switzerland" },
+  areaServed: [
+    { "@type": "Country", name: "Germany" },
+    { "@type": "Country", name: "Austria" },
+    { "@type": "Country", name: "Switzerland" },
   ],
-  "serviceType": "Business Intelligence Consulting",
-  "url": "https://capygator.com/power-bi",
+  serviceType: "Business Intelligence Consulting",
+  url: "https://capygator.com/power-bi",
 };
 ---
 
@@ -43,13 +60,20 @@ const serviceSchema = {
         <span class="text-accent">vom Profi.</span>
       </h1>
       <p class="page-sub animate-fade-up delay-4">
-        Die meisten Power BI Projekte scheitern nicht an der Technik, sondern am Datenmodell.
-        Ich sorge dafür, dass das Fundament stimmt — dann wird alles andere einfach.
+        Die meisten Power BI Projekte scheitern nicht an der Technik, sondern am Datenmodell. Ich
+        sorge dafür, dass das Fundament stimmt — dann wird alles andere einfach.
       </p>
       <div class="hero-actions animate-fade-up delay-5">
         <a href="/kontakt" class="btn-primary">
           Projekt besprechen
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg
+            width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg
+          >
         </a>
         <a href="/preise" class="btn-secondary">Preise ansehen</a>
       </div>
@@ -74,10 +98,13 @@ const serviceSchema = {
         </div>
       </div>
       <p class="problem-text" data-animate="fade-up" data-delay="2">
-        Power BI kann jeder installieren. Aber ein Report der in 30 Sekunden lädt statt in 3 Minuten? Ein Datenmodell das auch in zwei Jahren noch wartbar ist? Das braucht Erfahrung.
+        Power BI kann jeder installieren. Aber ein Report der in 30 Sekunden lädt statt in 3
+        Minuten? Ein Datenmodell das auch in zwei Jahren noch wartbar ist? Das braucht Erfahrung.
       </p>
       <blockquote class="problem-quote" data-animate="fade-up" data-delay="3">
-        <p>&bdquo;Measures die auch Ihr Controller versteht — das ist die eigentliche Kunst.&ldquo;</p>
+        <p>
+          &bdquo;Measures die auch Ihr Controller versteht — das ist die eigentliche Kunst.&ldquo;
+        </p>
         <cite>— Aus der Praxis</cite>
       </blockquote>
     </div>
@@ -148,7 +175,9 @@ const serviceSchema = {
     gap: 0.5rem;
     transition: opacity 0.15s;
   }
-  .btn-primary:hover { opacity: 0.85; }
+  .btn-primary:hover {
+    opacity: 0.85;
+  }
 
   .btn-secondary {
     color: var(--color-text-secondary);
@@ -157,7 +186,9 @@ const serviceSchema = {
     font-size: 0.9rem;
     border-bottom: 1px solid var(--color-border);
     padding-bottom: 2px;
-    transition: color 0.2s, border-color 0.2s;
+    transition:
+      color 0.2s,
+      border-color 0.2s;
   }
   .btn-secondary:hover {
     color: var(--color-text-primary);
@@ -270,7 +301,9 @@ const serviceSchema = {
     transition: border-color 0.3s;
   }
 
-  .service-item:hover { border-color: var(--color-border-hover); }
+  .service-item:hover {
+    border-color: var(--color-border-hover);
+  }
 
   .service-item h3 {
     font-size: 1.05rem;
@@ -283,7 +316,11 @@ const serviceSchema = {
   }
 
   @media (max-width: 768px) {
-    .services-list { grid-template-columns: 1fr; }
-    .stats-grid { grid-template-columns: 1fr; }
+    .services-list {
+      grid-template-columns: 1fr;
+    }
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

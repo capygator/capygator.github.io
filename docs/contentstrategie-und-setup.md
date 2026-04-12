@@ -29,14 +29,14 @@ related:
 
 ### Astro + React Islands + TailwindCSS → GitHub Pages
 
-| Kriterium | Warum Astro |
-|-----------|-------------|
-| **Performance** | Static-first → Lighthouse 95+, lädt schneller als jede WordPress-Agenturseite |
-| **SEO** | Statisches HTML = sofortige Indexierung |
-| **Content** | MDX Content Collections für Blog/Glossar (Post-Launch) |
-| **Interaktivität** | React Islands nur wo nötig (Kontaktformular) |
-| **Wartung** | Null Backend, Git-basiert, perfekt für One-Person-Betrieb |
-| **Design-Freiheit** | Volle Kontrolle — die Seite selbst wird zum Portfolio-Stück |
+| Kriterium           | Warum Astro                                                                   |
+| ------------------- | ----------------------------------------------------------------------------- |
+| **Performance**     | Static-first → Lighthouse 95+, lädt schneller als jede WordPress-Agenturseite |
+| **SEO**             | Statisches HTML = sofortige Indexierung                                       |
+| **Content**         | MDX Content Collections für Blog/Glossar (Post-Launch)                        |
+| **Interaktivität**  | React Islands nur wo nötig (Kontaktformular)                                  |
+| **Wartung**         | Null Backend, Git-basiert, perfekt für One-Person-Betrieb                     |
+| **Design-Freiheit** | Volle Kontrolle — die Seite selbst wird zum Portfolio-Stück                   |
 
 **Deployment:** GitHub Pages via GitHub Actions
 **Formulare:** Formspree / Getform (kein Backend auf GH Pages)
@@ -66,9 +66,10 @@ capygator.de
 
 #### 1 — Home (Hero Page)
 
-**Job:** In 3 Sekunden kommunizieren: *"Diese Person versteht Design UND Daten — und baut mit modernsten Tools."*
+**Job:** In 3 Sekunden kommunizieren: _"Diese Person versteht Design UND Daten — und baut mit modernsten Tools."_
 
 **Struktur:**
+
 ```
 ┌─────────────────────────────────────────────────┐
 │  HERO                                           │
@@ -102,9 +103,10 @@ capygator.de
 
 #### 2 — /fabric
 
-**Headline-Framing:** Nicht "Fabric Beratung" sondern z.B. *"Von der Datenstrategie bis zum kompetenten Team — alles aus einer Hand."*
+**Headline-Framing:** Nicht "Fabric Beratung" sondern z.B. _"Von der Datenstrategie bis zum kompetenten Team — alles aus einer Hand."_
 
 **Struktur:**
+
 - **Problem:** Fabric ist mächtig aber komplex. Mittelständler brauchen jemanden der das Gesamtbild versteht, nicht nur ein Feature.
 - **Positionierung:** End-to-End Partner — Strategie → Architektur → Implementierung → Coaching der Anwender
 - **Die 4 Phasen** (visuell, z.B. als Prozess-Grafik):
@@ -117,9 +119,10 @@ capygator.de
 
 #### 3 — /power-bi
 
-**Headline-Framing:** z.B. *"Semantische Modelle und BI Apps — von jemandem, der Power BI wirklich versteht."*
+**Headline-Framing:** z.B. _"Semantische Modelle und BI Apps — von jemandem, der Power BI wirklich versteht."_
 
 **Struktur:**
+
 - **Problem:** Die meisten Power BI Projekte scheitern nicht an der Technik, sondern am Datenmodell.
 - **Was ich anders mache:** Semantische Modellierung als Fundament, nicht als Nachgedanke
 - **Leistungen:**
@@ -131,12 +134,13 @@ capygator.de
 
 #### 4 — /agentic-engineering
 
-**Headline-Framing:** z.B. *"KI die nicht nur redet, sondern Datenarbeit erledigt."*
+**Headline-Framing:** z.B. _"KI die nicht nur redet, sondern Datenarbeit erledigt."_
 
 > [!warning] Kritische Annahme
 > "Agentic Engineering" ist ein Differenzierungsmerkmal, aber die Zielgruppe (Mittelstand-Entscheider) kennt den Begriff vermutlich nicht. Die Seite muss den NUTZEN erklären, nicht die Technologie.
 
 **Struktur:**
+
 - **Problem:** Datenaufbereitung, Dokumentation, Testing — Routinearbeit frisst Projektbudget
 - **Lösung:** Agentic AI (Claude/Anthropic) integriert in den Fabric/Power BI Workflow
 - **Konkrete Use Cases:** (2-3 Beispiele, greifbar)
@@ -202,12 +206,14 @@ capygator.de
 **Tonalität:** Modern, selbstbewusst, technisch versiert aber nicht kalt. Kein Corporate-Blau. Kein Microsoft-Look.
 
 **Differenzierung durch:**
+
 - Ungewöhnliche Typografie (kein Inter, kein Roboto)
 - Eigene Illustrationen oder generative Visuals statt Stockfotos
 - Micro-Interactions die Datenkompetenz zeigen
 - Dark Mode als Default? (signalisiert: Tech-Kompetenz)
 
 **Capygator-Marke:**
+
 - **Tagline:** "calm on complexity" — DAS ist die Positionierung in 3 Worten
 - **Logo:** Capybara meditiert auf einem Alligator — Ruhe inmitten von Komplexität
 - Das Logo ist mutig, character-driven, sofort wiedererkennbar
@@ -222,24 +228,29 @@ capygator.de
 # CLAUDE.md — Capygator Website
 
 ## Projektkontext
+
 Capygator ist ein Solopreneur-Business — Company of One.
 Positionierung: DER Power BI & Microsoft Fabric Experte in DACH.
 Einzigartige Kombination: Fabric End-to-End + Power BI Semantic Models
-+ Agentic AI Engineering mit Anthropic.
+
+- Agentic AI Engineering mit Anthropic.
 
 ## Tonalität
+
 - "Ich" statt "Wir" — authentisch, keine Fake-Agentur
 - Selbstbewusst und klar, nicht arrogant
 - Technisch tief aber immer mit Business-Kontext
 - Der Name "Capygator" hat Charakter — die Seite darf das auch zeigen
 
 ## Zielgruppe
+
 Mittelstand DACH (50-500 MA): Entscheider (GF, CFO, Bereichsleiter)
 und IT-Leitung als Gatekeeper.
 Sprache für Entscheider = Business-Outcomes.
 Sprache für IT = Tech-Kompetenz und Tiefe.
 
 ## Tech-Stack
+
 - Astro 5.x (Static Site Generator)
 - React 19 (nur für interaktive Islands: Kontaktformular)
 - TailwindCSS 4.x
@@ -248,12 +259,14 @@ Sprache für IT = Tech-Kompetenz und Tiefe.
 - Formulare: Formspree (kein Backend auf GH Pages)
 
 ## Deployment
+
 - Adapter: @astrojs/static (default)
 - GitHub Actions: .github/workflows/deploy.yml
 - Custom Domain: CNAME in /public
 - Build: npm run build → dist/
 
 ## Seiten
+
 - / (Home — Hero, Service-Karten, Trust, Social Proof, CTA)
 - /fabric (End-to-End: Strategie → Coaching)
 - /power-bi (Semantische Modelle + BI Apps)
@@ -264,6 +277,7 @@ Sprache für IT = Tech-Kompetenz und Tiefe.
 - /datenschutz
 
 ## Design-System
+
 - Fonts: [nach Design-Entscheidung]
 - Primärfarbe: [nach Design-Entscheidung]
 - CSS Custom Properties in global.css
@@ -273,12 +287,14 @@ Sprache für IT = Tech-Kompetenz und Tiefe.
 - Die Seite selbst ist das Portfolio — Design-Qualität = Kernkompetenz-Beweis
 
 ## Preise (für Preisseite)
+
 - Sprint (5 Tage): 200 €/h → 8.000 € pauschal
 - Projekt (20 Tage): 150 €/h → 24.000 € pauschal
 - Partnerschaft (200 Tage): 125 €/h → 200.000 € pauschal
 - Alle Preise netto, zzgl. MwSt.
 
 ## Code-Konventionen
+
 - Komponenten: PascalCase (.astro oder .tsx)
 - Astro bevorzugen, React nur für Interaktivität
 - Props mit TypeScript-Interface
@@ -289,6 +305,7 @@ Sprache für IT = Tech-Kompetenz und Tiefe.
 - URLs auf Deutsch (/fabric, /power-bi, /preise — nicht /services)
 
 ## Wichtige Regeln
+
 - KEIN Lorem Ipsum — realistische Platzhaltertexte
 - KEINE Stockfotos — [BILD: Beschreibung] Platzhalter
 - KEIN "Wir" — immer "Ich" oder Capygator
@@ -440,28 +457,29 @@ jobs:
 
 ### Stimme & Ton
 
-| Aspekt | Capygator |
-|--------|-----------|
-| **Perspektive** | "Ich" — nie "Wir", nie passiv |
-| **Ton** | Klar, direkt, fachlich souverän |
-| **Humor** | Erlaubt — der Name gibt Spielraum |
-| **Jargon** | Power BI / Fabric Fachbegriffe: ja. Berater-Bullshit: nein. |
-| **Claim** | Nie "der Beste" sagen — durch Tiefe beweisen |
+| Aspekt          | Capygator                                                   |
+| --------------- | ----------------------------------------------------------- |
+| **Perspektive** | "Ich" — nie "Wir", nie passiv                               |
+| **Ton**         | Klar, direkt, fachlich souverän                             |
+| **Humor**       | Erlaubt — der Name gibt Spielraum                           |
+| **Jargon**      | Power BI / Fabric Fachbegriffe: ja. Berater-Bullshit: nein. |
+| **Claim**       | Nie "der Beste" sagen — durch Tiefe beweisen                |
 
 ### Headlines — Nicht so / Sondern so
 
-| ❌ Nicht | ✅ Sondern |
-|----------|-----------|
-| "Fabric Beratung" | "Von der Datenstrategie bis zum kompetenten Team" |
-| "Power BI Experte" | "Semantische Modelle, die Ihre Berichte 10x schneller machen" |
-| "KI-Integration" | "KI die Datenarbeit erledigt, nicht nur darüber redet" |
-| "Flexible Preise" | "Drei Pakete. Null Überraschungen." |
-| "Wir sind innovativ" | [einfach weglassen] |
+| ❌ Nicht             | ✅ Sondern                                                    |
+| -------------------- | ------------------------------------------------------------- |
+| "Fabric Beratung"    | "Von der Datenstrategie bis zum kompetenten Team"             |
+| "Power BI Experte"   | "Semantische Modelle, die Ihre Berichte 10x schneller machen" |
+| "KI-Integration"     | "KI die Datenarbeit erledigt, nicht nur darüber redet"        |
+| "Flexible Preise"    | "Drei Pakete. Null Überraschungen."                           |
+| "Wir sind innovativ" | [einfach weglassen]                                           |
 
 ---
 
 > [!tip] Nächster Schritt
 > **Drei Entscheidungen, dann bauen wir:**
+>
 > 1. **Design-Richtung** — Dark/Tech oder Light/Clean? Capybara-Element ja/nein?
 > 2. **Hero-Headline** — Was soll der erste Satz sein? Ich kann Varianten vorschlagen.
 > 3. **Trust-Signale** — Microsoft Partner Status? Zertifizierungen? Kunden die man nennen darf?

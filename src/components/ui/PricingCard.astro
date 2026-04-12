@@ -10,20 +10,20 @@ interface Props {
 
 const { name, days, hourlyRate, totalPrice, description, highlighted = false } = Astro.props;
 
-const formattedTotal = new Intl.NumberFormat('de-DE', {
-  style: 'currency',
-  currency: 'EUR',
+const formattedTotal = new Intl.NumberFormat("de-DE", {
+  style: "currency",
+  currency: "EUR",
   minimumFractionDigits: 0,
 }).format(totalPrice);
 
-const formattedHourly = new Intl.NumberFormat('de-DE', {
-  style: 'currency',
-  currency: 'EUR',
+const formattedHourly = new Intl.NumberFormat("de-DE", {
+  style: "currency",
+  currency: "EUR",
   minimumFractionDigits: 0,
 }).format(hourlyRate);
 ---
 
-<div class:list={['pricing-card', { highlighted }]}>
+<div class:list={["pricing-card", { highlighted }]}>
   {highlighted && <div class="pricing-badge">Beliebt</div>}
   <h3 class="pricing-name">{name}</h3>
   <p class="pricing-days">{days} Tage</p>
@@ -35,7 +35,14 @@ const formattedHourly = new Intl.NumberFormat('de-DE', {
   <p class="pricing-desc">{description}</p>
   <a href="/kontakt" class="pricing-cta">
     Anfragen
-    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    <svg
+      width="14"
+      height="14"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg
+    >
   </a>
 </div>
 
@@ -54,7 +61,7 @@ const formattedHourly = new Intl.NumberFormat('de-DE', {
   .pricing-card:hover {
     border-color: var(--color-border-hover);
     transform: translateY(-4px);
-    box-shadow: 0 20px 60px -20px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.5);
   }
 
   .pricing-card.highlighted {
@@ -63,7 +70,7 @@ const formattedHourly = new Intl.NumberFormat('de-DE', {
   }
 
   .pricing-card.highlighted::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;

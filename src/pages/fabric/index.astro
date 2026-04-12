@@ -1,32 +1,53 @@
 ---
-import PageLayout from '../../layouts/PageLayout.astro';
-import CTABanner from '../../components/sections/CTABanner.astro';
-import { SpotlightCards } from '../../components/ui/SpotlightCards';
+import PageLayout from "../../layouts/PageLayout.astro";
+import CTABanner from "../../components/sections/CTABanner.astro";
+import { SpotlightCards } from "../../components/ui/SpotlightCards";
 
 const phases = [
-  { num: '01', title: 'Strategie & Assessment', description: 'Wo stehen Sie heute? Wo wollen Sie hin? Ich analysiere Ihre Datenlandschaft und entwickle eine realistische Fabric-Roadmap.' },
-  { num: '02', title: 'Architektur & Datenmodell', description: 'Lakehouse, Warehouse, oder beides? Ich designe die Architektur die zu Ihren Anforderungen passt — nicht umgekehrt.' },
-  { num: '03', title: 'Implementierung & Migration', description: 'Pipelines, Dataflows, Notebooks — ich baue Ihre Fabric-Umgebung auf oder migriere von bestehenden Systemen.' },
-  { num: '04', title: 'Enablement & Coaching', description: 'Ihr Team soll Fabric eigenständig nutzen können. Ich schule, dokumentiere und begleite bis zur Selbstständigkeit.' },
+  {
+    num: "01",
+    title: "Strategie & Assessment",
+    description:
+      "Wo stehen Sie heute? Wo wollen Sie hin? Ich analysiere Ihre Datenlandschaft und entwickle eine realistische Fabric-Roadmap.",
+  },
+  {
+    num: "02",
+    title: "Architektur & Datenmodell",
+    description:
+      "Lakehouse, Warehouse, oder beides? Ich designe die Architektur die zu Ihren Anforderungen passt — nicht umgekehrt.",
+  },
+  {
+    num: "03",
+    title: "Implementierung & Migration",
+    description:
+      "Pipelines, Dataflows, Notebooks — ich baue Ihre Fabric-Umgebung auf oder migriere von bestehenden Systemen.",
+  },
+  {
+    num: "04",
+    title: "Enablement & Coaching",
+    description:
+      "Ihr Team soll Fabric eigenständig nutzen können. Ich schule, dokumentiere und begleite bis zur Selbstständigkeit.",
+  },
 ];
 
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Microsoft Fabric — End-to-End Datenplattform",
-  "description": "Von der Datenstrategie bis zum kompetenten Team. Begleitung durch die gesamte Fabric-Reise: Architektur, Implementierung, Coaching.",
-  "provider": {
+  name: "Microsoft Fabric — End-to-End Datenplattform",
+  description:
+    "Von der Datenstrategie bis zum kompetenten Team. Begleitung durch die gesamte Fabric-Reise: Architektur, Implementierung, Coaching.",
+  provider: {
     "@type": "ProfessionalService",
-    "name": "Capygator",
-    "url": "https://capygator.com",
+    name: "Capygator",
+    url: "https://capygator.com",
   },
-  "areaServed": [
-    { "@type": "Country", "name": "Germany" },
-    { "@type": "Country", "name": "Austria" },
-    { "@type": "Country", "name": "Switzerland" },
+  areaServed: [
+    { "@type": "Country", name: "Germany" },
+    { "@type": "Country", name: "Austria" },
+    { "@type": "Country", name: "Switzerland" },
   ],
-  "serviceType": "Data Platform Consulting",
-  "url": "https://capygator.com/fabric",
+  serviceType: "Data Platform Consulting",
+  url: "https://capygator.com/fabric",
 };
 ---
 
@@ -43,13 +64,20 @@ const serviceSchema = {
         <span class="text-accent">kompetenten Team.</span>
       </h1>
       <p class="page-sub animate-fade-up delay-4">
-        Fabric ist mächtig — aber Macht ohne Plan ist Chaos. Ich bringe beides zusammen:
-        die technische Tiefe und den strategischen Überblick, den Ihr Mittelstand braucht.
+        Fabric ist mächtig — aber Macht ohne Plan ist Chaos. Ich bringe beides zusammen: die
+        technische Tiefe und den strategischen Überblick, den Ihr Mittelstand braucht.
       </p>
       <div class="hero-actions animate-fade-up delay-5">
         <a href="/kontakt" class="btn-primary">
           Projekt besprechen
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg
+            width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg
+          >
         </a>
         <a href="/preise" class="btn-secondary">Preise ansehen</a>
       </div>
@@ -77,8 +105,8 @@ const serviceSchema = {
       </div>
 
       <p class="problem-text" data-animate="fade-up" data-delay="2">
-        Lakehouses ohne Strategie, Pipelines ohne Governance, Teams ohne Know-how.
-        Die Technologie ist da — was fehlt, ist jemand der das Gesamtbild versteht.
+        Lakehouses ohne Strategie, Pipelines ohne Governance, Teams ohne Know-how. Die Technologie
+        ist da — was fehlt, ist jemand der das Gesamtbild versteht.
       </p>
 
       <blockquote class="problem-quote" data-animate="fade-up" data-delay="3">
@@ -108,21 +136,30 @@ const serviceSchema = {
           <span class="persona-badge">C</span>
           <div>
             <h3>Geschäftsführung & C-Level</h3>
-            <p>Brauchen eine Datenplattform die Business-Entscheidungen beschleunigt — ohne Millionen-Budget und 18 Monate Projektlaufzeit.</p>
+            <p>
+              Brauchen eine Datenplattform die Business-Entscheidungen beschleunigt — ohne
+              Millionen-Budget und 18 Monate Projektlaufzeit.
+            </p>
           </div>
         </div>
         <div class="persona-card" data-animate="fade-up" data-delay="2">
           <span class="persona-badge">IT</span>
           <div>
             <h3>IT-Leitung</h3>
-            <p>Suchen jemanden der Fabric end-to-end versteht — nicht nur ein Feature implementiert, sondern die ganze Architektur im Blick hat.</p>
+            <p>
+              Suchen jemanden der Fabric end-to-end versteht — nicht nur ein Feature implementiert,
+              sondern die ganze Architektur im Blick hat.
+            </p>
           </div>
         </div>
         <div class="persona-card" data-animate="fade-up" data-delay="3">
           <span class="persona-badge">BI</span>
           <div>
             <h3>BI- & Data-Teams</h3>
-            <p>Wollen von Legacy-Systemen auf Fabric migrieren und brauchen einen Partner der die Brücke baut — technisch und methodisch.</p>
+            <p>
+              Wollen von Legacy-Systemen auf Fabric migrieren und brauchen einen Partner der die
+              Brücke baut — technisch und methodisch.
+            </p>
           </div>
         </div>
       </div>
@@ -185,7 +222,9 @@ const serviceSchema = {
     gap: 0.5rem;
     transition: opacity 0.15s;
   }
-  .btn-primary:hover { opacity: 0.85; }
+  .btn-primary:hover {
+    opacity: 0.85;
+  }
 
   .btn-secondary {
     color: var(--color-text-secondary);
@@ -194,7 +233,9 @@ const serviceSchema = {
     font-size: 0.9rem;
     border-bottom: 1px solid var(--color-border);
     padding-bottom: 2px;
-    transition: color 0.2s, border-color 0.2s;
+    transition:
+      color 0.2s,
+      border-color 0.2s;
   }
   .btn-secondary:hover {
     color: var(--color-text-primary);
@@ -381,8 +422,16 @@ const serviceSchema = {
   }
 
   @media (max-width: 768px) {
-    .phases-grid { grid-template-columns: 1fr; }
-    .stats-grid { grid-template-columns: 1fr; }
-    .persona-card { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    .phases-grid {
+      grid-template-columns: 1fr;
+    }
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+    .persona-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
   }
 </style>

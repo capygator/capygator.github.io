@@ -1,44 +1,48 @@
 ---
-import PageLayout from '../../layouts/PageLayout.astro';
-import CTABanner from '../../components/sections/CTABanner.astro';
-import { HeroSpline } from '../../components/ui/HeroSpline';
-import { SpotlightCards } from '../../components/ui/SpotlightCards';
+import PageLayout from "../../layouts/PageLayout.astro";
+import CTABanner from "../../components/sections/CTABanner.astro";
+import { HeroSpline } from "../../components/ui/HeroSpline";
+import { SpotlightCards } from "../../components/ui/SpotlightCards";
 
 const usecases = [
   {
     icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9-9 9-9-1.8-9-9 1.8-9 9-9z"/></svg>',
-    title: 'Automatisierte Datenvalidierung',
-    description: 'AI-Agents die Ihre Datenqualität prüfen, Anomalien erkennen und dokumentieren — bevor der Report beim Management landet.',
+    title: "Automatisierte Datenvalidierung",
+    description:
+      "AI-Agents die Ihre Datenqualität prüfen, Anomalien erkennen und dokumentieren — bevor der Report beim Management landet.",
   },
   {
     icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>',
-    title: 'Code-generierte Pipelines',
-    description: 'Von der Anforderung zum fertigen Fabric Notebook — mit Code-Review durch erfahrene Augen, nicht blind generiert.',
+    title: "Code-generierte Pipelines",
+    description:
+      "Von der Anforderung zum fertigen Fabric Notebook — mit Code-Review durch erfahrene Augen, nicht blind generiert.",
   },
   {
     icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>',
-    title: 'Datenmodell-Review',
-    description: 'AI-gestützte Analyse bestehender Semantic Models: Performance-Bottlenecks, DAX-Optimierung, Best-Practice-Checks.',
+    title: "Datenmodell-Review",
+    description:
+      "AI-gestützte Analyse bestehender Semantic Models: Performance-Bottlenecks, DAX-Optimierung, Best-Practice-Checks.",
   },
 ];
 
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Agentic Engineering — KI-gestützte BI-Entwicklung",
-  "description": "Moderne BI-Entwicklung mit Anthropic Claude und Microsoft Fabric. KI-Agents für Datenvalidierung, Pipeline-Generierung und Datenmodell-Reviews — integriert in Ihren bestehenden Workflow.",
-  "provider": {
+  name: "Agentic Engineering — KI-gestützte BI-Entwicklung",
+  description:
+    "Moderne BI-Entwicklung mit Anthropic Claude und Microsoft Fabric. KI-Agents für Datenvalidierung, Pipeline-Generierung und Datenmodell-Reviews — integriert in Ihren bestehenden Workflow.",
+  provider: {
     "@type": "ProfessionalService",
-    "name": "Capygator",
-    "url": "https://capygator.com",
+    name: "Capygator",
+    url: "https://capygator.com",
   },
-  "areaServed": [
-    { "@type": "Country", "name": "Germany" },
-    { "@type": "Country", "name": "Austria" },
-    { "@type": "Country", "name": "Switzerland" },
+  areaServed: [
+    { "@type": "Country", name: "Germany" },
+    { "@type": "Country", name: "Austria" },
+    { "@type": "Country", name: "Switzerland" },
   ],
-  "serviceType": "AI Engineering Consulting",
-  "url": "https://capygator.com/agentic-engineering",
+  serviceType: "AI Engineering Consulting",
+  url: "https://capygator.com/agentic-engineering",
 };
 ---
 
@@ -57,14 +61,21 @@ const serviceSchema = {
             <span class="text-accent">erledigt.</span>
           </h1>
           <p class="page-sub animate-fade-up delay-4">
-            Datenaufbereitung, Dokumentation, Testing — Routinearbeit die Projektbudget frisst.
-            Ich integriere Agentic Engineering in Ihren Fabric/Power BI Workflow, damit Sie sich
-            auf die Entscheidungen konzentrieren können, nicht auf die Vorbereitung.
+            Datenaufbereitung, Dokumentation, Testing — Routinearbeit die Projektbudget frisst. Ich
+            integriere Agentic Engineering in Ihren Fabric/Power BI Workflow, damit Sie sich auf die
+            Entscheidungen konzentrieren können, nicht auf die Vorbereitung.
           </p>
           <div class="hero-actions animate-fade-up delay-5">
             <a href="/kontakt" class="btn-primary">
               Projekt besprechen
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg
+              >
             </a>
             <a href="/preise" class="btn-secondary">Preise ansehen</a>
           </div>
@@ -98,7 +109,10 @@ const serviceSchema = {
         schreibt Pipelines, validiert Ergebnisse und dokumentiert was sie tut.
       </p>
       <blockquote class="problem-quote" data-animate="fade-up" data-delay="3">
-        <p>&bdquo;Nicht autonom im stillen K&auml;mmerlein, sondern als intelligenter Assistent in Ihrem bestehenden Workflow.&ldquo;</p>
+        <p>
+          &bdquo;Nicht autonom im stillen K&auml;mmerlein, sondern als intelligenter Assistent in
+          Ihrem bestehenden Workflow.&ldquo;
+        </p>
         <cite>&mdash; Mein Ansatz</cite>
       </blockquote>
     </div>
@@ -117,9 +131,10 @@ const serviceSchema = {
     <div class="container content-narrow">
       <h2 data-animate="fade-up">Warum Anthropic Claude?</h2>
       <p data-animate="fade-up" data-delay="2">
-        Ich arbeite mit Claude von Anthropic — dem zuverlässigsten AI-Modell für technische Aufgaben.
-        Warum? Präzisere Code-Generierung, transparenteres Reasoning, und eine klare Haltung zu Datensicherheit.
-        Ihre Unternehmensdaten verdienen ein Modell dem man vertrauen kann.
+        Ich arbeite mit Claude von Anthropic — dem zuverlässigsten AI-Modell für technische
+        Aufgaben. Warum? Präzisere Code-Generierung, transparenteres Reasoning, und eine klare
+        Haltung zu Datensicherheit. Ihre Unternehmensdaten verdienen ein Modell dem man vertrauen
+        kann.
       </p>
     </div>
   </section>
@@ -198,7 +213,9 @@ const serviceSchema = {
     gap: 0.5rem;
     transition: opacity 0.15s;
   }
-  .btn-primary:hover { opacity: 0.85; }
+  .btn-primary:hover {
+    opacity: 0.85;
+  }
 
   .btn-secondary {
     color: var(--color-text-secondary);
@@ -207,7 +224,9 @@ const serviceSchema = {
     font-size: 0.9rem;
     border-bottom: 1px solid var(--color-border);
     padding-bottom: 2px;
-    transition: color 0.2s, border-color 0.2s;
+    transition:
+      color 0.2s,
+      border-color 0.2s;
   }
   .btn-secondary:hover {
     color: var(--color-text-primary);
@@ -220,7 +239,9 @@ const serviceSchema = {
     z-index: 2;
   }
 
-  .content-narrow { max-width: 640px; }
+  .content-narrow {
+    max-width: 640px;
+  }
 
   .content-section h2 {
     font-size: 1.5rem;
@@ -322,7 +343,9 @@ const serviceSchema = {
     transition: border-color 0.3s;
   }
 
-  .usecase-card:hover { border-color: var(--color-border-hover); }
+  .usecase-card:hover {
+    border-color: var(--color-border-hover);
+  }
 
   .usecase-icon {
     display: flex;
@@ -357,7 +380,11 @@ const serviceSchema = {
   }
 
   @media (max-width: 768px) {
-    .usecases-grid { grid-template-columns: 1fr; }
-    .stats-grid { grid-template-columns: 1fr; }
+    .usecases-grid {
+      grid-template-columns: 1fr;
+    }
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

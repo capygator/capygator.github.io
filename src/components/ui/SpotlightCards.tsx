@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 interface CardData {
   num?: string;
@@ -20,18 +20,18 @@ export function SpotlightCards({ cards, columns = 2 }: SpotlightCardsProps) {
     if (!container) return;
 
     const handlePointerMove = (e: PointerEvent) => {
-      const cards = container.querySelectorAll<HTMLElement>('[data-glow-card]');
+      const cards = container.querySelectorAll<HTMLElement>("[data-glow-card]");
       cards.forEach((card) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        card.style.setProperty('--glow-x', `${x}px`);
-        card.style.setProperty('--glow-y', `${y}px`);
+        card.style.setProperty("--glow-x", `${x}px`);
+        card.style.setProperty("--glow-y", `${y}px`);
       });
     };
 
-    container.addEventListener('pointermove', handlePointerMove);
-    return () => container.removeEventListener('pointermove', handlePointerMove);
+    container.addEventListener("pointermove", handlePointerMove);
+    return () => container.removeEventListener("pointermove", handlePointerMove);
   }, []);
 
   return (
@@ -39,9 +39,9 @@ export function SpotlightCards({ cards, columns = 2 }: SpotlightCardsProps) {
       ref={containerRef}
       className="spotlight-grid"
       style={{
-        display: 'grid',
+        display: "grid",
         gridTemplateColumns: `repeat(${columns}, 1fr)`,
-        gap: '1.25rem',
+        gap: "1.25rem",
       }}
     >
       {cards.map((card, i) => (

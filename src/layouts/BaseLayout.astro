@@ -6,46 +6,44 @@ interface Props {
   schema?: object | object[];
 }
 
-const {
-  title,
-  description,
-  ogImage = '/images/capygator-og.png',
-  schema,
-} = Astro.props;
+const { title, description, ogImage = "/images/capygator-og.png", schema } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 // BreadcrumbList auto-generieren für alle Unterseiten
 const pathNames: Record<string, string> = {
-  'fabric': 'Microsoft Fabric',
-  'power-bi': 'Power BI',
-  'agentic-engineering': 'Agentic Engineering',
-  'preise': 'Preise',
-  'kontakt': 'Kontakt',
-  'impressum': 'Impressum',
-  'datenschutz': 'Datenschutz',
+  fabric: "Microsoft Fabric",
+  "power-bi": "Power BI",
+  "agentic-engineering": "Agentic Engineering",
+  preise: "Preise",
+  kontakt: "Kontakt",
+  impressum: "Impressum",
+  datenschutz: "Datenschutz",
 };
-const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
-const breadcrumbSchema = pathSegments.length > 0 ? {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": Astro.site?.toString().replace(/\/$/, '') || '',
-    },
-    ...pathSegments.map((segment, i) => ({
-      "@type": "ListItem",
-      "position": i + 2,
-      "name": pathNames[segment] || segment,
-      "item": new URL('/' + pathSegments.slice(0, i + 1).join('/'), Astro.site).toString(),
-    })),
-  ],
-} : null;
+const pathSegments = Astro.url.pathname.split("/").filter(Boolean);
+const breadcrumbSchema =
+  pathSegments.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: Astro.site?.toString().replace(/\/$/, "") || "",
+          },
+          ...pathSegments.map((segment, i) => ({
+            "@type": "ListItem",
+            position: i + 2,
+            name: pathNames[segment] || segment,
+            item: new URL("/" + pathSegments.slice(0, i + 1).join("/"), Astro.site).toString(),
+          })),
+        ],
+      }
+    : null;
 
-import '../styles/global.css';
+import "../styles/global.css";
 ---
 
 <!doctype html>
@@ -84,8 +82,18 @@ import '../styles/global.css';
     <!-- Fonts (async — non-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Datatype:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Datatype:wght@400;700&display=swap" rel="stylesheet" /></noscript>
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Datatype:wght@400;700&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        href="https://fonts.googleapis.com/css2?family=Datatype:wght@400;700&display=swap"
+        rel="stylesheet"
+      /></noscript
+    >
 
     <!-- Spline CDN -->
     <link rel="preconnect" href="https://prod.spline.design" />
@@ -94,67 +102,76 @@ import '../styles/global.css';
     <slot name="head" />
 
     <!-- Schema.org: BreadcrumbList -->
-    {breadcrumbSchema && (
-      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-    )}
+    {
+      breadcrumbSchema && (
+        <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+      )
+    }
 
     <!-- Schema.org: Seitenspezifische Daten -->
-    {schema && (
-      Array.isArray(schema)
-        ? schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)
-        : <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-    )}
+    {
+      schema &&
+        (Array.isArray(schema) ? (
+          schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)
+        ) : (
+          <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+        ))
+    }
 
     <!-- Schema.org -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Capygator",
-      "description": "Power BI & Microsoft Fabric Experte in der DACH-Region. Strategie, Implementierung, Coaching.",
-      "url": Astro.site?.toString(),
-      "logo": new URL('/images/capygator-logo.png', Astro.site).toString(),
-      "priceRange": "€€€",
-      "areaServed": [
-        { "@type": "Country", "name": "Germany" },
-        { "@type": "Country", "name": "Austria" },
-        { "@type": "Country", "name": "Switzerland" }
-      ],
-      "knowsAbout": [
-        "Microsoft Power BI",
-        "Microsoft Fabric",
-        "Business Intelligence",
-        "Data Analytics",
-        "Semantic Modeling",
-        "Agentic Engineering"
-      ]
-    })} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        name: "Capygator",
+        description:
+          "Power BI & Microsoft Fabric Experte in der DACH-Region. Strategie, Implementierung, Coaching.",
+        url: Astro.site?.toString(),
+        logo: new URL("/images/capygator-logo.png", Astro.site).toString(),
+        priceRange: "€€€",
+        areaServed: [
+          { "@type": "Country", name: "Germany" },
+          { "@type": "Country", name: "Austria" },
+          { "@type": "Country", name: "Switzerland" },
+        ],
+        knowsAbout: [
+          "Microsoft Power BI",
+          "Microsoft Fabric",
+          "Business Intelligence",
+          "Data Analytics",
+          "Semantic Modeling",
+          "Agentic Engineering",
+        ],
+      })}
+    />
   </head>
   <body>
     <script is:inline>
       // Apply saved theme/font immediately to prevent flash
-      (function() {
-        var t = localStorage.getItem('capygator-theme');
-        if (t === 'notebook') {
+      (function () {
+        var t = localStorage.getItem("capygator-theme");
+        if (t === "notebook") {
           var r = document.documentElement;
-          r.style.setProperty('--color-bg-primary','#f9f9f9');
-          r.style.setProperty('--color-bg-secondary','#f0efe8');
-          r.style.setProperty('--color-bg-card','#ffffff');
-          r.style.setProperty('--color-bg-card-hover','#f5f3eb');
-          r.style.setProperty('--color-accent','#5d4037');
-          r.style.setProperty('--color-accent-dim','rgba(93,64,55,0.1)');
-          r.style.setProperty('--color-accent-mid','rgba(93,64,55,0.25)');
-          r.style.setProperty('--color-accent-bright','#4e342e');
-          r.style.setProperty('--color-text-primary','#3a3a3a');
-          r.style.setProperty('--color-text-secondary','#505050');
-          r.style.setProperty('--color-text-muted','#808080');
-          r.style.setProperty('--color-border','#c8c4b8');
-          r.style.setProperty('--color-border-hover','#a09a8c');
+          r.style.setProperty("--color-bg-primary", "#f9f9f9");
+          r.style.setProperty("--color-bg-secondary", "#f0efe8");
+          r.style.setProperty("--color-bg-card", "#ffffff");
+          r.style.setProperty("--color-bg-card-hover", "#f5f3eb");
+          r.style.setProperty("--color-accent", "#5d4037");
+          r.style.setProperty("--color-accent-dim", "rgba(93,64,55,0.1)");
+          r.style.setProperty("--color-accent-mid", "rgba(93,64,55,0.25)");
+          r.style.setProperty("--color-accent-bright", "#4e342e");
+          r.style.setProperty("--color-text-primary", "#3a3a3a");
+          r.style.setProperty("--color-text-secondary", "#505050");
+          r.style.setProperty("--color-text-muted", "#808080");
+          r.style.setProperty("--color-border", "#c8c4b8");
+          r.style.setProperty("--color-border-hover", "#a09a8c");
         }
-        var f = localStorage.getItem('capygator-font-family');
+        var f = localStorage.getItem("capygator-font-family");
         if (f) {
           r = document.documentElement;
-          r.style.setProperty('--font-display', f);
-          r.style.setProperty('--font-body', f);
+          r.style.setProperty("--font-display", f);
+          r.style.setProperty("--font-body", f);
         }
       })();
     </script>
@@ -163,27 +180,27 @@ import '../styles/global.css';
 
     <!-- Scroll-triggered animations via IntersectionObserver -->
     <script>
-      const elements = document.querySelectorAll('[data-animate]');
+      const elements = document.querySelectorAll("[data-animate]");
 
       // Fallback: show all animated elements after 2s in case observer doesn't fire
       const fallbackTimer = setTimeout(() => {
-        elements.forEach((el) => el.classList.add('in-view'));
+        elements.forEach((el) => el.classList.add("in-view"));
       }, 2000);
 
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              entry.target.classList.add('in-view');
+              entry.target.classList.add("in-view");
               observer.unobserve(entry.target);
             }
           });
           // Clear fallback once all elements are visible
-          if (document.querySelectorAll('[data-animate]:not(.in-view)').length === 0) {
+          if (document.querySelectorAll("[data-animate]:not(.in-view)").length === 0) {
             clearTimeout(fallbackTimer);
           }
         },
-        { threshold: 0.05, rootMargin: '0px 0px 60px 0px' }
+        { threshold: 0.05, rootMargin: "0px 0px 60px 0px" }
       );
 
       elements.forEach((el) => observer.observe(el));

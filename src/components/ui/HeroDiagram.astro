@@ -1,38 +1,53 @@
 ---
 const services = [
-  { icon: '/images/fabric-icons/data-factory.svg', label: 'Data Factory' },
-  { icon: '/images/fabric-icons/data-engineering.svg', label: 'Analytics' },
-  { icon: '/images/fabric-icons/databases.svg', label: 'Databases' },
-  { icon: '/images/fabric-icons/real-time-intelligence.svg', label: 'Real-Time Intelligence', twoLine: true },
-  { icon: '/images/fabric-icons/fabric-iq.svg', label: 'IQ' },
-  { icon: '/images/fabric-icons/power-bi.svg', label: 'Power BI' },
+  { icon: "/images/fabric-icons/data-factory.svg", label: "Data Factory" },
+  { icon: "/images/fabric-icons/data-engineering.svg", label: "Analytics" },
+  { icon: "/images/fabric-icons/databases.svg", label: "Databases" },
+  {
+    icon: "/images/fabric-icons/real-time-intelligence.svg",
+    label: "Real-Time Intelligence",
+    twoLine: true,
+  },
+  { icon: "/images/fabric-icons/fabric-iq.svg", label: "IQ" },
+  { icon: "/images/fabric-icons/power-bi.svg", label: "Power BI" },
 ];
 
 const platform = [
-  { icon: '/images/fabric-icons/copilot.svg', label: 'Copilot' },
-  { icon: '/images/fabric-icons/one-lake.svg', label: 'OneLake' },
-  { icon: '/images/fabric-icons/purview.svg', label: 'Governance' },
+  { icon: "/images/fabric-icons/copilot.svg", label: "Copilot" },
+  { icon: "/images/fabric-icons/one-lake.svg", label: "OneLake" },
+  { icon: "/images/fabric-icons/purview.svg", label: "Governance" },
 ];
 ---
 
-<div class="fabric-diagram" aria-label="Microsoft Fabric Architektur — Die einheitliche Datenplattform">
+<div
+  class="fabric-diagram"
+  aria-label="Microsoft Fabric Architektur — Die einheitliche Datenplattform"
+>
   <!-- Outer frame -->
   <div class="fabric-frame">
     <!-- Logo + Title -->
     <div class="fabric-header">
-      <img src="/images/fabric-icons/fabric.svg" alt="" width="32" height="32" class="fabric-logo" />
+      <img
+        src="/images/fabric-icons/fabric.svg"
+        alt=""
+        width="32"
+        height="32"
+        class="fabric-logo"
+      />
       <h3 class="fabric-title">Microsoft Fabric</h3>
       <p class="fabric-subtitle">Die einheitliche Datenplattform</p>
     </div>
 
     <!-- 6 Service Cards -->
     <div class="fabric-services">
-      {services.map((svc) => (
-        <div class="fabric-svc">
-          <img src={svc.icon} alt="" width="36" height="36" class="fabric-svc-icon" />
-          <span class="fabric-svc-label">{svc.label}</span>
-        </div>
-      ))}
+      {
+        services.map((svc) => (
+          <div class="fabric-svc">
+            <img src={svc.icon} alt="" width="36" height="36" class="fabric-svc-icon" />
+            <span class="fabric-svc-label">{svc.label}</span>
+          </div>
+        ))
+      }
     </div>
 
     <!-- Platform Bar -->
@@ -43,15 +58,17 @@ const platform = [
     </div>
 
     <div class="fabric-platform">
-      {platform.map((p, i) => (
-        <>
-          <div class="fabric-plat-item">
-            <img src={p.icon} alt="" width="28" height="28" />
-            <span>{p.label}</span>
-          </div>
-          {i < platform.length - 1 && <span class="fabric-plat-divider"></span>}
-        </>
-      ))}
+      {
+        platform.map((p, i) => (
+          <>
+            <div class="fabric-plat-item">
+              <img src={p.icon} alt="" width="28" height="28" />
+              <span>{p.label}</span>
+            </div>
+            {i < platform.length - 1 && <span class="fabric-plat-divider" />}
+          </>
+        ))
+      }
     </div>
   </div>
 </div>
@@ -67,8 +84,14 @@ const platform = [
   }
 
   @keyframes diagramFadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .fabric-frame {
@@ -124,7 +147,9 @@ const platform = [
     flex-direction: column;
     align-items: center;
     gap: 0.6rem;
-    transition: border-color 0.2s, background 0.2s;
+    transition:
+      border-color 0.2s,
+      background 0.2s;
   }
 
   .fabric-svc:hover {

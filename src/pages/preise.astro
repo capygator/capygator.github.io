@@ -1,29 +1,56 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
-import PricingCard from '../components/ui/PricingCard.astro';
-import CTABanner from '../components/sections/CTABanner.astro';
+import PageLayout from "../layouts/PageLayout.astro";
+import PricingCard from "../components/ui/PricingCard.astro";
+import CTABanner from "../components/sections/CTABanner.astro";
 
 const faqs = [
-  { q: 'Was ist ein Arbeitstag?', a: '8 Stunden, remote oder vor Ort bei Ihnen. Remote ist der Standard, vor Ort nach Absprache.' },
-  { q: 'Fallen Reisekosten an?', a: 'Remote: keine. Vor Ort: Reisekosten nach Aufwand. Ich kläre das transparent vor Projektstart.' },
-  { q: 'Kann ich Tage nachbuchen?', a: 'Ja, innerhalb eines laufenden Pakets können wir flexibel aufstocken — zum jeweiligen Paketpreis.' },
-  { q: 'Wie schnell sind Sie verfügbar?', a: 'In der Regel innerhalb von 2-4 Wochen. Für dringende Themen finden wir meistens eine Lösung.' },
-  { q: 'Was passiert nach dem Paket?', a: 'Ihr Team ist eigenständig, oder wir verlängern. Kein Lock-in, keine versteckten Folgekosten.' },
-  { q: 'Gibt es eine Zufriedenheitsgarantie?', a: 'Wenn nach dem ersten Sprint-Tag die Richtung nicht stimmt, stelle ich keine weiteren Tage in Rechnung.' },
-  { q: 'Arbeiten Sie auch mit bestehenden Teams zusammen?', a: 'Ja — und das ist oft der wirkungsvollste Ansatz. Ich arbeite direkt mit Ihrem Daten-Team zusammen, führe Code-Reviews durch und übertrage Wissen, damit Ihr Team nach dem Projekt eigenständig weiterarbeiten kann.' },
-  { q: 'Welche Branchen kennen Sie?', a: 'Erfahrung aus Produktion, Handel, Dienstleistung und öffentlichem Sektor im DACH-Raum. Die Datenprobleme ähneln sich oft branchenübergreifend mehr als man denkt.' },
-  { q: 'Remote oder vor Ort — was empfehlen Sie?', a: 'Remote ist für 90% der Arbeiten effizienter und spart Ihnen Reisekosten. Vor-Ort-Termine machen Sinn für Kick-offs, Workshops und Stakeholder-Präsentationen.' },
+  {
+    q: "Was ist ein Arbeitstag?",
+    a: "8 Stunden, remote oder vor Ort bei Ihnen. Remote ist der Standard, vor Ort nach Absprache.",
+  },
+  {
+    q: "Fallen Reisekosten an?",
+    a: "Remote: keine. Vor Ort: Reisekosten nach Aufwand. Ich kläre das transparent vor Projektstart.",
+  },
+  {
+    q: "Kann ich Tage nachbuchen?",
+    a: "Ja, innerhalb eines laufenden Pakets können wir flexibel aufstocken — zum jeweiligen Paketpreis.",
+  },
+  {
+    q: "Wie schnell sind Sie verfügbar?",
+    a: "In der Regel innerhalb von 2-4 Wochen. Für dringende Themen finden wir meistens eine Lösung.",
+  },
+  {
+    q: "Was passiert nach dem Paket?",
+    a: "Ihr Team ist eigenständig, oder wir verlängern. Kein Lock-in, keine versteckten Folgekosten.",
+  },
+  {
+    q: "Gibt es eine Zufriedenheitsgarantie?",
+    a: "Wenn nach dem ersten Sprint-Tag die Richtung nicht stimmt, stelle ich keine weiteren Tage in Rechnung.",
+  },
+  {
+    q: "Arbeiten Sie auch mit bestehenden Teams zusammen?",
+    a: "Ja — und das ist oft der wirkungsvollste Ansatz. Ich arbeite direkt mit Ihrem Daten-Team zusammen, führe Code-Reviews durch und übertrage Wissen, damit Ihr Team nach dem Projekt eigenständig weiterarbeiten kann.",
+  },
+  {
+    q: "Welche Branchen kennen Sie?",
+    a: "Erfahrung aus Produktion, Handel, Dienstleistung und öffentlichem Sektor im DACH-Raum. Die Datenprobleme ähneln sich oft branchenübergreifend mehr als man denkt.",
+  },
+  {
+    q: "Remote oder vor Ort — was empfehlen Sie?",
+    a: "Remote ist für 90% der Arbeiten effizienter und spart Ihnen Reisekosten. Vor-Ort-Termine machen Sinn für Kick-offs, Workshops und Stakeholder-Präsentationen.",
+  },
 ];
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": faqs.map(({ q, a }) => ({
+  mainEntity: faqs.map(({ q, a }) => ({
     "@type": "Question",
-    "name": q,
-    "acceptedAnswer": {
+    name: q,
+    acceptedAnswer: {
       "@type": "Answer",
-      "text": a,
+      text: a,
     },
   })),
 };
@@ -32,78 +59,81 @@ const offerSchemas = [
   {
     "@context": "https://schema.org",
     "@type": "Offer",
-    "name": "Sprint — 5 Tage Power BI & Fabric",
-    "description": "Quick Wins, Assessments, Workshops. Ideal um schnell Klarheit zu schaffen oder ein konkretes Problem zu lösen.",
-    "price": "8000",
-    "priceCurrency": "EUR",
-    "priceSpecification": {
+    name: "Sprint — 5 Tage Power BI & Fabric",
+    description:
+      "Quick Wins, Assessments, Workshops. Ideal um schnell Klarheit zu schaffen oder ein konkretes Problem zu lösen.",
+    price: "8000",
+    priceCurrency: "EUR",
+    priceSpecification: {
       "@type": "UnitPriceSpecification",
-      "price": "200",
-      "priceCurrency": "EUR",
-      "unitText": "Stunde"
+      price: "200",
+      priceCurrency: "EUR",
+      unitText: "Stunde",
     },
-    "seller": {
+    seller: {
       "@type": "ProfessionalService",
-      "name": "Capygator",
-      "url": "https://capygator.com"
+      name: "Capygator",
+      url: "https://capygator.com",
     },
-    "url": "https://capygator.com/preise",
-    "eligibleRegion": [
-      { "@type": "Country", "name": "Germany" },
-      { "@type": "Country", "name": "Austria" },
-      { "@type": "Country", "name": "Switzerland" }
-    ]
+    url: "https://capygator.com/preise",
+    eligibleRegion: [
+      { "@type": "Country", name: "Germany" },
+      { "@type": "Country", name: "Austria" },
+      { "@type": "Country", name: "Switzerland" },
+    ],
   },
   {
     "@context": "https://schema.org",
     "@type": "Offer",
-    "name": "Projekt — 20 Tage Power BI & Fabric",
-    "description": "Implementierung, Migration, BI App Bau. Für klar definierte Projekte mit messbarem Ergebnis.",
-    "price": "24000",
-    "priceCurrency": "EUR",
-    "priceSpecification": {
+    name: "Projekt — 20 Tage Power BI & Fabric",
+    description:
+      "Implementierung, Migration, BI App Bau. Für klar definierte Projekte mit messbarem Ergebnis.",
+    price: "24000",
+    priceCurrency: "EUR",
+    priceSpecification: {
       "@type": "UnitPriceSpecification",
-      "price": "150",
-      "priceCurrency": "EUR",
-      "unitText": "Stunde"
+      price: "150",
+      priceCurrency: "EUR",
+      unitText: "Stunde",
     },
-    "seller": {
+    seller: {
       "@type": "ProfessionalService",
-      "name": "Capygator",
-      "url": "https://capygator.com"
+      name: "Capygator",
+      url: "https://capygator.com",
     },
-    "url": "https://capygator.com/preise",
-    "eligibleRegion": [
-      { "@type": "Country", "name": "Germany" },
-      { "@type": "Country", "name": "Austria" },
-      { "@type": "Country", "name": "Switzerland" }
-    ]
+    url: "https://capygator.com/preise",
+    eligibleRegion: [
+      { "@type": "Country", name: "Germany" },
+      { "@type": "Country", name: "Austria" },
+      { "@type": "Country", name: "Switzerland" },
+    ],
   },
   {
     "@context": "https://schema.org",
     "@type": "Offer",
-    "name": "Partnerschaft — 200 Tage Power BI & Fabric",
-    "description": "Langfristiger Fabric/BI Partner. Für Unternehmen die einen verlässlichen Experten an ihrer Seite wollen.",
-    "price": "200000",
-    "priceCurrency": "EUR",
-    "priceSpecification": {
+    name: "Partnerschaft — 200 Tage Power BI & Fabric",
+    description:
+      "Langfristiger Fabric/BI Partner. Für Unternehmen die einen verlässlichen Experten an ihrer Seite wollen.",
+    price: "200000",
+    priceCurrency: "EUR",
+    priceSpecification: {
       "@type": "UnitPriceSpecification",
-      "price": "125",
-      "priceCurrency": "EUR",
-      "unitText": "Stunde"
+      price: "125",
+      priceCurrency: "EUR",
+      unitText: "Stunde",
     },
-    "seller": {
+    seller: {
       "@type": "ProfessionalService",
-      "name": "Capygator",
-      "url": "https://capygator.com"
+      name: "Capygator",
+      url: "https://capygator.com",
     },
-    "url": "https://capygator.com/preise",
-    "eligibleRegion": [
-      { "@type": "Country", "name": "Germany" },
-      { "@type": "Country", "name": "Austria" },
-      { "@type": "Country", "name": "Switzerland" }
-    ]
-  }
+    url: "https://capygator.com/preise",
+    eligibleRegion: [
+      { "@type": "Country", name: "Germany" },
+      { "@type": "Country", name: "Austria" },
+      { "@type": "Country", name: "Switzerland" },
+    ],
+  },
 ];
 
 const preiseSchemas = [faqSchema, ...offerSchemas];
@@ -122,7 +152,8 @@ const preiseSchemas = [faqSchema, ...offerSchemas];
         <span class="text-accent">Null Überraschungen.</span>
       </h1>
       <p class="page-sub animate-fade-up delay-4">
-        Transparenz ist mir wichtig. Sie wissen vorher was es kostet — und ich liefere was ich verspreche.
+        Transparenz ist mir wichtig. Sie wissen vorher was es kostet — und ich liefere was ich
+        verspreche.
       </p>
     </div>
   </section>
@@ -160,7 +191,9 @@ const preiseSchemas = [faqSchema, ...offerSchemas];
           />
         </div>
       </div>
-      <p class="pricing-note">Alle Preise netto, zzgl. MwSt. Abrechnung nach Aufwand innerhalb des Pakets.</p>
+      <p class="pricing-note">
+        Alle Preise netto, zzgl. MwSt. Abrechnung nach Aufwand innerhalb des Pakets.
+      </p>
     </div>
   </section>
 
@@ -169,12 +202,14 @@ const preiseSchemas = [faqSchema, ...offerSchemas];
     <div class="container">
       <h2 class="faq-title">Häufige Fragen</h2>
       <div class="faq-list">
-        {faqs.map((faq) => (
-          <details class="faq-item">
-            <summary class="faq-question">{faq.q}</summary>
-            <p class="faq-answer">{faq.a}</p>
-          </details>
-        ))}
+        {
+          faqs.map((faq) => (
+            <details class="faq-item">
+              <summary class="faq-question">{faq.q}</summary>
+              <p class="faq-answer">{faq.a}</p>
+            </details>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -268,14 +303,16 @@ const preiseSchemas = [faqSchema, ...offerSchemas];
     align-items: center;
   }
 
-  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
 
   .faq-question:focus-visible {
     outline: none;
   }
 
   .faq-question::after {
-    content: '+';
+    content: "+";
     color: var(--color-accent);
     font-size: 1.25rem;
     font-weight: 400;
@@ -295,6 +332,9 @@ const preiseSchemas = [faqSchema, ...offerSchemas];
   }
 
   @media (max-width: 768px) {
-    .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
+    .pricing-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+    }
   }
 </style>
