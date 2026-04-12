@@ -12,10 +12,10 @@ import PageLayout from '../layouts/PageLayout.astro';
 
       <h2>1. Verantwortlicher</h2>
       <p>
-        [VORNAME NACHNAME]<br />
+        <strong class="todo-marker">⚠ BITTE ERGÄNZEN: Vor- und Nachname</strong><br />
         Capygator — Power BI & Fabric Consulting<br />
-        [STRASSE HAUSNUMMER]<br />
-        [PLZ ORT]<br />
+        <strong class="todo-marker">⚠ BITTE ERGÄNZEN: Straße und Hausnummer</strong><br />
+        <strong class="todo-marker">⚠ BITTE ERGÄNZEN: PLZ und Ort</strong><br />
         E-Mail: <a href="mailto:info@capygator.com">info@capygator.com</a>
       </p>
 
@@ -59,7 +59,7 @@ import PageLayout from '../layouts/PageLayout.astro';
         Inhalte eine SSL-Verschlüsselung (HTTPS).
       </p>
 
-      <p class="legal-updated">Stand: März 2026</p>
+      <p class="legal-updated">Stand: April 2026</p>
     </div>
   </section>
 </PageLayout>
@@ -99,6 +99,12 @@ import PageLayout from '../layouts/PageLayout.astro';
 
   .legal-content a:hover {
     text-decoration: underline;
+  }
+
+  .todo-marker {
+    color: #f59e0b;
+    font-weight: 600;
+    font-size: 0.85rem;
   }
 
   .legal-updated {
