@@ -61,6 +61,13 @@ const serviceSchema = {
             Ich integriere Agentic Engineering in Ihren Fabric/Power BI Workflow, damit Sie sich
             auf die Entscheidungen konzentrieren können, nicht auf die Vorbereitung.
           </p>
+          <div class="hero-actions animate-fade-up delay-5">
+            <a href="/kontakt" class="btn-primary">
+              Projekt besprechen
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="/preise" class="btn-secondary">Preise ansehen</a>
+          </div>
         </div>
         <div class="hero-spline">
           <HeroSpline client:load />
@@ -166,6 +173,43 @@ const serviceSchema = {
     font-size: 1.1rem;
     max-width: 560px;
     color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--color-accent);
+    color: var(--color-bg-primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: opacity 0.15s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+
+  .btn-secondary {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-secondary:hover {
+    color: var(--color-text-primary);
+    border-color: var(--color-text-primary);
   }
 
   .content-section {

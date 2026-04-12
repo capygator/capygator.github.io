@@ -118,6 +118,72 @@ const aiIcon = `<svg width="24" height="24" fill="none" stroke="#00e5a0" stroke-
     </div>
   </section>
 
+  <!-- TRUST SIGNALS -->
+  <section class="trust-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Womit ich arbeite</h2>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-badge">
+            <svg width="18" height="18" fill="none" stroke="#00e5a0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            Microsoft Certified
+          </div>
+          <p>DP-700 Fabric Analytics Engineer<br/>PL-300 Power BI Data Analyst</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-badge">
+            <svg width="18" height="18" fill="none" stroke="#00e5a0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            Mittelstand DACH
+          </div>
+          <p>Kunden aus Produktion,<br/>Handel, Dienstleistung</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-badge">
+            <svg width="18" height="18" fill="none" stroke="#00e5a0" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Verfügbarkeit
+          </div>
+          <p>Projektstart in der Regel<br/>innerhalb von 2–4 Wochen</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-badge">
+            <svg width="18" height="18" fill="none" stroke="#00e5a0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            DSGVO-konform
+          </div>
+          <p>Remote-first, keine Cloud-Daten<br/>ohne Verarbeitungsvereinbarung</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="proof-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Was Kunden sagen</h2>
+      </div>
+      <div class="proof-grid">
+        <blockquote class="proof-card">
+          <p class="proof-quote">[ZITAT: GF eines mittelständischen Produktionsunternehmens über die Reduktion des monatlichen Reportings von 3 Tagen auf 3 Stunden nach Einführung des zentralen Power BI Semantic Models]</p>
+          <footer class="proof-meta">
+            <span class="proof-name">Geschäftsführer</span>
+            <span class="proof-company">Produktionsunternehmen, 250 MA</span>
+          </footer>
+        </blockquote>
+        <blockquote class="proof-card">
+          <p class="proof-quote">[ZITAT: IT-Leiter über die Fabric-Migration, bei der erstmals das interne Team nach Projektabschluss eigenständig neue Pipelines gebaut hat — ohne externe Hilfe]</p>
+          <footer class="proof-meta">
+            <span class="proof-name">IT-Leitung</span>
+            <span class="proof-company">Handelsunternehmen, 180 MA</span>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <CTABanner
     headline="30 Minuten, die sich lohnen."
@@ -379,6 +445,96 @@ const aiIcon = `<svg width="24" height="24" fill="none" stroke="#00e5a0" stroke-
     transform: translateX(4px);
   }
 
+  /* TRUST SIGNALS */
+  .trust-section {
+    padding: 5rem 0;
+    position: relative;
+    z-index: 2;
+    background: var(--color-bg-secondary);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: 0.02em;
+  }
+
+  .trust-item p {
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+  }
+
+  /* SOCIAL PROOF */
+  .proof-section {
+    padding: 5rem 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+  }
+
+  .proof-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 2rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .proof-quote {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    flex: 1;
+  }
+
+  .proof-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .proof-name {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    font-family: var(--font-display);
+  }
+
+  .proof-company {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .ticker-track { animation: none; }
@@ -398,6 +554,18 @@ const aiIcon = `<svg width="24" height="24" fill="none" stroke="#00e5a0" stroke-
     }
     .services-grid {
       grid-template-columns: 1fr;
+    }
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .proof-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .trust-grid {
+      grid-template-columns: 1fr 1fr;
     }
   }
 </style>
