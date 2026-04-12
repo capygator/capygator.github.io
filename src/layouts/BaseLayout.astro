@@ -3,15 +3,47 @@ interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  schema?: object | object[];
 }
 
 const {
   title,
   description,
   ogImage = '/images/capygator-og.png',
+  schema,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// BreadcrumbList auto-generieren für alle Unterseiten
+const pathNames: Record<string, string> = {
+  'fabric': 'Microsoft Fabric',
+  'power-bi': 'Power BI',
+  'agentic-engineering': 'Agentic Engineering',
+  'preise': 'Preise',
+  'kontakt': 'Kontakt',
+  'impressum': 'Impressum',
+  'datenschutz': 'Datenschutz',
+};
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const breadcrumbSchema = pathSegments.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": Astro.site?.toString().replace(/\/$/, '') || '',
+    },
+    ...pathSegments.map((segment, i) => ({
+      "@type": "ListItem",
+      "position": i + 2,
+      "name": pathNames[segment] || segment,
+      "item": new URL('/' + pathSegments.slice(0, i + 1).join('/'), Astro.site).toString(),
+    })),
+  ],
+} : null;
 
 import '../styles/global.css';
 ---
@@ -52,6 +84,18 @@ import '../styles/global.css';
 
     <!-- Spline CDN -->
     <link rel="preconnect" href="https://prod.spline.design" />
+
+    <!-- Schema.org: BreadcrumbList -->
+    {breadcrumbSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    )}
+
+    <!-- Schema.org: Seitenspezifische Daten -->
+    {schema && (
+      Array.isArray(schema)
+        ? schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)
+        : <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    )}
 
     <!-- Schema.org -->
     <script type="application/ld+json" set:html={JSON.stringify({

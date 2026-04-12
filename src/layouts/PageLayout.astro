@@ -9,12 +9,13 @@ interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  schema?: object | object[];
 }
 
-const { title, description, ogImage } = Astro.props;
+const { title, description, ogImage, schema } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} ogImage={ogImage}>
+<BaseLayout title={title} description={description} ogImage={ogImage} schema={schema}>
   <Header />
   <main>
     <slot />

@@ -9,9 +9,29 @@ const phases = [
   { num: '03', title: 'Implementierung & Migration', description: 'Pipelines, Dataflows, Notebooks — ich baue Ihre Fabric-Umgebung auf oder migriere von bestehenden Systemen.' },
   { num: '04', title: 'Enablement & Coaching', description: 'Ihr Team soll Fabric eigenständig nutzen können. Ich schule, dokumentiere und begleite bis zur Selbstständigkeit.' },
 ];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Microsoft Fabric — End-to-End Datenplattform",
+  "description": "Von der Datenstrategie bis zum kompetenten Team. Begleitung durch die gesamte Fabric-Reise: Architektur, Implementierung, Coaching.",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Capygator",
+    "url": "https://capygator.com",
+  },
+  "areaServed": [
+    { "@type": "Country", "name": "Germany" },
+    { "@type": "Country", "name": "Austria" },
+    { "@type": "Country", "name": "Switzerland" },
+  ],
+  "serviceType": "Data Platform Consulting",
+  "url": "https://capygator.com/fabric",
+};
 ---
 
 <PageLayout
+  schema={serviceSchema}
   title="Microsoft Fabric — End-to-End Datenplattform | Capygator"
   description="Von der Datenstrategie bis zum kompetenten Team. Ich begleite Ihren Mittelstand durch die gesamte Fabric-Reise — Architektur, Implementierung, Coaching."
 >

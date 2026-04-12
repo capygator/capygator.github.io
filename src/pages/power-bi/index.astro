@@ -9,9 +9,29 @@ const services = [
   { title: 'Performance-Optimierung', description: 'Ihr bestehendes Power BI ist langsam? Ich finde den Flaschenhals — meistens ist es das Datenmodell, nicht die Hardware.' },
   { title: 'Governance & Deployment', description: 'Workspaces, Deployment Pipelines, Row-Level Security — damit Ihre BI-Umgebung auch bei Wachstum stabil bleibt.' },
 ];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Power BI — Semantische Modelle & BI Apps",
+  "description": "Semantische Modelle, Reporting und BI Apps von einem Power BI Experten. Fundiertes Datenmodell als Grundlage für performante, skalierbare Business Intelligence.",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Capygator",
+    "url": "https://capygator.com",
+  },
+  "areaServed": [
+    { "@type": "Country", "name": "Germany" },
+    { "@type": "Country", "name": "Austria" },
+    { "@type": "Country", "name": "Switzerland" },
+  ],
+  "serviceType": "Business Intelligence Consulting",
+  "url": "https://capygator.com/power-bi",
+};
 ---
 
 <PageLayout
+  schema={serviceSchema}
   title="Power BI — Semantische Modelle & BI Apps | Capygator"
   description="Semantische Modelle, die Ihre Berichte 10× schneller machen. BI Apps und Report-Design von jemandem, der Power BI wirklich versteht."
 >

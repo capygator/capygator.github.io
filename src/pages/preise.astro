@@ -11,9 +11,23 @@ const faqs = [
   { q: 'Was passiert nach dem Paket?', a: 'Ihr Team ist eigenständig, oder wir verlängern. Kein Lock-in, keine versteckten Folgekosten.' },
   { q: 'Gibt es eine Zufriedenheitsgarantie?', a: 'Wenn nach dem ersten Sprint-Tag die Richtung nicht stimmt, stellen ich keine weiteren Tage in Rechnung.' },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(({ q, a }) => ({
+    "@type": "Question",
+    "name": q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": a,
+    },
+  })),
+};
 ---
 
 <PageLayout
+  schema={faqSchema}
   title="Preise — Transparent und fair | Capygator"
   description="Drei Pakete. Null Überraschungen. Power BI & Fabric Expertise ab 125 €/h — vom 5-Tages-Sprint bis zur langfristigen Partnerschaft."
 >

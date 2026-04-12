@@ -21,9 +21,29 @@ const usecases = [
     description: 'AI-gestützte Analyse bestehender Semantic Models: Performance-Bottlenecks, DAX-Optimierung, Best-Practice-Checks.',
   },
 ];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Agentic Engineering — KI-gestützte BI-Entwicklung",
+  "description": "Moderne BI-Entwicklung mit Anthropic Claude und Microsoft Fabric. KI-Agents für Datenvalidierung, Pipeline-Generierung und Datenmodell-Reviews — integriert in Ihren bestehenden Workflow.",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Capygator",
+    "url": "https://capygator.com",
+  },
+  "areaServed": [
+    { "@type": "Country", "name": "Germany" },
+    { "@type": "Country", "name": "Austria" },
+    { "@type": "Country", "name": "Switzerland" },
+  ],
+  "serviceType": "AI Engineering Consulting",
+  "url": "https://capygator.com/agentic-engineering",
+};
 ---
 
 <PageLayout
+  schema={serviceSchema}
   title="Agentic Engineering — KI-gestützte BI-Entwicklung | Capygator"
   description="Moderne BI-Entwicklung mit Anthropic Claude und Microsoft Fabric. KI die Datenarbeit erledigt, nicht nur darüber redet."
 >
