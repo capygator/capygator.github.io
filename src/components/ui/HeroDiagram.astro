@@ -197,14 +197,26 @@ const platform = [
 
   /* Responsive */
   @media (max-width: 768px) {
-    .fabric-diagram {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+    .fabric-frame {
+      padding: 1.5rem 1rem 1.25rem;
     }
 
-    .fabric-frame {
-      min-width: 580px;
-      padding: 2rem 1.5rem 1.5rem;
+    .fabric-services {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .fabric-title {
+      font-size: 1.2rem;
+    }
+
+    .fabric-svc {
+      padding: 0.875rem 0.375rem 0.75rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .fabric-services {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 </style>

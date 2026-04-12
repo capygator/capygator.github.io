@@ -78,26 +78,26 @@ const serviceSchema = {
 
   <section class="content-section">
     <div class="container">
-      <p class="section-label">Was bedeutet "Agentic"?</p>
+      <p class="section-label" data-animate="fade-up">Was bedeutet "Agentic"?</p>
       <div class="stats-grid">
-        <div class="stat-card">
+        <div class="stat-card" data-animate="fade-up" data-delay="1">
           <span class="stat-number">10&times;</span>
           <span class="stat-desc">schneller als manuelle Routinearbeit</span>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" data-animate="fade-up" data-delay="2">
           <span class="stat-number">24/7</span>
           <span class="stat-desc">verf&uuml;gbar, ohne &Uuml;berstunden</span>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" data-animate="fade-up" data-delay="3">
           <span class="stat-number">100%</span>
           <span class="stat-desc">dokumentiert und nachvollziehbar</span>
         </div>
       </div>
-      <p class="problem-text">
+      <p class="problem-text" data-animate="fade-up" data-delay="2">
         Klassische KI beantwortet Fragen. Agentic Engineering handelt: sie analysiert Ihre Daten,
         schreibt Pipelines, validiert Ergebnisse und dokumentiert was sie tut.
       </p>
-      <blockquote class="problem-quote">
+      <blockquote class="problem-quote" data-animate="fade-up" data-delay="3">
         <p>&bdquo;Nicht autonom im stillen K&auml;mmerlein, sondern als intelligenter Assistent in Ihrem bestehenden Workflow.&ldquo;</p>
         <cite>&mdash; Mein Ansatz</cite>
       </blockquote>
@@ -106,15 +106,17 @@ const serviceSchema = {
 
   <section class="content-section">
     <div class="container">
-      <h2>Konkrete Use Cases</h2>
-      <SpotlightCards cards={usecases} columns={3} client:load />
+      <h2 data-animate="fade-up">Konkrete Use Cases</h2>
+      <div data-animate="fade-up" data-delay="2">
+        <SpotlightCards cards={usecases} columns={3} client:load />
+      </div>
     </div>
   </section>
 
   <section class="content-section">
     <div class="container content-narrow">
-      <h2>Warum Anthropic Claude?</h2>
-      <p>
+      <h2 data-animate="fade-up">Warum Anthropic Claude?</h2>
+      <p data-animate="fade-up" data-delay="2">
         Ich arbeite mit Claude von Anthropic — dem zuverlässigsten AI-Modell für technische Aufgaben.
         Warum? Präzisere Code-Generierung, transparenteres Reasoning, und eine klare Haltung zu Datensicherheit.
         Ihre Unternehmensdaten verdienen ein Modell dem man vertrauen kann.

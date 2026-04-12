@@ -57,8 +57,21 @@ export function SplineScene({ scene, className, timeoutMs = 10000 }: SplineScene
     <SplineErrorBoundary fallback={<SplineFallback />}>
       <Suspense
         fallback={
-          <div className="w-full h-full flex items-center justify-center">
-            <span className="loader"></span>
+          <div
+            className="w-full h-full flex items-center justify-center"
+            style={{
+              background: 'linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-card) 100%)',
+              borderRadius: '12px',
+            }}
+            aria-label="3D-Szene wird geladen"
+            aria-busy="true"
+          >
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+              <span className="loader"></span>
+              <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', letterSpacing: '0.08em', fontFamily: 'var(--font-mono)' }}>
+                LOADING 3D
+              </span>
+            </div>
           </div>
         }
       >

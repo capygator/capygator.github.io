@@ -58,25 +58,25 @@ const serviceSchema = {
 
   <section class="content-section">
     <div class="container">
-      <p class="section-label">Das Problem</p>
+      <p class="section-label" data-animate="fade-up">Das Problem</p>
       <div class="stats-grid">
-        <div class="stat-card">
+        <div class="stat-card" data-animate="fade-up" data-delay="1">
           <span class="stat-number">30s</span>
           <span class="stat-desc">Ladezeit die keiner akzeptiert</span>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" data-animate="fade-up" data-delay="2">
           <span class="stat-number">90%</span>
           <span class="stat-desc">der Probleme im Datenmodell</span>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" data-animate="fade-up" data-delay="3">
           <span class="stat-number">0</span>
           <span class="stat-desc">Zweite Chancen beim Management</span>
         </div>
       </div>
-      <p class="problem-text">
+      <p class="problem-text" data-animate="fade-up" data-delay="2">
         Power BI kann jeder installieren. Aber ein Report der in 30 Sekunden lädt statt in 3 Minuten? Ein Datenmodell das auch in zwei Jahren noch wartbar ist? Das braucht Erfahrung.
       </p>
-      <blockquote class="problem-quote">
+      <blockquote class="problem-quote" data-animate="fade-up" data-delay="3">
         <p>&bdquo;Measures die auch Ihr Controller versteht — das ist die eigentliche Kunst.&ldquo;</p>
         <cite>— Aus der Praxis</cite>
       </blockquote>
@@ -85,8 +85,10 @@ const serviceSchema = {
 
   <section class="content-section">
     <div class="container">
-      <h2>Was ich mache</h2>
-      <SpotlightCards cards={services} columns={2} client:load />
+      <h2 data-animate="fade-up">Was ich mache</h2>
+      <div data-animate="fade-up" data-delay="2">
+        <SpotlightCards cards={services} columns={2} client:load />
+      </div>
     </div>
   </section>
 

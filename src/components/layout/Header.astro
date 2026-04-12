@@ -42,14 +42,14 @@ const currentPath = Astro.url.pathname;
       aria-expanded="false"
       data-menu-toggle
     >
-      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/>
-      </svg>
+      <span class="burger-bar bar1"></span>
+      <span class="burger-bar bar2"></span>
+      <span class="burger-bar bar3"></span>
     </button>
   </div>
 
   <!-- Mobile Menu -->
-  <div class="nav-mobile" data-mobile-menu hidden>
+  <div class="nav-mobile" data-mobile-menu aria-hidden="true">
     <ul class="nav-mobile-links">
       {navItems.map((item) => (
         <li>
@@ -158,30 +158,70 @@ const currentPath = Astro.url.pathname;
     opacity: 0.9;
   }
 
+  /* Hamburger toggle */
   .nav-toggle {
     display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
     background: none;
     border: none;
     color: var(--color-text-primary);
     cursor: pointer;
     padding: 0.5rem;
+    width: 40px;
+    height: 40px;
   }
 
+  .burger-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform 0.3s var(--ease-out-expo), opacity 0.2s ease, width 0.3s ease;
+    transform-origin: center;
+  }
+
+  /* Hamburger → X animation */
+  .nav-toggle[aria-expanded="true"] .bar1 {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle[aria-expanded="true"] .bar2 {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .nav-toggle[aria-expanded="true"] .bar3 {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile dropdown */
   .nav-mobile {
-    display: none;
-    border-top: 1px solid var(--color-border);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition:
+      max-height 0.4s var(--ease-out-expo),
+      opacity 0.25s ease,
+      transform 0.3s var(--ease-out-expo);
+    border-top: 1px solid transparent;
     background: var(--color-bg-primary);
-    padding: 1.5rem var(--spacing-container-sm);
+    backdrop-filter: blur(20px);
   }
 
-  .nav-mobile[hidden] {
-    display: none !important;
+  .nav-mobile.is-open {
+    max-height: 480px;
+    opacity: 1;
+    transform: translateY(0);
+    border-top-color: var(--color-border);
   }
 
   .nav-mobile-links {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 1.25rem var(--spacing-container-sm);
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
@@ -195,15 +235,16 @@ const currentPath = Astro.url.pathname;
     font-size: 1rem;
     font-weight: 500;
     border-bottom: 1px solid var(--color-border);
-    transition: color 0.2s;
+    transition: color 0.2s, padding-left 0.2s;
   }
 
   .nav-mobile-link:hover {
     color: var(--color-text-primary);
+    padding-left: 0.5rem;
   }
 
   .nav-mobile-cta {
-    display: inline-block;
+    display: block;
     margin-top: 1rem;
     background: var(--color-accent);
     color: var(--color-bg-primary);
@@ -223,27 +264,46 @@ const currentPath = Astro.url.pathname;
     }
 
     .nav-toggle {
-      display: block;
-    }
-
-    .nav-mobile:not([hidden]) {
-      display: block;
+      display: flex;
     }
   }
 </style>
 
 <script>
-  const toggle = document.querySelector('[data-menu-toggle]');
+  const toggle = document.querySelector('[data-menu-toggle]') as HTMLButtonElement | null;
   const menu = document.querySelector('[data-mobile-menu]');
 
   toggle?.addEventListener('click', () => {
-    const isOpen = !menu?.hasAttribute('hidden');
+    const isOpen = menu?.classList.contains('is-open');
     if (isOpen) {
-      menu?.setAttribute('hidden', '');
+      menu?.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Menü öffnen');
+      menu?.setAttribute('aria-hidden', 'true');
     } else {
-      menu?.removeAttribute('hidden');
+      menu?.classList.add('is-open');
       toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Menü schließen');
+      menu?.setAttribute('aria-hidden', 'false');
     }
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    const nav = document.querySelector('.nav');
+    if (nav && !nav.contains(e.target as Node)) {
+      menu?.classList.remove('is-open');
+      toggle?.setAttribute('aria-expanded', 'false');
+      menu?.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  // Close on nav link click (mobile)
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu?.classList.remove('is-open');
+      toggle?.setAttribute('aria-expanded', 'false');
+      menu?.setAttribute('aria-hidden', 'true');
+    });
   });
 </script>

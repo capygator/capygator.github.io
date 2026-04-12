@@ -59,29 +59,29 @@ const serviceSchema = {
   <!-- PROBLEM -->
   <section class="content-section">
     <div class="container">
-      <p class="section-label">Das Problem</p>
+      <p class="section-label" data-animate="fade-up">Das Problem</p>
 
       <div class="stats-grid">
-        <div class="stat-card">
+        <div class="stat-card" data-animate="fade-up" data-delay="1">
           <span class="stat-number">6+</span>
           <span class="stat-desc">Fabric Workloads zur Auswahl</span>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" data-animate="fade-up" data-delay="2">
           <span class="stat-number">0</span>
           <span class="stat-desc">davon strategisch geplant</span>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" data-animate="fade-up" data-delay="3">
           <span class="stat-number">∞</span>
           <span class="stat-desc">Wege, es falsch aufzusetzen</span>
         </div>
       </div>
 
-      <p class="problem-text">
+      <p class="problem-text" data-animate="fade-up" data-delay="2">
         Lakehouses ohne Strategie, Pipelines ohne Governance, Teams ohne Know-how.
         Die Technologie ist da — was fehlt, ist jemand der das Gesamtbild versteht.
       </p>
 
-      <blockquote class="problem-quote">
+      <blockquote class="problem-quote" data-animate="fade-up" data-delay="3">
         <p>„Wir haben Fabric lizenziert, aber niemand weiß wo wir anfangen sollen."</p>
         <cite>— IT-Leitung, Mittelstand</cite>
       </blockquote>
@@ -91,32 +91,34 @@ const serviceSchema = {
   <!-- 4 PHASES -->
   <section class="content-section">
     <div class="container">
-      <h2>Mein Ansatz: 4 Phasen</h2>
-      <SpotlightCards cards={phases} columns={2} client:load />
+      <h2 data-animate="fade-up">Mein Ansatz: 4 Phasen</h2>
+      <div data-animate="fade-up" data-delay="2">
+        <SpotlightCards cards={phases} columns={2} client:load />
+      </div>
     </div>
   </section>
 
   <!-- FOR WHOM -->
   <section class="content-section">
     <div class="container">
-      <p class="section-label">Für wen</p>
+      <p class="section-label" data-animate="fade-up">Für wen</p>
 
       <div class="personas-list">
-        <div class="persona-card">
+        <div class="persona-card" data-animate="fade-up" data-delay="1">
           <span class="persona-badge">C</span>
           <div>
             <h3>Geschäftsführung & C-Level</h3>
             <p>Brauchen eine Datenplattform die Business-Entscheidungen beschleunigt — ohne Millionen-Budget und 18 Monate Projektlaufzeit.</p>
           </div>
         </div>
-        <div class="persona-card">
+        <div class="persona-card" data-animate="fade-up" data-delay="2">
           <span class="persona-badge">IT</span>
           <div>
             <h3>IT-Leitung</h3>
             <p>Suchen jemanden der Fabric end-to-end versteht — nicht nur ein Feature implementiert, sondern die ganze Architektur im Blick hat.</p>
           </div>
         </div>
-        <div class="persona-card">
+        <div class="persona-card" data-animate="fade-up" data-delay="3">
           <span class="persona-badge">BI</span>
           <div>
             <h3>BI- & Data-Teams</h3>
