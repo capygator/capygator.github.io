@@ -27,10 +27,90 @@ const faqSchema = {
     },
   })),
 };
+
+const offerSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    "name": "Sprint — 5 Tage Power BI & Fabric",
+    "description": "Quick Wins, Assessments, Workshops. Ideal um schnell Klarheit zu schaffen oder ein konkretes Problem zu lösen.",
+    "price": "8000",
+    "priceCurrency": "EUR",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "200",
+      "priceCurrency": "EUR",
+      "unitText": "Stunde"
+    },
+    "seller": {
+      "@type": "ProfessionalService",
+      "name": "Capygator",
+      "url": "https://capygator.com"
+    },
+    "url": "https://capygator.com/preise",
+    "eligibleRegion": [
+      { "@type": "Country", "name": "Germany" },
+      { "@type": "Country", "name": "Austria" },
+      { "@type": "Country", "name": "Switzerland" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    "name": "Projekt — 20 Tage Power BI & Fabric",
+    "description": "Implementierung, Migration, BI App Bau. Für klar definierte Projekte mit messbarem Ergebnis.",
+    "price": "24000",
+    "priceCurrency": "EUR",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "150",
+      "priceCurrency": "EUR",
+      "unitText": "Stunde"
+    },
+    "seller": {
+      "@type": "ProfessionalService",
+      "name": "Capygator",
+      "url": "https://capygator.com"
+    },
+    "url": "https://capygator.com/preise",
+    "eligibleRegion": [
+      { "@type": "Country", "name": "Germany" },
+      { "@type": "Country", "name": "Austria" },
+      { "@type": "Country", "name": "Switzerland" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    "name": "Partnerschaft — 200 Tage Power BI & Fabric",
+    "description": "Langfristiger Fabric/BI Partner. Für Unternehmen die einen verlässlichen Experten an ihrer Seite wollen.",
+    "price": "200000",
+    "priceCurrency": "EUR",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "125",
+      "priceCurrency": "EUR",
+      "unitText": "Stunde"
+    },
+    "seller": {
+      "@type": "ProfessionalService",
+      "name": "Capygator",
+      "url": "https://capygator.com"
+    },
+    "url": "https://capygator.com/preise",
+    "eligibleRegion": [
+      { "@type": "Country", "name": "Germany" },
+      { "@type": "Country", "name": "Austria" },
+      { "@type": "Country", "name": "Switzerland" }
+    ]
+  }
+];
+
+const preiseSchemas = [faqSchema, ...offerSchemas];
 ---
 
 <PageLayout
-  schema={faqSchema}
+  schema={preiseSchemas}
   title="Preise — Transparent und fair | Capygator"
   description="Drei Pakete für Power BI & Microsoft Fabric im DACH-Mittelstand. Ab 125 €/h — Sprint, Projekt oder Partnerschaft. Transparent und ohne Überraschungen."
 >

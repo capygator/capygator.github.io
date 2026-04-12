@@ -1,8 +1,29 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Kontakt — Capygator",
+  "description": "Kontaktseite von Capygator — Power BI & Microsoft Fabric Experte im DACH-Raum. Projektanfragen und Erstgespräche.",
+  "url": "https://capygator.com/kontakt",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Ulf Papenfuß",
+    "jobTitle": "Power BI & Microsoft Fabric Experte",
+    "email": "info@capygator.com",
+    "url": "https://capygator.com",
+    "worksFor": {
+      "@type": "ProfessionalService",
+      "name": "Capygator",
+      "url": "https://capygator.com"
+    }
+  }
+};
 ---
 
 <PageLayout
+  schema={contactSchema}
   title="Kontakt — Projekt besprechen | Capygator"
   description="Power BI, Microsoft Fabric oder Agentic AI — sprechen Sie mit dem DACH-Experten über Ihr Datenprojekt. Ich melde mich innerhalb von 24 Stunden."
 >
