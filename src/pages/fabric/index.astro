@@ -116,6 +116,26 @@ const serviceSchema = {
     </div>
   </section>
 
+  <!-- ARCHITECTURE -->
+  <section class="content-section">
+    <div class="container">
+      <p class="section-label" data-animate="fade-up">In der Praxis</p>
+      <figure class="architecture-figure" data-animate="fade-up" data-delay="1">
+        <img
+          src="/images/fabric-architecture.png"
+          alt="Fabric Architekturdiagramm: Medallion-Architektur von Bronze über Gold bis zur Visualisierung mit Lineage und Monitoring"
+          width="1424"
+          height="747"
+          loading="lazy"
+          class="architecture-img"
+        />
+        <figcaption>
+          Echte Fabric-Architektur: Medallion-Pattern von Bronze bis Gold — mit Lineage, Monitoring und Shared Library.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- 4 PHASES -->
   <section class="content-section">
     <div class="container">
@@ -268,6 +288,27 @@ const serviceSchema = {
     font-size: 1rem;
     line-height: 1.75;
     color: var(--color-text-secondary);
+  }
+
+  /* ARCHITECTURE */
+  .architecture-figure {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .architecture-img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 0 40px rgba(0, 229, 160, 0.06);
+  }
+
+  .architecture-figure figcaption {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 1rem;
+    font-style: italic;
   }
 
   /* STATS */
