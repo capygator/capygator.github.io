@@ -4,23 +4,20 @@ interface Props {
   days: number;
   hourlyRate: number;
   totalPrice: number;
+  prepaidPrice: number;
   description: string;
   highlighted?: boolean;
 }
 
-const { name, days, hourlyRate, totalPrice, description, highlighted = false } = Astro.props;
+const { name, days, hourlyRate, totalPrice, prepaidPrice, description, highlighted = false } =
+  Astro.props;
 
-const formattedTotal = new Intl.NumberFormat("de-DE", {
-  style: "currency",
-  currency: "EUR",
-  minimumFractionDigits: 0,
-}).format(totalPrice);
-
-const formattedHourly = new Intl.NumberFormat("de-DE", {
-  style: "currency",
-  currency: "EUR",
-  minimumFractionDigits: 0,
-}).format(hourlyRate);
+const fmt = (n: number) =>
+  new Intl.NumberFormat("de-DE", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 0,
+  }).format(n);
 ---
 
 <div class:list={["pricing-card", { highlighted }]}>
@@ -28,10 +25,11 @@ const formattedHourly = new Intl.NumberFormat("de-DE", {
   <h3 class="pricing-name">{name}</h3>
   <p class="pricing-days">{days} Tage</p>
   <div class="pricing-rate">
-    <span class="pricing-hourly">{formattedHourly}</span>
+    <span class="pricing-hourly">{fmt(hourlyRate)}</span>
     <span class="pricing-per">/ Stunde</span>
   </div>
-  <p class="pricing-total">{formattedTotal} pauschal</p>
+  <p class="pricing-total">{fmt(totalPrice)} Festpreis</p>
+  <p class="pricing-prepaid">{fmt(prepaidPrice)} bei Vorkasse</p>
   <p class="pricing-desc">{description}</p>
   <a href="/kontakt" class="pricing-cta">
     Anfragen
@@ -55,6 +53,8 @@ const formattedHourly = new Intl.NumberFormat("de-DE", {
     display: flex;
     flex-direction: column;
     position: relative;
+    height: 100%;
+    box-sizing: border-box;
     transition: all 0.35s var(--ease-out-expo);
   }
 
@@ -82,7 +82,8 @@ const formattedHourly = new Intl.NumberFormat("de-DE", {
   .pricing-badge {
     position: absolute;
     top: -0.75rem;
-    right: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
     background: var(--color-accent);
     color: var(--color-bg-primary);
     padding: 0.25rem 0.75rem;
@@ -91,6 +92,7 @@ const formattedHourly = new Intl.NumberFormat("de-DE", {
     font-weight: 700;
     font-family: var(--font-display);
     letter-spacing: 0.02em;
+    white-space: nowrap;
   }
 
   .pricing-name {
@@ -130,6 +132,14 @@ const formattedHourly = new Intl.NumberFormat("de-DE", {
     color: var(--color-accent);
     font-size: 0.85rem;
     font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  .pricing-prepaid {
+    color: var(--color-accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: 0.75;
     margin-bottom: 1.5rem;
   }
 

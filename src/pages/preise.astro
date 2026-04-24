@@ -87,12 +87,12 @@ const offerSchemas = [
     "@type": "Offer",
     name: "Projekt — 20 Tage Power BI & Fabric",
     description:
-      "Implementierung, Migration, BI App Bau. Für klar definierte Projekte mit messbarem Ergebnis.",
-    price: "24000",
+      "Konzeption, Migration, BI App Design. Für klar definierte Projekte mit messbarem Ergebnis.",
+    price: "27200",
     priceCurrency: "EUR",
     priceSpecification: {
       "@type": "UnitPriceSpecification",
-      price: "150",
+      price: "170",
       priceCurrency: "EUR",
       unitText: "Stunde",
     },
@@ -111,14 +111,14 @@ const offerSchemas = [
   {
     "@context": "https://schema.org",
     "@type": "Offer",
-    name: "Partnerschaft — 200 Tage Power BI & Fabric",
+    name: "Partnerschaft — 100 Tage Power BI & Fabric",
     description:
       "Langfristiger Fabric/BI Partner. Für Unternehmen die einen verlässlichen Experten an ihrer Seite wollen.",
-    price: "200000",
+    price: "112000",
     priceCurrency: "EUR",
     priceSpecification: {
       "@type": "UnitPriceSpecification",
-      price: "125",
+      price: "140",
       priceCurrency: "EUR",
       unitText: "Stunde",
     },
@@ -142,7 +142,7 @@ const preiseSchemas = [faqSchema, ...offerSchemas];
 <PageLayout
   schema={preiseSchemas}
   title="Preise — Transparent und fair | Capygator"
-  description="Drei Pakete für Power BI & Microsoft Fabric im DACH-Mittelstand. Ab 125 €/h — Sprint, Projekt oder Partnerschaft. Transparent und ohne Überraschungen."
+  description="Drei Pakete für Power BI & Microsoft Fabric im DACH-Mittelstand. Ab 140 €/h, 5% Rabatt bei Vorkasse — Sprint, Projekt oder Partnerschaft. Transparent und ohne Überraschungen."
 >
   <section class="page-hero">
     <div class="container">
@@ -168,6 +168,7 @@ const preiseSchemas = [faqSchema, ...offerSchemas];
             days={5}
             hourlyRate={200}
             totalPrice={8000}
+            prepaidPrice={7600}
             description="Quick Wins, Assessments, Workshops. Ideal um schnell Klarheit zu schaffen oder ein konkretes Problem zu lösen."
           />
         </div>
@@ -175,18 +176,20 @@ const preiseSchemas = [faqSchema, ...offerSchemas];
           <PricingCard
             name="Projekt"
             days={20}
-            hourlyRate={150}
-            totalPrice={24000}
-            description="Implementierung, Migration, BI App Bau. Für klar definierte Projekte mit messbarem Ergebnis."
+            hourlyRate={170}
+            totalPrice={27200}
+            prepaidPrice={24480}
+            description="Lösungsarchitektur, Migrationsplanung, Konzeption und Umsetzungsbegleitung. Für klar definierte Projekte mit messbarem Ergebnis."
             highlighted
           />
         </div>
         <div class="animate-fade-up delay-7">
           <PricingCard
             name="Partnerschaft"
-            days={200}
-            hourlyRate={125}
-            totalPrice={200000}
+            days={100}
+            hourlyRate={140}
+            totalPrice={112000}
+            prepaidPrice={98560}
             description="Langfristiger Fabric/BI Partner. Für Unternehmen die einen verlässlichen Experten an ihrer Seite wollen."
           />
         </div>
@@ -258,7 +261,12 @@ const preiseSchemas = [faqSchema, ...offerSchemas];
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
-    align-items: start;
+    align-items: stretch;
+  }
+
+  .pricing-grid > div {
+    display: flex;
+    flex-direction: column;
   }
 
   .pricing-note {
