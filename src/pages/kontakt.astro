@@ -28,7 +28,7 @@ const contactSchema = {
 <PageLayout
   schema={contactSchema}
   title="Kontakt — Projekt besprechen | Capygator"
-  description="Power BI, Microsoft Fabric oder Agentic AI — sprechen Sie mit dem DACH-Experten über Ihr Datenprojekt. Ich melde mich innerhalb von 24 Stunden."
+  description="Power BI, Microsoft Fabric oder Agentic AI — sprechen Sie mit dem DACH-Experten über Ihr Datenprojekt. Ich melde mich am nächsten Werktag."
 >
   <section class="page-hero">
     <div class="container hero-split">
@@ -39,7 +39,7 @@ const contactSchema = {
           <span class="text-accent">sprechen.</span>
         </h1>
         <p class="page-sub animate-fade-up delay-4">
-          Schreiben Sie mir — ich melde mich innerhalb von 24 Stunden.<br />
+          Schreiben Sie mir — ich melde mich am nächsten Werktag.<br />
           Oder direkt per E-Mail an <a href="mailto:info@capygator.com" class="text-accent"
             >info@capygator.com</a
           >
@@ -114,7 +114,7 @@ const contactSchema = {
                 <option value="">— Bitte wählen —</option>
                 <option value="sprint">Sprint (5 Tage)</option>
                 <option value="projekt">Projekt (20 Tage)</option>
-                <option value="partnerschaft">Partnerschaft (200 Tage)</option>
+                <option value="partnerschaft">Partnerschaft (100 Tage)</option>
                 <option value="unsicher">Noch unsicher</option>
               </select>
             </div>
@@ -362,7 +362,7 @@ const contactSchema = {
 
         if (response.ok) {
           statusEl.textContent =
-            "Danke! Ihre Nachricht wurde gesendet. Ich melde mich innerhalb von 24 Stunden.";
+            "Danke! Ihre Nachricht wurde gesendet. Ich melde mich am nächsten Werktag.";
           statusEl.className = "form-status-message success";
           form.reset();
           statusEl.focus();
