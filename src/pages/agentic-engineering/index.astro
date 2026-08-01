@@ -424,4 +424,56 @@ const serviceSchema = {
       grid-template-columns: 1fr;
     }
   }
+
+  /* COMPARISON DIAGRAM */
+  .comparison-figure {
+    margin: 0 auto;
+    max-width: 960px;
+    text-align: center;
+  }
+  .comparison-img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 0 40px rgba(0, 229, 160, 0.06);
+    cursor: zoom-in;
+    transition: opacity 0.2s;
+  }
+  .comparison-img:hover {
+    opacity: 0.9;
+  }
+  .comparison-figure figcaption {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 1rem;
+    font-style: italic;
+  }
+  .lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    padding: 2rem;
+  }
+  .lightbox-overlay[hidden] {
+    display: none;
+  }
+  .lightbox-img {
+    max-width: 95vw;
+    max-height: 95vh;
+    object-fit: contain;
+    border-radius: 8px;
+  }
 </style>
+
+<script>
+  const img = document.querySelector("[data-lightbox]");
+  const overlay = document.querySelector("[data-lightbox-overlay]");
+  img?.addEventListener("click", () => overlay?.removeAttribute("hidden"));
+  overlay?.addEventListener("click", () => overlay.setAttribute("hidden", ""));
+</script>
