@@ -1,0 +1,213 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" font-family="Inter, 'Segoe UI', system-ui, sans-serif">
+  <style>
+    :root{
+      --bg:#0a0b0d;
+      --ink:#edf0f7;
+      --line:#8b91a3;
+      --panel:#16181e;
+      --accent:#00e5a0;
+      --accent-bg:#00e5a01a;
+      --box-bg:#111318;
+      --font:'DM Sans',Inter,'Segoe UI',system-ui,sans-serif;
+    }
+    text{fill:var(--ink);font-family:var(--font)}
+    .title{font-size:40px;font-weight:800}
+    .h2{font-size:21px;font-weight:700;letter-spacing:.5px}
+    .lbl{font-size:17px;font-weight:600}
+    .small{font-size:15px}
+    .tiny{font-size:14px}
+    .box{fill:var(--box-bg);stroke:var(--ink);stroke-width:2}
+    .panel{fill:var(--panel);stroke:var(--ink);stroke-width:2}
+    .harness{fill:var(--accent-bg);stroke:var(--accent);stroke-width:2.5}
+    .arrow{stroke:var(--ink);stroke-width:2.2;fill:none;marker-end:url(#ah)}
+    .thick{stroke-width:3.2}
+    .thin{stroke:var(--line);stroke-width:1.6;fill:none}
+    .wire{stroke:var(--line);stroke-width:1.8;fill:none}
+    .bubble{fill:var(--box-bg);stroke:var(--line);stroke-width:1.8}
+    .divider{stroke:var(--line);stroke-width:2;stroke-dasharray:8 8}
+    .ahf{fill:var(--ink)}
+    .fig{fill:none;stroke:var(--ink);stroke-width:2.4}
+    .figfill{fill:var(--ink)}
+    .mid{text-anchor:middle}
+  </style>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ahf"/>
+    </marker>
+    <filter id="rough">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="0"/>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="var(--bg)"/>
+
+  <g id="canvas">
+    <!-- ================= LINKE SEITE: VIBE CODING ================= -->
+    <text x="265" y="75" class="title mid">Vibe Coding</text>
+
+    <!-- Flow -->
+    <rect x="55" y="130" width="100" height="54" class="box" rx="4"/>
+    <text x="105" y="163" class="lbl mid">CODE</text>
+    <path d="M155,157 L188,157" class="arrow"/>
+    <rect x="195" y="130" width="50" height="54" class="box" rx="4"/>
+    <text x="220" y="164" class="lbl mid">?</text>
+    <path d="M245,157 L278,157" class="arrow"/>
+    <rect x="285" y="122" width="170" height="70" class="box" rx="4"/>
+    <text x="370" y="150" class="lbl mid">APP</text>
+    <text x="370" y="174" class="lbl mid">FUNKTIONIERT?</text>
+
+    <path d="M370,192 L370,243" class="arrow"/>
+    <rect x="300" y="250" width="140" height="48" class="box" rx="4"/>
+    <text x="370" y="280" class="lbl mid">ITERIEREN</text>
+    <path d="M440,265 C505,240 505,175 462,157" class="arrow"/>
+
+    <!-- Gedankenblasen -->
+    <ellipse cx="118" cy="355" rx="62" ry="26" class="bubble"/>
+    <text x="118" y="361" class="small mid">klick klick</text>
+    <ellipse cx="128" cy="425" rx="78" ry="32" class="bubble"/>
+    <text x="128" y="420" class="small mid">scheint zu</text>
+    <text x="128" y="439" class="small mid">funktionieren</text>
+
+    <!-- Pfeil Iterieren -> Browser -->
+    <path d="M370,298 C370,400 310,440 262,485" class="arrow"/>
+
+    <!-- Browser-Mockup -->
+    <rect x="100" y="490" width="230" height="265" class="box" rx="6"/>
+    <line x1="100" y1="518" x2="330" y2="518" class="wire"/>
+    <circle cx="116" cy="504" r="4" class="thin"/>
+    <circle cx="131" cy="504" r="4" class="thin"/>
+    <circle cx="146" cy="504" r="4" class="thin"/>
+    <rect x="115" y="532" width="130" height="85" class="wire"/>
+    <line x1="115" y1="532" x2="245" y2="617" class="wire"/>
+    <line x1="245" y1="532" x2="115" y2="617" class="wire"/>
+    <rect x="256" y="536" width="58" height="44" class="wire"/>
+    <line x1="256" y1="536" x2="314" y2="580" class="wire"/>
+    <line x1="314" y1="536" x2="256" y2="580" class="wire"/>
+    <line x1="256" y1="594" x2="314" y2="594" class="wire"/>
+    <line x1="256" y1="607" x2="304" y2="607" class="wire"/>
+    <line x1="115" y1="638" x2="314" y2="638" class="wire"/>
+    <line x1="115" y1="652" x2="275" y2="652" class="wire"/>
+    <rect x="115" y="672" width="55" height="46" class="wire"/>
+    <line x1="115" y1="672" x2="170" y2="718" class="wire"/>
+    <line x1="170" y1="672" x2="115" y2="718" class="wire"/>
+    <line x1="184" y1="686" x2="314" y2="686" class="wire"/>
+    <line x1="184" y1="700" x2="284" y2="700" class="wire"/>
+
+    <!-- Annotationen -->
+    <line x1="332" y1="552" x2="352" y2="545" class="thin"/>
+    <text x="358" y="550" class="small">oberflächliche Checks</text>
+    <line x1="332" y1="615" x2="352" y2="612" class="thin"/>
+    <text x="358" y="617" class="small">chaotisch</text>
+    <line x1="332" y1="690" x2="352" y2="680" class="thin"/>
+    <text x="358" y="676" class="small">geringe</text>
+    <text x="358" y="695" class="small">Reproduzierbarkeit</text>
+
+    <!-- ================= TRENNER ================= -->
+    <line x1="540" y1="45" x2="540" y2="855" class="divider"/>
+
+    <!-- ================= RECHTE SEITE: AGENTIC ENGINEERING ================= -->
+    <text x="1070" y="75" class="title mid">Agentic Engineering</text>
+
+    <!-- SPEC -->
+    <text x="578" y="135" class="lbl"><tspan font-weight="800">SPEC</tspan> (Problem, nicht Lösung)</text>
+    <text x="596" y="161" class="small">– Constraints &amp; definierte Kriterien</text>
+
+    <!-- Dokument-Icon -->
+    <path d="M595,195 L680,195 L700,215 L700,335 L595,335 Z" class="box"/>
+    <path d="M680,195 L680,215 L700,215" class="thin"/>
+    <line x1="610" y1="230" x2="685" y2="230" class="wire"/>
+    <line x1="610" y1="248" x2="685" y2="248" class="wire"/>
+    <line x1="610" y1="266" x2="685" y2="266" class="wire"/>
+    <line x1="610" y1="284" x2="665" y2="284" class="wire"/>
+    <line x1="610" y1="302" x2="685" y2="302" class="wire"/>
+    <line x1="610" y1="320" x2="650" y2="320" class="wire"/>
+    <path d="M638,168 L638,188" class="arrow"/>
+
+    <!-- Spec -> Agent -->
+    <path d="M706,238 L748,238" class="arrow"/>
+    <path d="M706,268 L748,268" class="arrow"/>
+    <path d="M706,298 L748,298" class="arrow"/>
+
+    <!-- Agent -->
+    <line x1="810" y1="166" x2="810" y2="180" class="fig"/>
+    <circle cx="810" cy="161" r="5" class="figfill"/>
+    <rect x="780" y="180" width="60" height="46" rx="10" class="box"/>
+    <circle cx="798" cy="201" r="5" class="figfill"/>
+    <circle cx="822" cy="201" r="5" class="figfill"/>
+    <rect x="768" y="232" width="84" height="86" rx="12" class="box"/>
+    <text x="810" y="286" class="mid" font-size="26" font-weight="800">KI</text>
+    <text x="810" y="348" class="h2 mid">AGENT</text>
+
+    <!-- Agent -> Harness -->
+    <path d="M858,210 L912,205" class="arrow thick"/>
+    <path d="M858,265 L912,275" class="arrow thick"/>
+    <path d="M858,310 L912,350" class="arrow thick"/>
+
+    <!-- Context Harness -->
+    <rect x="920" y="130" width="390" height="325" rx="10" class="harness"/>
+    <text x="1115" y="163" class="h2 mid">CONTEXT HARNESS</text>
+    <rect x="945" y="180" width="340" height="58" rx="6" class="box"/>
+    <text x="1115" y="205" class="lbl mid">Regeln</text>
+    <text x="1115" y="227" class="tiny mid">(CLAUDE.md / AGENTS.md)</text>
+    <rect x="945" y="248" width="340" height="58" rx="6" class="box"/>
+    <text x="1115" y="273" class="lbl mid">Skills</text>
+    <text x="1115" y="295" class="tiny mid">(API- &amp; Framework-Wissen)</text>
+    <rect x="945" y="316" width="340" height="58" rx="6" class="box"/>
+    <text x="1115" y="351" class="lbl mid">Context-Management</text>
+    <rect x="945" y="384" width="340" height="58" rx="6" class="box"/>
+    <text x="1115" y="419" class="lbl mid">Prompt-Erweiterung</text>
+
+    <!-- Harness -> Verification -->
+    <path d="M1180,455 L1180,578" class="arrow thick"/>
+
+    <!-- Verification Loop -->
+    <rect x="740" y="520" width="570" height="235" rx="12" class="panel"/>
+    <text x="1025" y="552" class="h2 mid">VERIFICATION LOOP</text>
+    <rect x="775" y="585" width="205" height="55" rx="6" class="box"/>
+    <text x="877" y="619" class="lbl mid">Automatisierte Tests</text>
+    <rect x="775" y="665" width="110" height="45" rx="6" class="box"/>
+    <text x="830" y="693" class="lbl mid">Linter</text>
+    <path d="M885,687 L938,687" class="arrow"/>
+    <rect x="945" y="665" width="95" height="45" rx="6" class="box"/>
+    <text x="992" y="693" class="lbl mid">CI/CD</text>
+    <rect x="1090" y="585" width="195" height="80" rx="6" class="box"/>
+    <text x="1187" y="618" class="lbl mid">Spezialisierter</text>
+    <text x="1187" y="642" class="lbl mid">Review-Agent</text>
+    <path d="M1040,687 C1068,687 1072,662 1085,652" class="arrow"/>
+    <path d="M1090,612 L988,612" class="arrow"/>
+    <text x="1038" y="600" class="tiny mid">Korrekturen</text>
+
+    <!-- Verification -> Agent -->
+    <path d="M800,585 C775,470 790,405 806,362" class="arrow"/>
+    <text x="758" y="450" class="tiny mid" transform="rotate(-83 758 450)">Korrekturen</text>
+
+    <!-- Verification -> Spec -->
+    <path d="M740,660 C655,660 640,590 640,510 L640,352" class="arrow"/>
+    <text x="622" y="500" class="tiny mid" transform="rotate(-90 622 500)">Korrektur</text>
+
+    <!-- Agentic Engineer -->
+    <circle cx="1450" cy="205" r="19" class="fig"/>
+    <path d="M1428,272 C1428,240 1472,240 1472,272 L1472,304 L1428,304 Z" class="fig"/>
+    <text x="1450" y="334" class="lbl mid">AGENTIC</text>
+    <text x="1450" y="356" class="lbl mid">ENGINEER</text>
+
+    <!-- Engineer <-> Harness -->
+    <path d="M1315,178 C1360,166 1400,176 1426,192" class="arrow"/>
+    <text x="1382" y="140" class="tiny mid">Abweichungen</text>
+    <text x="1382" y="157" class="tiny mid">erkennen</text>
+
+    <path d="M1424,252 L1318,252" class="arrow"/>
+    <text x="1378" y="222" class="tiny mid">Regeln &amp; Skills</text>
+    <text x="1378" y="239" class="tiny mid">kodifizieren</text>
+
+    <path d="M1432,305 C1385,345 1352,385 1318,422" class="arrow"/>
+    <text x="1352" y="404" class="tiny">Harness</text>
+    <text x="1352" y="422" class="tiny">verbessern</text>
+
+    <!-- Engineer -> Review-Agent -->
+    <path d="M1458,312 C1500,430 1420,565 1292,622" class="arrow"/>
+    <text x="1478" y="470" class="tiny">Learnings</text>
+    <text x="1478" y="488" class="tiny">extrahieren</text>
+  </g>
+</svg>
