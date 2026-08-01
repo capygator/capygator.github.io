@@ -118,6 +118,44 @@ const serviceSchema = {
     </div>
   </section>
 
+  <!-- COMPARISON -->
+  <section class="content-section">
+    <div class="container">
+      <p class="section-label" data-animate="fade-up">Der Unterschied</p>
+      <figure class="comparison-figure" data-animate="fade-up" data-delay="1">
+        <picture>
+          <source
+            type="image/avif"
+            srcset="/images/vibe-vs-agentic-640w.avif 640w, /images/vibe-vs-agentic-1024w.avif 1024w, /images/vibe-vs-agentic-1600w.avif 1600w"
+            sizes="(min-width: 1024px) 960px, 100vw"
+          />
+          <source
+            type="image/webp"
+            srcset="/images/vibe-vs-agentic-640w.webp 640w, /images/vibe-vs-agentic-1024w.webp 1024w, /images/vibe-vs-agentic-1600w.webp 1600w"
+            sizes="(min-width: 1024px) 960px, 100vw"
+          />
+          <img
+            src="/images/vibe-vs-agentic.png"
+            alt="Vergleichsdiagramm: Vibe Coding (chaotisches Iterieren: Code → Klick → hoffen dass es funktioniert) gegenüber Agentic Engineering (SPEC → KI-Agent mit Context Harness aus Regeln, Skills, Context-Management und Prompt-Erweiterung, mit Verification Loop aus automatisierten Tests, Linter, CI/CD und spezialisiertem Review-Agent — kontinuierlich verbessert vom Agentic Engineer)"
+            width="1600"
+            height="900"
+            loading="lazy"
+            class="comparison-img"
+            data-lightbox
+          />
+        </picture>
+        <figcaption>
+          Vibe Coding lebt vom Zufall. Agentic Engineering baut ein System &mdash; mit Kontext,
+          Verifikation und Rückkopplung.
+        </figcaption>
+      </figure>
+
+      <div class="lightbox-overlay" data-lightbox-overlay hidden>
+        <img src="/images/vibe-vs-agentic.png" alt="Vergleichsdiagramm vergrößert" class="lightbox-img" />
+      </div>
+    </div>
+  </section>
+
   <section class="content-section">
     <div class="container">
       <h2 data-animate="fade-up">Konkrete Use Cases</h2>
