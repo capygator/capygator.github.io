@@ -2,15 +2,6 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Session-Start: Offene TODOs proaktiv erinnern
-
-Bei jedem Session-Start in diesem Projekt: Prüfe `~/.claude/projects/-Users-ulf-dev-www-capygator-com/memory/` auf Dateien mit Namensmuster `project_*_todos.md`. Falls vorhanden, lies die Datei(en) und weise den User in der ersten Antwort proaktiv (unaufgefordert) auf die offenen Punkte hin — kurz, als Bullet-Liste mit Datum. Frage danach, ob er heute an einem dieser Punkte arbeiten will.
-
-Format der ersten Antwort:
-> Noch offen aus [Datum]: [1-Zeilen-Zusammenfassung pro Punkt]. Heute daran arbeiten?
-
-Erledigte TODOs aus `project_*_todos.md` löschen (Datei-Update). Wenn Liste leer → Datei komplett löschen + Verweis aus `MEMORY.md` entfernen.
-
 ## Befehle
 
 ```bash
